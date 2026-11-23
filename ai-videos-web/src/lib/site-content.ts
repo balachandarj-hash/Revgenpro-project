@@ -10,9 +10,10 @@ export const siteContent = {
   hero: {
     hook: "Still Promoting Your Business With Boring Videos?",
     headline: "Turn Any Idea Into an Attention-Grabbing AI Video!",
+    headlineMobile: "Turn Ideas Into Stunning AI Videos!",
     description:
-      "From hilarious cartoon animations and manga-inspired storytelling to cinematic advertisements, product promotions, realistic AI presenters, and creative social media videos — we bring your ideas to life using AI.",
-    priceLine: "AI Videos Starting at Just ₹1,499 / Video",
+      "Cartoons, manga-style stories, ads, and social videos — professional AI production that brings your idea to life.",
+    priceLabel: "AI Videos starting at just",
     primaryCta: "Create My AI Video",
     secondaryCta: "Watch Video Samples",
     image: "/ai-videos/hero.jpg",
