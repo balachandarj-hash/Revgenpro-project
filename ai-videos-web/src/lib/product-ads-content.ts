@@ -8,9 +8,9 @@ export const productAdsContent = {
   header: {
     cta: "Create My Ad Video",
     nav: [
-      { href: "/product-advertisements#services", label: "Services" },
-      { href: "/product-advertisements#samples", label: "Samples" },
-      { href: "/product-advertisements#enquiry", label: "Enquire" },
+      { href: "#services", label: "Services" },
+      { href: "#samples", label: "Samples" },
+      { href: "#enquiry", label: "Enquire" },
     ] as const,
   },
   stickyBar: {

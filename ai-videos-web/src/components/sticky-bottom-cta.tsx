@@ -10,7 +10,7 @@ export function StickyBottomCta({ page = "home" }: { page?: StickyPage }) {
   const isProduct = page === "product-ads";
   const content = isProduct ? productAdsContent : siteContent;
   const wa = whatsappUrl(content.whatsappPrefill);
-  const enquiryHref = isProduct ? "/product-advertisements#enquiry" : "#enquiry";
+  const enquiryHref = "#enquiry";
   const enquiryCta = isProduct
     ? productAdsContent.stickyBar.enquiryCta
     : siteContent.stickyBar.enquiryCta;
