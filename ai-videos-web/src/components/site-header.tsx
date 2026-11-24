@@ -16,9 +16,9 @@ const homeNav: NavLink[] = [
 ];
 
 const productNav: NavLink[] = [
-  { href: "/product-advertisements#services", label: "Services" },
-  { href: "/product-advertisements#samples", label: "Samples" },
-  { href: "/product-advertisements#enquiry", label: "Enquire" },
+  { href: "#services", label: "Services" },
+  { href: "#samples", label: "Samples" },
+  { href: "#enquiry", label: "Enquire" },
 ];
 
 export function SiteHeader({ page = "home" }: { page?: HeaderPage }) {
@@ -26,8 +26,8 @@ export function SiteHeader({ page = "home" }: { page?: HeaderPage }) {
   const content = isProduct ? productAdsContent : siteContent;
   const wa = whatsappUrl(content.whatsappPrefill);
   const navLinks: NavLink[] = isProduct ? productNav : homeNav;
-  const logoHref = isProduct ? "/product-advertisements" : "/";
-  const enquiryHref = isProduct ? "/product-advertisements#enquiry" : "#enquiry";
+  const logoHref = isProduct ? "#top" : "/#home";
+  const enquiryHref = "#enquiry";
   const ctaLabel = isProduct ? productAdsContent.header.cta : siteContent.header.cta;
 
   const NavAnchor = ({ link }: { link: NavLink }) => {
@@ -61,21 +61,6 @@ export function SiteHeader({ page = "home" }: { page?: HeaderPage }) {
           />
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-          {!isProduct ? (
-            <Link
-              href="/product-advertisements"
-              className="text-sm font-medium text-[#C4B5FD] transition-colors hover:text-white"
-            >
-              Product ads
-            </Link>
-          ) : (
-            <Link
-              href="/"
-              className="text-sm font-medium text-white/80 transition-colors hover:text-white"
-            >
-              Home
-            </Link>
-          )}
           {navLinks.map((link) => (
             <NavAnchor key={link.href} link={link} />
           ))}
