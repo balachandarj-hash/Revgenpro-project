@@ -7,7 +7,23 @@ import { siteContent } from "@/lib/site-content";
 
 type FormState = "idle" | "success";
 
-export function LeadForm() {
+export type LeadFormCopy = {
+  packageName: string;
+  price: string;
+  whatsappPrefill: string;
+  formSubmitCta: string;
+  messagePlaceholder?: string;
+};
+
+const defaultCopy: LeadFormCopy = {
+  packageName: siteContent.offer.packageName,
+  price: siteContent.price,
+  whatsappPrefill: siteContent.whatsappPrefill,
+  formSubmitCta: siteContent.enquiry.formSubmitCta,
+  messagePlaceholder: "Website, Google listing, social pages, AI promo video…",
+};
+
+export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [business, setBusiness] = useState("");
@@ -29,7 +45,7 @@ export function LeadForm() {
     }
 
     const lines = [
-      `Hi ${brand.name}, I want the ${siteContent.offer.packageName} (${siteContent.price}).`,
+      `Hi ${brand.name}, I want ${copy.packageName} (${copy.price}).`,
       `Name: ${trimmedName}`,
       `Mobile: +91 ${mobile}`,
       business.trim() ? `Business: ${business.trim()}` : null,
@@ -50,7 +66,7 @@ export function LeadForm() {
           chat — our team will reply there. You can also message us anytime.
         </p>
         <a
-          href={whatsappUrl(siteContent.whatsappPrefill)}
+          href={whatsappUrl(copy.whatsappPrefill)}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-[#25D366] px-5 text-sm font-semibold text-[#052e16]"
@@ -129,14 +145,14 @@ export function LeadForm() {
           onChange={(e) => setMessage(e.target.value)}
           rows={3}
           className="mt-1.5 w-full resize-y rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
-          placeholder="Website, Google listing, social pages, AI promo video…"
+          placeholder={copy.messagePlaceholder ?? defaultCopy.messagePlaceholder}
         />
       </label>
       <button
         type="submit"
         className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] text-sm font-semibold"
       >
-        {siteContent.enquiry.formSubmitCta}
+        {copy.formSubmitCta}
       </button>
     </form>
   );

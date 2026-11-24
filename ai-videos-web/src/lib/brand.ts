@@ -15,6 +15,10 @@ export const brand = {
     /** Country code + number, no + or spaces (e.g. 919876543210). */
     phoneDigits: "917010442618",
   },
+  social: {
+    instagram: "https://www.instagram.com/revgenpro_crm",
+    facebook: "https://www.facebook.com/revgenpro/",
+  },
 } as const;
 
 export function whatsappUrl(text: string) {
