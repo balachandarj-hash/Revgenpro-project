@@ -15,4 +15,4 @@ npm run dev -- --port 3458 --hostname 127.0.0.1
 
 ## Recent change
 
-Mobile hero category cards (Love Story / Kids / Horror) now render as a vertical stack on small screens instead of `hidden sm:block` absolutely positioned tiles that overflow off-screen.
+Landing page promotes **Complete Online Presence (₹14,999)** with 10 conversion sections, lead form (Indian mobile validation), FAQ accordion, sticky header / mobile bottom CTA, and SEO Open Graph tags. WhatsApp number is configured in `ai-videos-web/src/lib/brand.ts` (`whatsapp.phoneDigits`).

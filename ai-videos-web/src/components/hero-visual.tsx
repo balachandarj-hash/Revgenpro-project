@@ -5,7 +5,7 @@ const desktopPlacement: Record<
   (typeof heroAccentIds)[number],
   { className: string; animation: string }
 > = {
-  love: {
+  brand: {
     className:
       "left-[-4%] top-[8%] w-[42%] -rotate-[8deg] max-sm:left-[0%] max-sm:top-[10%] max-sm:w-[40%] max-sm:-rotate-[6deg]",
     animation: "studio-float",
@@ -15,7 +15,7 @@ const desktopPlacement: Record<
       "right-[-6%] top-[18%] w-[38%] rotate-[7deg] max-sm:right-[0%] max-sm:top-[22%] max-sm:w-[36%] max-sm:rotate-[6deg]",
     animation: "studio-float-delayed",
   },
-  horror: {
+  village: {
     className:
       "bottom-[-4%] left-[18%] w-[44%] -rotate-[3deg] max-sm:bottom-[6%] max-sm:left-[14%] max-sm:w-[42%] max-sm:-rotate-[2deg]",
     animation: "studio-float",

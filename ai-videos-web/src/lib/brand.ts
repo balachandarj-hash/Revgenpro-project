@@ -10,9 +10,10 @@ export const brand = {
     email: "Info@revgenprosolutions.com",
     phoneDisplay: "+91 70104 42618",
   },
+  /** Change phoneDigits only here — all WhatsApp links use this value. */
   whatsapp: {
+    /** Country code + number, no + or spaces (e.g. 919876543210). */
     phoneDigits: "917010442618",
-    prefill: "Hello RevGenPro, I would like to talk about a project.",
   },
 } as const;
 
