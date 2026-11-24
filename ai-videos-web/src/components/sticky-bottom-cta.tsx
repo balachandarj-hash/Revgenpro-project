@@ -2,18 +2,9 @@
 
 import { whatsappUrl } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
-import { siteContent } from "@/lib/site-content";
 
-type StickyPage = "home" | "product-ads";
-
-export function StickyBottomCta({ page = "home" }: { page?: StickyPage }) {
-  const isProduct = page === "product-ads";
-  const content = isProduct ? productAdsContent : siteContent;
-  const wa = whatsappUrl(content.whatsappPrefill);
-  const enquiryHref = "#enquiry";
-  const enquiryCta = isProduct
-    ? productAdsContent.stickyBar.enquiryCta
-    : siteContent.stickyBar.enquiryCta;
+export function StickyBottomCta() {
+  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
 
   return (
     <div
@@ -22,10 +13,10 @@ export function StickyBottomCta({ page = "home" }: { page?: StickyPage }) {
     >
       <div className="mx-auto flex max-w-lg gap-2">
         <a
-          href={enquiryHref}
+          href="#enquiry"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold"
         >
-          {enquiryCta}
+          {productAdsContent.stickyBar.enquiryCta}
         </a>
         <a
           href={wa}

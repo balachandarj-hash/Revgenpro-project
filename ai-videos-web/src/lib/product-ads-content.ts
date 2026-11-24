@@ -25,7 +25,8 @@ export const productAdsContent = {
     ogDescription:
       "Skincare, perfume, fashion, electronics, and seasonal offer campaigns as stunning 9:16 AI product videos. Hosur, Tamil Nadu — serving businesses across India.",
     ogImage: "/product-ads/skincare.jpg",
-    path: "/product-advertisements",
+    siteUrl: "https://ai-videos-7e15.apps.grok.bot/",
+    path: "/",
   },
 
   hero: {
