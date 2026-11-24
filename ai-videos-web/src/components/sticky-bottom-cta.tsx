@@ -1,10 +1,10 @@
 "use client";
 
 import { whatsappUrl } from "@/lib/brand";
-import { siteContent } from "@/lib/site-content";
+import { productAdsContent } from "@/lib/product-ads-content";
 
 export function StickyBottomCta() {
-  const wa = whatsappUrl(siteContent.whatsappPrefill);
+  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
 
   return (
     <div
@@ -16,7 +16,7 @@ export function StickyBottomCta() {
           href="#enquiry"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold"
         >
-          {siteContent.stickyBar.enquiryCta}
+          {productAdsContent.stickyBar.enquiryCta}
         </a>
         <a
           href={wa}

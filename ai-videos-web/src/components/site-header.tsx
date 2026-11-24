@@ -1,22 +1,16 @@
 import Image from "next/image";
-import Link from "next/link";
 import { brand, whatsappUrl } from "@/lib/brand";
-import { siteContent } from "@/lib/site-content";
+import { productAdsContent } from "@/lib/product-ads-content";
 
-const navLinks = [
-  { href: "#problem", label: "Problem" },
-  { href: "#solution", label: "Solution" },
-  { href: "#offer", label: "Offer" },
-  { href: "#enquiry", label: "Enquire" },
-] as const;
+const navLinks = productAdsContent.header.nav;
 
 export function SiteHeader() {
-  const wa = whatsappUrl(siteContent.whatsappPrefill);
+  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/15 bg-[#111936]/95 backdrop-blur-md">
       <div className="mx-auto flex h-[4.5rem] max-w-[1440px] items-center justify-between gap-3 px-5 md:px-10">
-        <Link href="#home" aria-label={`${brand.legalName}, top of page`} className="shrink-0">
+        <a href="#top" aria-label={`${brand.legalName}, top of page`} className="shrink-0">
           <Image
             src={brand.logoOnDarkSrc}
             alt={brand.name}
@@ -25,7 +19,7 @@ export function SiteHeader() {
             className="h-9 w-auto"
             priority
           />
-        </Link>
+        </a>
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
@@ -50,7 +44,7 @@ export function SiteHeader() {
             href="#enquiry"
             className="inline-flex min-h-10 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold"
           >
-            {siteContent.header.cta}
+            {productAdsContent.header.cta}
           </a>
         </div>
       </div>

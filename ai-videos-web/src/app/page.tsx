@@ -1,11 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import { FaqAccordion } from "@/components/faq-accordion";
-import { HeroVisual } from "@/components/hero-visual";
-import { LeadForm } from "@/components/lead-form";
+import { LeadForm, type LeadFormCopy } from "@/components/lead-form";
+import { ProductAdsHeroVisual } from "@/components/product-ads-hero-visual";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
 import { brand, whatsappUrl } from "@/lib/brand";
-import { siteContent } from "@/lib/site-content";
+import { productAdsContent } from "@/lib/product-ads-content";
+
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -13,8 +14,44 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+const leadCopy: LeadFormCopy = {
+  packageName: productAdsContent.packageName,
+  price: `${productAdsContent.price}${productAdsContent.priceUnit}`,
+  whatsappPrefill: productAdsContent.whatsappPrefill,
+  formSubmitCta: productAdsContent.enquiry.formSubmitCta,
+  messagePlaceholder: productAdsContent.enquiry.messagePlaceholder,
+};
+
+export const metadata: Metadata = {
+  title: productAdsContent.seo.title,
+  description: productAdsContent.seo.description,
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: new URL(productAdsContent.seo.path, productAdsContent.seo.siteUrl).toString(),
+    siteName: brand.legalName,
+    title: productAdsContent.seo.ogTitle,
+    description: productAdsContent.seo.ogDescription,
+    images: [
+      {
+        url: productAdsContent.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: productAdsContent.hero.heroImageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: productAdsContent.seo.ogTitle,
+    description: productAdsContent.seo.ogDescription,
+    images: [productAdsContent.seo.ogImage],
+  },
+};
+
 export default function HomePage() {
-  const wa = whatsappUrl(siteContent.whatsappPrefill);
+  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
+  const telHref = `tel:+${brand.whatsapp.phoneDigits}`;
 
   return (
     <div className="studio-page relative min-h-screen overflow-x-hidden text-white">
@@ -26,241 +63,211 @@ export default function HomePage() {
 
       <SiteHeader />
 
-      <main id="home" className="relative z-10 scroll-mt-20">
-        {/* 1 — Hero */}
+      <main id="top" className="relative z-10 scroll-mt-20">
+        {/* Hero */}
         <section className="mx-auto grid w-full max-w-[1440px] items-center gap-6 px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12">
           <div className="min-w-0">
-            <p className="text-xs font-medium text-white/55">{siteContent.hero.eyebrow}</p>
-            <p className="mt-3 inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
-              {siteContent.hero.hook}
-            </p>
-            <h1 className="mt-4 text-[clamp(1.35rem,4.2vw,2.75rem)] font-semibold leading-tight tracking-tight sm:text-balance sm:text-4xl lg:text-5xl">
-              <span className="sm:hidden">{siteContent.hero.headlineMobile}</span>
-              <span className="hidden sm:inline">{siteContent.hero.headline}</span>
+            <p className="text-xs font-medium text-white/55">{productAdsContent.hero.eyebrow}</p>
+            <h1 className="mt-4 text-[clamp(1.35rem,4.2vw,2.75rem)] font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              {productAdsContent.hero.headlinePrefix}{" "}
+              <span className="text-[#C4B5FD]">{productAdsContent.hero.headlineHighlight}</span>
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mt-4 sm:text-base">
-              {siteContent.hero.description}
+              {productAdsContent.hero.description}
             </p>
             <div className="studio-glass mt-4 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-white/15 px-4 py-2.5 sm:mt-5 sm:rounded-full">
               <span className="text-xs font-medium text-white/70 sm:text-sm">
-                {siteContent.hero.priceLabel}
+                {productAdsContent.hero.priceLabel}
               </span>
               <span className="text-3xl font-bold leading-none text-white sm:text-4xl">
-                {siteContent.price}
+                {productAdsContent.price}
               </span>
-              <span className="text-sm font-semibold text-[#C4B5FD]">{siteContent.priceUnit}</span>
+              <span className="text-sm font-semibold text-[#C4B5FD]">{productAdsContent.priceUnit}</span>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#enquiry"
                 className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
               >
-                {siteContent.hero.primaryCta}
+                {productAdsContent.hero.primaryCta}
               </a>
               <a
-                href="#value"
+                href="#samples"
                 className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
               >
-                {siteContent.hero.secondaryCta}
+                {productAdsContent.hero.secondaryCta}
               </a>
             </div>
           </div>
-          <HeroVisual />
+          <ProductAdsHeroVisual />
         </section>
 
-        {/* 2 — Problem */}
+        {/* Services */}
         <section
-          id={siteContent.problem.id}
+          id={productAdsContent.services.id}
           className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
-            <div>
-              <SectionLabel>{siteContent.problem.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                {siteContent.problem.title}
-              </h2>
-              <p className="mt-4 max-w-xl text-white/75">{siteContent.problem.body}</p>
-            </div>
-            <ul className="mt-8 space-y-3 lg:mt-0">
-              {siteContent.problem.points.map((point) => (
+          <div className="mx-auto max-w-[1440px]">
+            <SectionLabel>{productAdsContent.services.label}</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              {productAdsContent.services.title}
+            </h2>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {productAdsContent.services.items.map((item) => (
                 <li
-                  key={point}
-                  className="studio-glass flex gap-3 rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/85"
+                  key={item.title}
+                  className="studio-glass rounded-3xl border border-white/10 p-6 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
                 >
-                  <span className="text-[#C4B5FD]" aria-hidden>
-                    —
-                  </span>
-                  {point}
+                  <h3 className="text-lg font-semibold text-[#EDE9FE]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/75">{item.description}</p>
                 </li>
               ))}
             </ul>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href="#enquiry"
+                className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
+              >
+                {productAdsContent.hero.primaryCta}
+              </a>
+              <a
+                href="#samples"
+                className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
+              >
+                {productAdsContent.hero.secondaryCta}
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* 3 — Awareness */}
+        {/* Category preview */}
         <section
-          id={siteContent.awareness.id}
+          id={productAdsContent.showcase.id}
           className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{siteContent.awareness.label}</SectionLabel>
-            <h2 className="mt-3 max-w-3xl text-3xl font-semibold sm:text-4xl">
-              {siteContent.awareness.title}
-            </h2>
-            <p className="mt-4 max-w-2xl text-white/75">{siteContent.awareness.body}</p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {siteContent.awareness.points.map((point) => (
+          <div className="mx-auto max-w-[1440px] text-center">
+            <h2 className="text-2xl font-semibold sm:text-3xl">{productAdsContent.showcase.title}</h2>
+            <ul className="mx-auto mt-8 flex max-w-4xl snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-5">
+              {productAdsContent.categories.map((category) => (
                 <li
-                  key={point}
-                  className="rounded-2xl border border-[#9333EA]/25 bg-[#6D28D9]/10 px-4 py-4 text-sm text-white/85"
+                  key={category.id}
+                  className="studio-glass w-[min(70vw,220px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 sm:w-auto"
                 >
-                  {point}
+                  <div className="relative aspect-[4/5]">
+                    <Image
+                      src={category.image}
+                      alt={category.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 70vw, 20vw"
+                    />
+                  </div>
+                  <p className="px-3 py-2 text-sm font-semibold">{category.label}</p>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 4 — Solution */}
+        {/* Sample videos */}
         <section
-          id={siteContent.solution.id}
+          id={productAdsContent.samples.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-[1440px]">
+            <SectionLabel>{productAdsContent.samples.label}</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.samples.title}</h2>
+            <p className="mt-3 max-w-2xl text-white/75">{productAdsContent.samples.subtitle}</p>
+            <p className="mt-2 text-sm text-white/55 md:hidden">{productAdsContent.samples.swipeHint}</p>
+            <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible lg:grid-cols-5">
+              {productAdsContent.samples.videos.map((item) => (
+                <li
+                  key={item.id}
+                  className="studio-glass w-[min(85vw,280px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 md:w-auto"
+                >
+                  <video
+                    className="aspect-[9/16] w-full bg-black object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={item.poster}
+                  >
+                    <source src={item.src} type="video/mp4" />
+                  </video>
+                  <p className="px-3 py-3 text-sm font-semibold">{item.title}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* CTA + enquiry */}
+        <section
+          id={productAdsContent.cta.id}
           className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+          <div className="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
-              <SectionLabel>{siteContent.solution.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.solution.title}</h2>
-              <p className="mt-4 text-white/75">{siteContent.solution.body}</p>
+              <h2 className="text-2xl font-semibold sm:text-3xl">{productAdsContent.cta.title}</h2>
+              <p className="mt-3 text-white/75">{productAdsContent.cta.body}</p>
+              <ul className="mt-6 space-y-2">
+                {productAdsContent.cta.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="studio-glass flex gap-3 rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/85"
+                  >
+                    <span className="text-[#C4B5FD]" aria-hidden>
+                      —
+                    </span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm text-white/60">{productAdsContent.cta.whatsappLabel}</p>
               <a
                 href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[#25D366]/50 px-5 text-sm font-semibold text-[#86EFAC]"
+                className="mt-2 inline-flex min-h-11 items-center rounded-full border border-[#25D366]/50 px-5 text-sm font-semibold text-[#86EFAC]"
               >
-                Chat on WhatsApp
+                {productAdsContent.cta.whatsappCta}
               </a>
             </div>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0">
-              {siteContent.solution.highlights.map((item) => (
-                <li
-                  key={item}
-                  className="studio-glass rounded-2xl border border-white/10 p-4 text-sm text-white/85"
+
+            <div
+              id={productAdsContent.enquiry.id}
+              className="studio-glass scroll-mt-28 rounded-3xl border border-white/10 p-6 sm:p-8"
+            >
+              <SectionLabel>{productAdsContent.enquiry.label}</SectionLabel>
+              <h2 className="mt-3 text-2xl font-semibold">{productAdsContent.enquiry.title}</h2>
+              <p className="mt-2 text-sm text-white/70">{productAdsContent.enquiry.subtitle}</p>
+              <p className="mt-2 text-sm">
+                <span className="text-white/50">Email </span>
+                <a
+                  href={`mailto:${brand.contact.email}`}
+                  className="font-medium text-[#C4B5FD] hover:underline"
                 >
-                  {item}
-                </li>
-              ))}
-            </ul>
+                  {brand.contact.email}
+                </a>
+              </p>
+              <div className="mt-6">
+                <LeadForm copy={leadCopy} />
+              </div>
+              <p className="mt-4 text-xs text-white/50">{productAdsContent.enquiry.footnote}</p>
+            </div>
           </div>
         </section>
 
-        {/* 5 — Value */}
+        {/* Contact */}
         <section
-          id={siteContent.value.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{siteContent.value.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.value.title}</h2>
-            <p className="mt-3 max-w-2xl text-white/70">{siteContent.value.subtitle}</p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {siteContent.value.deliverables.map((item) => (
-                <li
-                  key={item.title}
-                  className="studio-glass rounded-3xl border border-white/10 p-5 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
-                >
-                  <h3 className="text-base font-semibold text-[#EDE9FE]">{item.title}</h3>
-                  <p className="mt-2 text-sm text-white/75">{item.description}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* 6 — Process */}
-        <section
-          id={siteContent.process.id}
-          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{siteContent.process.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold">{siteContent.process.title}</h2>
-            <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {siteContent.process.steps.map((step, index) => (
-                <li
-                  key={step.title}
-                  className="studio-glass relative rounded-3xl border border-white/10 p-5"
-                >
-                  <span className="text-xs font-bold text-[#C4B5FD]">Step {index + 1}</span>
-                  <h3 className="mt-2 font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-white/75">{step.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* 7 — Portfolio / creative proof */}
-        <section
-          id={siteContent.portfolio.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10"
-        >
-          <SectionLabel>{siteContent.portfolio.label}</SectionLabel>
-          <h2 className="mt-3 text-3xl font-semibold">{siteContent.portfolio.title}</h2>
-          <p className="mt-3 max-w-2xl text-white/75">{siteContent.portfolio.subtitle}</p>
-          <ul className="mx-auto mt-6 flex max-w-[1440px] snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-5">
-            {siteContent.portfolioVideos.map((item) => (
-              <li
-                key={item.id}
-                className="studio-glass w-[min(85vw,280px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 sm:w-auto"
-              >
-                <video
-                  className="aspect-[9/16] w-full bg-black object-cover"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={item.poster}
-                >
-                  <source src={item.src} type="video/mp4" />
-                </video>
-                <p className="px-3 py-2 text-sm font-semibold">{item.title}</p>
-                <p className="px-3 pb-3 text-xs text-white/60">{item.duration}</p>
-              </li>
-            ))}
-          </ul>
-          <ul className="mx-auto mt-10 grid max-w-[1440px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {siteContent.styles.slice(0, 4).map((style) => (
-              <li
-                key={style.id}
-                className="studio-glass overflow-hidden rounded-3xl border border-white/10"
-              >
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={style.poster}
-                    alt={style.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 25vw"
-                  />
-                </div>
-                <p className="p-3 text-xs font-semibold text-white/80">
-                  {style.emoji} {style.title}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 8 — Trust */}
-        <section
-          id={siteContent.trust.id}
-          className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
+          id={productAdsContent.contact.id}
+          className="scroll-mt-28 border-t border-white/10 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
             <div>
-              <SectionLabel>{siteContent.trust.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold">{siteContent.trust.title}</h2>
-              <p className="mt-4 text-white/75">{siteContent.trust.body}</p>
-              <dl className="mt-6 space-y-2 text-sm">
+              <SectionLabel>{productAdsContent.contact.label}</SectionLabel>
+              <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.contact.title}</h2>
+              <dl className="mt-6 space-y-4 text-sm">
                 <div>
                   <dt className="text-white/50">Email</dt>
                   <dd>
@@ -274,7 +281,24 @@ export default function HomePage() {
                 </div>
                 <div>
                   <dt className="text-white/50">Phone</dt>
-                  <dd className="font-medium">{brand.contact.phoneDisplay}</dd>
+                  <dd>
+                    <a href={telHref} className="font-medium hover:text-[#C4B5FD]">
+                      {brand.contact.phoneDisplay}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/50">WhatsApp</dt>
+                  <dd>
+                    <a
+                      href={wa}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-[#86EFAC] hover:underline"
+                    >
+                      Chat with us
+                    </a>
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-white/50">Location</dt>
@@ -284,69 +308,34 @@ export default function HomePage() {
                 </div>
               </dl>
             </div>
-            <ul className="mt-8 space-y-3 lg:mt-0">
-              {siteContent.trust.facts.map((fact) => (
-                <li
-                  key={fact}
-                  className="rounded-2xl border border-white/10 bg-[#111936]/50 px-4 py-3 text-sm text-white/85"
+            <ul className="mt-8 flex flex-col gap-3 lg:mt-0">
+              <li>
+                <a
+                  href={brand.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="studio-glass flex min-h-12 items-center justify-between rounded-2xl border border-white/10 px-5 text-sm font-semibold transition-colors hover:border-white/25"
                 >
-                  {fact}
-                </li>
-              ))}
+                  Facebook
+                  <span className="text-white/50" aria-hidden>
+                    ↗
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={brand.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="studio-glass flex min-h-12 items-center justify-between rounded-2xl border border-white/10 px-5 text-sm font-semibold transition-colors hover:border-white/25"
+                >
+                  Instagram
+                  <span className="text-white/50" aria-hidden>
+                    ↗
+                  </span>
+                </a>
+              </li>
             </ul>
-          </div>
-        </section>
-
-        {/* 9 — Offer */}
-        <section
-          id={siteContent.offer.id}
-          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="studio-glass mx-auto max-w-2xl rounded-3xl border border-[#A78BFA]/35 p-8 text-center shadow-[0_24px_60px_rgba(109,40,217,0.25)]">
-            <SectionLabel>{siteContent.offer.label}</SectionLabel>
-            <p className="mt-3 text-sm font-medium text-[#EDE9FE]">{siteContent.offer.packageName}</p>
-            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{siteContent.offer.title}</h2>
-            <p className="mt-4 text-white/75">{siteContent.offer.body}</p>
-            <p className="mt-4 text-sm text-white/60">{siteContent.offer.includesNote}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="#enquiry"
-                className="inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-6 text-sm font-semibold"
-              >
-                {siteContent.offer.cta}
-              </a>
-              <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 text-sm font-semibold"
-              >
-                {siteContent.offer.secondaryCta}
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* 10 — Enquiry + FAQ */}
-        <section
-          id={siteContent.enquiry.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-2 lg:gap-12">
-            <div className="studio-glass rounded-3xl border border-white/10 p-6 sm:p-8">
-              <SectionLabel>{siteContent.enquiry.label}</SectionLabel>
-              <h2 className="mt-3 text-2xl font-semibold">{siteContent.enquiry.title}</h2>
-              <p className="mt-2 text-sm text-white/70">{siteContent.enquiry.subtitle}</p>
-              <div className="mt-6">
-                <LeadForm />
-              </div>
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold">{siteContent.enquiry.faqTitle}</h2>
-              <div className="mt-6">
-                <FaqAccordion items={siteContent.faqs} />
-              </div>
-            </div>
           </div>
         </section>
       </main>
