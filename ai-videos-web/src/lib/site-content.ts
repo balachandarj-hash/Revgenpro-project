@@ -19,7 +19,7 @@ export const siteContent = {
     ogTitle: "Complete Online Presence — ₹14,999 | RevGenPro",
     ogDescription:
       "One package to go from invisible to findable online. Website, listings, social presence, and creative AI video support from RevGenPro Solutions Pvt Ltd, Hosur.",
-    siteUrl: "https://ai-videos-7e15.apps.grok.bot/",
+    siteUrl: "https://ai-videos.apps.grok.bot/",
   },
 
   hero: {
