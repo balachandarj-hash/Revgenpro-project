@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { LeadForm, type LeadFormCopy } from "@/components/lead-form";
 import { ProductAdsHeroVisual } from "@/components/product-ads-hero-visual";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
 import { brand, whatsappUrl } from "@/lib/brand";
@@ -340,12 +341,7 @@ export default function ProductAdvertisementsPage() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 px-5 py-8 text-center text-sm text-white/50 md:px-10">
-        <p>
-          © {new Date().getFullYear()} {brand.legalName}. {brand.location.locality},{" "}
-          {brand.location.region}.
-        </p>
-      </footer>
+      <SiteFooter />
 
       <StickyBottomCta page="product-ads" />
     </div>
