@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { brand } from "@/lib/brand";
-import { productAdsContent } from "@/lib/product-ads-content";
+import { siteContent } from "@/lib/site-content";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
 });
 
-const { seo } = productAdsContent;
+const { seo } = siteContent;
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     description: seo.ogDescription,
     images: [
       {
-        url: seo.ogImage,
+        url: siteContent.hero.image,
         width: 1200,
         height: 630,
-        alt: productAdsContent.hero.heroImageAlt,
+        alt: siteContent.hero.imageAlt,
       },
     ],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seo.ogTitle,
     description: seo.ogDescription,
-    images: [seo.ogImage],
+    images: [siteContent.hero.image],
   },
 };
 
