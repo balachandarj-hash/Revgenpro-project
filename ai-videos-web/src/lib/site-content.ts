@@ -326,6 +326,6 @@ export const siteContent = {
   ],
 } as const;
 
-export const heroAccentIds = ["brand", "kids", "village"] as const;
+export const heroAccentIds = ["love", "horror", "kids"] as const;
 
 export type VideoStyle = (typeof siteContent.styles)[number];

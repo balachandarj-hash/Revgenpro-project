@@ -28,7 +28,7 @@ export default function HomePage() {
 
       <main id="home" className="relative z-10 scroll-mt-20">
         {/* 1 — Hero */}
-        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-6 px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12">
+        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-6 overflow-visible px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12">
           <div className="min-w-0">
             <p className="text-xs font-medium text-white/55">{siteContent.hero.eyebrow}</p>
             <p className="mt-3 inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
