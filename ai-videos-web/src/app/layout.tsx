@@ -18,11 +18,12 @@ export const metadata: Metadata = {
   applicationName: brand.name,
   icons: {
     icon: [
-      { url: "/brand/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/brand/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: brand.faviconSrc, sizes: "any" },
+      { url: brand.faviconPngSrc, sizes: "32x32", type: "image/png" },
+      { url: brand.logoMarkSrc, sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/brand/favicon-32x32.png",
+    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "192x192", type: "image/png" }],
+    shortcut: brand.faviconSrc,
   },
   openGraph: {
     type: "website",
