@@ -6,6 +6,10 @@ export const brand = {
   location: { locality: "Hosur", region: "Tamil Nadu", country: "India" },
   logoSrc: "/brand/revgenpro-logo.png",
   logoOnDarkSrc: "/brand/revgenpro-logo-on-dark.png",
+  /** Round quadrant mark — used for favicon / browser tab */
+  logoMarkSrc: "/brand/icon-512x512.png",
+  faviconSrc: "/favicon.ico",
+  faviconPngSrc: "/brand/favicon-32x32.png",
   contact: {
     email: "Info@revgenprosolutions.com",
     phoneDisplay: "+91 70104 42618",
