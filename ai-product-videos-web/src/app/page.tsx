@@ -138,16 +138,16 @@ export default function HomePage() {
             <p className="mt-3 max-w-2xl text-[15px] font-medium leading-relaxed text-[#3D2F22] sm:text-base">
               {styles.subtitle}
             </p>
-            <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-8 mx-auto grid max-w-[1080px] justify-items-center gap-5 sm:grid-cols-2 lg:max-w-none lg:grid-cols-4">
               {styles.items.map((item) => (
-                <li key={item.title} className="group">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_14px_36px_rgba(58,42,20,0.14)] ring-1 ring-[#E8DFD2]/80">
+                <li key={item.title} className="group w-full max-w-[280px] sm:max-w-none">
+                  <div className="relative mx-auto aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-[0_14px_36px_rgba(58,42,20,0.14)] ring-1 ring-[#E8DFD2]/80">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
                       quality={95}
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
                       sizes="(max-width: 1024px) 50vw, 22vw"
                     />
                     <div
