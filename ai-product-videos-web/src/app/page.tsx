@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EnquiryFormSection } from "@/components/enquiry-form-section";
 import { FaqAccordion } from "@/components/faq-accordion";
-import { HeroCollage } from "@/components/hero-collage";
 import { SampleVideosCarousel } from "@/components/sample-videos-carousel";
 import { ServiceIcon } from "@/components/service-icon";
 import { SiteHeader } from "@/components/site-header";
@@ -11,9 +11,9 @@ import { brand, whatsappUrl } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
 
 const primaryBtn =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#EC008C] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.4)] transition hover:brightness-110";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#EC008C] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.45)] transition hover:brightness-110";
 const secondaryBtn =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/55 bg-[#151a33]/60 px-6 text-sm font-semibold text-white transition hover:bg-white/10";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/55 bg-black/25 px-6 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10";
 
 export const metadata: Metadata = {
   title: productAdsContent.seo.title,
@@ -25,7 +25,14 @@ export const metadata: Metadata = {
     siteName: brand.legalName,
     title: productAdsContent.seo.ogTitle,
     description: productAdsContent.seo.ogDescription,
-    images: [{ url: productAdsContent.seo.ogImage, width: 1200, height: 630, alt: "AI product ad videos" }],
+    images: [
+      {
+        url: productAdsContent.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "AI product ad videos",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -42,87 +49,96 @@ export default function HomePage() {
     productAdsContent;
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0b1024] text-white">
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(120deg,#0b1024_0%,#1a1040_45%,#4a0d4a_100%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none fixed -right-24 top-20 z-0 h-[420px] w-[420px] rounded-full bg-[#EC008C]/20 blur-3xl"
-      />
-
+    <div className="relative min-h-screen overflow-x-hidden bg-[#05060f] text-white">
       <SiteHeader />
 
       <main id="top" className="relative z-10 scroll-mt-24">
-        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-8 px-5 py-10 md:px-10 md:py-14 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.7fr)] lg:gap-6">
-          <div className="min-w-0">
-            <p className="inline-flex max-w-full rounded-full bg-[#EC008C] px-3.5 py-1.5 text-[11px] font-semibold leading-snug text-white sm:text-xs">
-              {hero.badge}
-            </p>
+        {/* Full-bleed HD spray hero — bottle/spray on right, copy on left */}
+        <section className="relative isolate min-h-[min(100svh,920px)] overflow-hidden">
+          <Image
+            src="/product-ads/hero-perfume-spray.jpg"
+            alt="Luxury perfume bottle spraying fragrance mist in a dark studio"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[72%_center] sm:object-[78%_center] lg:object-right"
+          />
+          {/* Readability veil over the text side (opposite the spray source) */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,15,0.94)_0%,rgba(8,10,28,0.82)_38%,rgba(10,12,32,0.45)_58%,rgba(5,6,15,0.18)_78%,rgba(5,6,15,0.35)_100%)]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_20%,rgba(5,6,15,0.35)_100%)]"
+          />
 
-            <h1 className="mt-5 text-[clamp(1.65rem,4.2vw,3.1rem)] font-bold leading-[1.12] tracking-tight text-balance">
-              {hero.headlineBefore}{" "}
-              <span className="text-[#FF4DB8]">{hero.headlineHighlight}</span>
-            </h1>
+          <div className="relative mx-auto flex min-h-[min(100svh,920px)] w-full max-w-[1440px] items-center px-5 py-14 md:px-10 md:py-16">
+            <div className="w-full max-w-xl lg:max-w-[560px]">
+              <p className="inline-flex max-w-full rounded-full bg-[#EC008C] px-3.5 py-1.5 text-[11px] font-semibold leading-snug text-white sm:text-xs">
+                {hero.badge}
+              </p>
 
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-              {hero.description}
-            </p>
+              <h1 className="mt-5 text-[clamp(1.75rem,4.4vw,3.25rem)] font-bold leading-[1.1] tracking-tight text-balance drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
+                {hero.headlineBefore}{" "}
+                <span className="text-[#FF4DB8]">{hero.headlineHighlight}</span>
+              </h1>
 
-            <p className="mt-5 text-sm text-white/75 sm:text-base">
-              {hero.priceLabel}{" "}
-              <span className="text-2xl font-bold text-[#22C55E] sm:text-3xl">
-                {price}
-                {priceUnit}
-              </span>
-            </p>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/85 sm:text-base">
+                {hero.description}
+              </p>
 
-            <ul
-              id={services.id}
-              className="mt-7 grid scroll-mt-28 gap-3 sm:grid-cols-2"
-            >
-              {services.items.map((item) => (
-                <li
-                  key={item.title}
-                  className="rounded-2xl border border-white/10 bg-[#121833]/75 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.25)] backdrop-blur-sm"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EC008C]/20 text-[#FF4DB8]">
-                      <ServiceIcon name={item.icon} />
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                      <p className="mt-1 text-xs leading-relaxed text-white/65">
-                        {item.description}
-                      </p>
+              <p className="mt-5 text-sm text-white/80 sm:text-base">
+                {hero.priceLabel}{" "}
+                <span className="text-2xl font-bold text-[#22C55E] sm:text-3xl">
+                  {price}
+                  {priceUnit}
+                </span>
+              </p>
+
+              <ul
+                id={services.id}
+                className="mt-7 grid scroll-mt-28 gap-3 sm:grid-cols-2"
+              >
+                {services.items.map((item) => (
+                  <li
+                    key={item.title}
+                    className="rounded-2xl border border-white/12 bg-[#121833]/70 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.35)] backdrop-blur-md"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EC008C]/20 text-[#FF4DB8]">
+                        <ServiceIcon name={item.icon} />
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-semibold text-white">{item.title}</h3>
+                        <p className="mt-1 text-xs leading-relaxed text-white/65">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#enquiry" className={primaryBtn}>
-                {hero.primaryCta}
-                <span aria-hidden>→</span>
-              </a>
-              <a href={`#${samples.id}`} className={secondaryBtn}>
-                <span aria-hidden>▶</span>
-                {hero.secondaryCta}
-              </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#enquiry" className={primaryBtn}>
+                  {hero.primaryCta}
+                  <span aria-hidden>→</span>
+                </a>
+                <a href={`#${samples.id}`} className={secondaryBtn}>
+                  <span aria-hidden>▶</span>
+                  {hero.secondaryCta}
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-white/70">{hero.supportLine}</p>
             </div>
-            <p className="mt-4 text-sm text-white/65">{hero.supportLine}</p>
-          </div>
-
-          <div className="flex justify-center lg:justify-end">
-            <HeroCollage />
           </div>
         </section>
 
         <section
           id={samples.id}
-          className="scroll-mt-28 border-t border-white/10 bg-[#0a0f22]/70 px-5 py-14 md:px-10 md:py-16"
+          className="scroll-mt-28 border-t border-white/10 bg-[#0a0f22] px-5 py-14 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">
@@ -136,7 +152,7 @@ export default function HomePage() {
 
         <section
           id={process.id}
-          className="scroll-mt-28 px-5 py-14 md:px-10 md:py-16"
+          className="scroll-mt-28 bg-[linear-gradient(180deg,#0b1024_0%,#1a1040_100%)] px-5 py-14 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#FF4DB8]">
