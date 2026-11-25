@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: productAdsContent.hero.heroImageAlt,
+        alt: "AI promotional product video samples",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#111113",
+  themeColor: "#F8F8F8",
 };
 
 export default function RootLayout({
@@ -60,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN" data-scroll-behavior="smooth" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-[#111113] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
+      <body className="flex min-h-full flex-col bg-[#12081f] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
         {children}
       </body>
     </html>

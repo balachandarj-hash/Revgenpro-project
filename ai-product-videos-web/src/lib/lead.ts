@@ -17,8 +17,20 @@ export type LeadFieldErrors = Partial<
 
 const categories = new Set<string>(productAdsContent.enquiry.categories);
 
+const MAX = {
+  fullName: 80,
+  businessName: 120,
+  email: 120,
+  productDetails: 1000,
+  preferredStyle: 80,
+} as const;
+
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function tooLong(value: string, max: number): boolean {
+  return value.length > max;
 }
 
 /** Validate and normalize a lead for API / future CRM. */
@@ -49,7 +61,11 @@ export function validateLead(input: unknown): {
     typeof raw.preferredStyle === "string" ? raw.preferredStyle.trim() : "";
 
   if (!fullName) errors.fullName = "Full name is required.";
+  else if (tooLong(fullName, MAX.fullName)) errors.fullName = `Keep full name under ${MAX.fullName} characters.`;
   if (!businessName) errors.businessName = "Business name is required.";
+  else if (tooLong(businessName, MAX.businessName)) {
+    errors.businessName = `Keep business name under ${MAX.businessName} characters.`;
+  }
   if (!whatsappRaw) {
     errors.whatsapp = "WhatsApp number is required.";
   } else if (!isValidIndianMobile(whatsappRaw)) {
@@ -57,11 +73,23 @@ export function validateLead(input: unknown): {
   }
   if (emailRaw && !isValidEmail(emailRaw)) {
     errors.email = "Enter a valid email address, or leave this field blank.";
+  } else if (emailRaw && tooLong(emailRaw, MAX.email)) {
+    errors.email = `Keep email under ${MAX.email} characters.`;
   }
   if (!productCategory) {
     errors.productCategory = "Select a product category.";
   } else if (!categories.has(productCategory)) {
     errors.productCategory = "Select a valid product category.";
+  }
+  if (productDetails && tooLong(productDetails, MAX.productDetails)) {
+    errors.productDetails = `Keep product details under ${MAX.productDetails} characters.`;
+  }
+  if (preferredStyle && tooLong(preferredStyle, MAX.preferredStyle)) {
+    return {
+      ok: false,
+      errors: {},
+      message: "Preferred style is too long. Please try again.",
+    };
   }
 
   if (Object.keys(errors).length > 0) {

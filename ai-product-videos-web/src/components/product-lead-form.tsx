@@ -310,7 +310,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#7C3AED,#2563EB)] text-sm font-semibold shadow-[0_12px_32px_rgba(124,58,237,0.35)] transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#EC008C] text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.35)] transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"
       >
         {status === "submitting" ? "Submitting…" : productAdsContent.enquiry.formSubmitCta}
       </button>

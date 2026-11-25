@@ -2,23 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { EnquiryFormSection } from "@/components/enquiry-form-section";
 import { FaqAccordion } from "@/components/faq-accordion";
-import { ProductAdsHeroVisual } from "@/components/product-ads-hero-visual";
+import { SampleVideosCarousel } from "@/components/sample-videos-carousel";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
-import { StyleExploreButton } from "@/components/style-explore-button";
-import { brand } from "@/lib/brand";
+import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { brand, whatsappUrl } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#A5B4FC]">{children}</p>
-  );
-}
-
 const primaryBtn =
-  "inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#7C3AED,#2563EB)] px-5 text-sm font-semibold shadow-[0_12px_32px_rgba(124,58,237,0.35)] transition hover:brightness-110";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#EC008C] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.35)] transition hover:brightness-110";
 const secondaryBtn =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 text-sm font-semibold transition hover:border-white/35 hover:bg-white/10";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/70 bg-transparent px-6 text-sm font-semibold text-white transition hover:bg-white/10";
 
 export const metadata: Metadata = {
   title: productAdsContent.seo.title,
@@ -35,7 +29,7 @@ export const metadata: Metadata = {
         url: productAdsContent.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: productAdsContent.hero.heroImageAlt,
+        alt: "AI promotional product video samples",
       },
     ],
   },
@@ -49,134 +43,143 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const year = new Date().getFullYear();
+  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
+  const { hero, samples, gallery, process, pricing, enquiry, faqs, footer } = productAdsContent;
 
   return (
-    <div className="studio-page relative min-h-screen overflow-x-hidden text-white">
-      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <span className="studio-orb studio-orb-purple" />
-        <span className="studio-orb studio-orb-blue" />
-        <span className="studio-orb studio-orb-violet" />
-      </div>
-
+    <div className="relative min-h-screen overflow-x-hidden bg-[#12081f] text-white">
       <SiteHeader />
 
       <main id="top" className="relative z-10 scroll-mt-20">
-        {/* 1 — Hero */}
-        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-8 px-5 py-8 md:gap-10 md:px-10 md:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-16">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A5B4FC]">
-              {productAdsContent.hero.label}
-            </p>
-            <p className="mt-4 inline-flex max-w-full rounded-full border border-[#7C3AED]/40 bg-[#7C3AED]/15 px-3 py-1.5 text-[11px] font-semibold leading-snug text-[#EDE9FE] sm:text-xs">
-              {productAdsContent.hero.hook}
-            </p>
-            <h1 className="mt-4 text-[clamp(1.55rem,4.4vw,3rem)] font-semibold leading-[1.12] tracking-tight text-balance">
-              {productAdsContent.hero.headline}
-            </h1>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/78 sm:text-base">
-              {productAdsContent.hero.description}
-            </p>
-            <div className="studio-glass mt-5 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-[#7C3AED]/35 px-4 py-3 sm:rounded-full">
-              <span className="text-sm font-semibold text-[#C4B5FD] sm:text-base">
-                {productAdsContent.hero.priceHighlight}
-              </span>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#enquiry" className={primaryBtn}>
-                {productAdsContent.hero.primaryCta}
-              </a>
-              <a href="#styles" className={secondaryBtn}>
-                {productAdsContent.hero.secondaryCta}
-              </a>
-            </div>
-            <p className="mt-5 text-sm text-white/55">{productAdsContent.hero.trustLine}</p>
-          </div>
-          <ProductAdsHeroVisual />
-        </section>
+        {/* Hero — clear hook, no studio label */}
+        <section className="relative overflow-hidden bg-[linear-gradient(135deg,#2a0a3d_0%,#4a1468_42%,#1a0b2e_100%)] px-5 py-12 md:px-10 md:py-16">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-[#EC008C]/20 blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#7C3AED]/25 blur-3xl"
+          />
 
-        {/* 2 — Problem / Solution */}
-        <section
-          id={productAdsContent.problem.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20"
-        >
-          <div className="mx-auto max-w-[1440px]">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                {productAdsContent.problem.title}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/75">
-                {productAdsContent.problem.description}
-              </p>
-            </div>
-            <ul className="mt-10 grid gap-5 sm:grid-cols-3">
-              {productAdsContent.problem.benefits.map((benefit) => (
+          <div className="relative mx-auto max-w-4xl text-center">
+            <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-[1.12] tracking-tight text-balance">
+              {hero.headline}
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+              {hero.description}
+            </p>
+
+            <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold text-[#F9A8D4] sm:text-base">
+              {hero.categoriesLine}
+            </p>
+            <ul className="mt-4 flex flex-wrap justify-center gap-2">
+              {hero.categories.map((cat) => (
                 <li
-                  key={benefit.title}
-                  className="studio-glass rounded-3xl border border-white/10 p-6 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:border-[#7C3AED]/35"
+                  key={cat}
+                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90"
                 >
-                  <h3 className="text-lg font-semibold text-[#EDE9FE]">{benefit.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">{benefit.description}</p>
+                  {cat}
                 </li>
               ))}
             </ul>
+
+            <div className="mx-auto mt-8 max-w-md rounded-3xl border border-[#F9A8D4]/35 bg-black/25 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.28)] backdrop-blur-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#F9A8D4]">
+                {hero.offerLabel}
+              </p>
+              <p className="mt-2 flex items-baseline justify-center gap-2">
+                <span className="text-5xl font-bold tracking-tight">{hero.offerPrice}</span>
+                <span className="text-lg font-semibold text-[#F9A8D4]">{hero.offerUnit}</span>
+              </p>
+              <p className="mt-3 text-sm text-white/75">{hero.offerBody}</p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a href="#enquiry" className={primaryBtn}>
+                {hero.primaryCta}
+                <span aria-hidden>→</span>
+              </a>
+              <a href={`#${samples.id}`} className={secondaryBtn}>
+                {hero.secondaryCta}
+                <span aria-hidden>▶</span>
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-white/70">{hero.supportLine}</p>
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#25D366]/55 bg-[#25D366]/15 px-5 text-sm font-semibold text-[#86EFAC] transition hover:bg-[#25D366]/25"
+            >
+              <span aria-hidden>●</span>
+              {hero.whatsappCta}
+            </a>
           </div>
         </section>
 
-        {/* 3 — Video styles */}
+        {/* Sample videos — swipe model */}
         <section
-          id={productAdsContent.styles.id}
-          className="scroll-mt-28 bg-[#0c0c10]/80 px-5 py-14 md:px-10 md:py-20"
+          id={samples.id}
+          className="scroll-mt-24 bg-[linear-gradient(90deg,#5b0f4a_0%,#2d0b45_45%,#12081f_100%)] px-5 py-14 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{productAdsContent.styles.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              {productAdsContent.styles.title}
-            </h2>
-            <p className="mt-3 max-w-2xl text-white/70">{productAdsContent.styles.subtitle}</p>
-            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {productAdsContent.styles.items.map((style) => (
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
+              {samples.label}
+            </p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{samples.title}</h2>
+            <p className="mt-3 max-w-2xl text-white/75">{samples.subtitle}</p>
+            <SampleVideosCarousel />
+          </div>
+        </section>
+
+        {/* Different product stills */}
+        <section
+          id={gallery.id}
+          className="scroll-mt-24 border-t border-white/10 px-5 py-14 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-[1440px]">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{gallery.title}</h2>
+            <p className="mt-3 max-w-2xl text-white/70">{gallery.subtitle}</p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {gallery.items.map((item) => (
                 <li
-                  key={style.id}
-                  className="studio-glass group overflow-hidden rounded-3xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:border-[#7C3AED]/40"
+                  key={item.id}
+                  className="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-[0_16px_40px_rgba(0,0,0,0.28)]"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="relative aspect-[4/5]">
                     <Image
-                      src={style.image}
-                      alt={style.imageAlt}
+                      src={item.image}
+                      alt={item.imageAlt}
                       fill
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      className="object-cover"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111113]/80 to-transparent" />
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold">{style.title}</h3>
-                    <p className="mt-1.5 text-sm text-white/70">{style.description}</p>
-                    <div className="mt-4">
-                      <StyleExploreButton styleTitle={style.title} label={style.cta} />
-                    </div>
-                  </div>
+                  <p className="px-4 py-3 text-sm font-semibold">{item.title}</p>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 4 — How it works */}
+        {/* How it works */}
         <section
-          id={productAdsContent.process.id}
-          className="scroll-mt-28 px-5 py-14 md:px-10 md:py-20"
+          id={process.id}
+          className="scroll-mt-24 bg-[#0c0618] px-5 py-14 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{productAdsContent.process.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.process.title}</h2>
-            <ol className="mt-10 grid gap-5 md:grid-cols-3">
-              {productAdsContent.process.steps.map((step, index) => (
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#F9A8D4]">
+              {process.label}
+            </p>
+            <h2 className="mt-2 text-3xl font-bold">{process.title}</h2>
+            <ol className="mt-8 grid gap-4 md:grid-cols-3">
+              {process.steps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="studio-glass relative rounded-3xl border border-white/10 p-6"
+                  className="rounded-3xl border border-white/10 bg-white/5 p-6"
                 >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7C3AED]/25 text-sm font-bold text-[#DDD6FE]">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#EC008C]/25 text-sm font-bold text-[#F9A8D4]">
                     {index + 1}
                   </span>
                   <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
@@ -187,81 +190,85 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5 — Pricing */}
+        {/* Pricing highlight */}
         <section
-          id={productAdsContent.pricing.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20"
+          id={pricing.id}
+          className="scroll-mt-24 px-5 py-14 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-xl text-center">
-            <SectionLabel>{productAdsContent.pricing.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.pricing.title}</h2>
-            <div className="studio-glass mt-8 rounded-3xl border border-[#7C3AED]/35 p-8 shadow-[0_24px_60px_rgba(124,58,237,0.22)]">
-              <p className="flex items-baseline justify-center gap-2">
-                <span className="text-5xl font-bold tracking-tight">{productAdsContent.pricing.price}</span>
-                <span className="text-lg font-semibold text-[#A5B4FC]">
-                  {productAdsContent.pricing.unit}
-                </span>
-              </p>
-              <ul className="mt-6 space-y-3 text-left">
-                {productAdsContent.pricing.benefits.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm text-white/80">
-                    <span className="mt-0.5 text-[#A5B4FC]" aria-hidden>
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#enquiry" className={`${primaryBtn} mt-8 w-full sm:w-auto`}>
-                {productAdsContent.pricing.cta}
-              </a>
-            </div>
+          <div className="mx-auto max-w-xl rounded-3xl border border-[#EC008C]/35 bg-[linear-gradient(160deg,rgba(236,0,140,0.18),rgba(76,29,149,0.25))] p-8 text-center shadow-[0_24px_60px_rgba(236,0,140,0.18)]">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#F9A8D4]">
+              {pricing.label}
+            </p>
+            <h2 className="mt-3 text-4xl font-bold">{pricing.title}</h2>
+            <p className="mt-3 text-white/75">{pricing.body}</p>
+            <ul className="mt-6 space-y-2 text-left text-sm text-white/85">
+              {pricing.benefits.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-[#F9A8D4]" aria-hidden>
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#enquiry" className={`${primaryBtn} mt-8 w-full sm:w-auto`}>
+              {pricing.cta}
+              <span aria-hidden>→</span>
+            </a>
           </div>
         </section>
 
-        {/* 6 — Lead form */}
-        <section
-          id={productAdsContent.enquiry.id}
-          className="scroll-mt-28 px-5 py-14 md:px-10 md:py-20"
-        >
+        {/* Lead form */}
+        <section id={enquiry.id} className="scroll-mt-24 px-5 py-14 md:px-10 md:py-16">
           <div className="mx-auto max-w-xl">
             <EnquiryFormSection />
           </div>
         </section>
 
-        {/* 7 — FAQ */}
-        <section className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20">
+        {/* FAQ */}
+        <section className="scroll-mt-24 border-t border-white/10 px-5 py-14 md:px-10 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-semibold">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
             <div className="mt-8">
-              <FaqAccordion items={productAdsContent.faqs} />
+              <FaqAccordion items={faqs} />
             </div>
           </div>
         </section>
 
-        {/* 8 — Final CTA */}
-        <section
-          id={productAdsContent.finalCta.id}
-          className="scroll-mt-28 px-5 pb-16 md:px-10 md:pb-24"
-        >
-          <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(124,58,237,0.22),rgba(37,99,235,0.18))] px-6 py-12 text-center sm:px-10">
-            <h2 className="text-2xl font-semibold sm:text-3xl">{productAdsContent.finalCta.title}</h2>
-            <p className="mx-auto mt-3 max-w-xl text-white/75">{productAdsContent.finalCta.body}</p>
-            <a href="#enquiry" className={`${primaryBtn} mt-7`}>
-              {productAdsContent.finalCta.cta}
-            </a>
+        {/* Final CTA */}
+        <section className="px-5 pb-16 md:px-10 md:pb-20">
+          <div className="mx-auto max-w-3xl rounded-3xl bg-[linear-gradient(135deg,#4a1468,#EC008C)] px-6 py-12 text-center sm:px-10">
+            <h2 className="text-2xl font-bold sm:text-3xl">{hero.headline}</h2>
+            <p className="mx-auto mt-3 max-w-xl text-white/85">{hero.offerBody}</p>
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#enquiry"
+                className="inline-flex min-h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-[#831843] transition hover:brightness-95"
+              >
+                {hero.primaryCta}
+              </a>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center rounded-full border border-white/70 px-6 text-sm font-semibold text-white"
+              >
+                {hero.whatsappCta}
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 px-5 py-10 text-center md:px-10">
-        <p className="text-sm font-semibold text-white/80">{brand.legalName}</p>
-        <p className="mt-1 text-sm text-white/55">{productAdsContent.footer.serviceLine}</p>
-        <p className="mt-4 text-xs text-white/40">
+      <footer className="relative z-10 border-t border-black/5 bg-[#F8F8F8] px-5 py-10 text-center md:px-10">
+        <p className="text-sm font-semibold text-[#1a1a1a]">{brand.legalName}</p>
+        <p className="mt-1 text-sm text-[#555]">{footer.serviceLine}</p>
+        <p className="mt-4 text-xs text-[#777]">
           © {year} {brand.legalName}. All rights reserved.
         </p>
       </footer>
 
+      <WhatsAppFloat />
       <StickyBottomCta />
     </div>
   );

@@ -21,12 +21,12 @@ export function EnquiryFormSection() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(160deg,#1e1b4b_0%,#0f172a_45%,#111113_100%)] p-6 shadow-[0_28px_80px_rgba(37,99,235,0.18)] sm:p-8">
+    <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(160deg,#4a1468_0%,#1a0b2e_55%,#12081f_100%)] p-6 shadow-[0_28px_80px_rgba(236,0,140,0.18)] sm:p-8">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#7C3AED]/25 blur-3xl"
+        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#EC008C]/25 blur-3xl"
       />
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#A5B4FC]">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#F9A8D4]">
         {productAdsContent.enquiry.label}
       </p>
       <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
