@@ -1,22 +1,20 @@
 # Revgenpro-project
 
-Landing apps for **RevGenPro Solutions Pvt Ltd** in `ai-videos-web/` (Next.js 15 + Tailwind).
+Landing apps for **RevGenPro Solutions Pvt Ltd** (Next.js 15 + Tailwind).
 
-## Routes (kept separate — do not merge)
+## Apps (kept separate)
 
-| Path | Offer |
-|------|--------|
-| `/` | Complete Online Presence (₹14,999) |
-| `/product-advertisements` | AI Promotional Product Videos (₹1,499 / video) — standalone lead-gen page |
+| Folder | Cursor app | Offer |
+|--------|------------|--------|
+| `ai-videos-web/` | ai-videos-7e15 | Complete Online Presence + `/product-advertisements` |
+| `ai-product-videos-web/` | **new publish** (not 7e15) | AI Promotional Product Videos ₹1,499 only at `/` |
 
 ## Development
 
 ```bash
-cd ai-videos-web
-npm install
-npm run dev -- --port 3458 --hostname 127.0.0.1
+# Complete Online Presence / shared repo app
+cd ai-videos-web && npm run dev -- --port 3458 --hostname 127.0.0.1
+
+# Standalone product-video landing (Cursor publish)
+cd ai-product-videos-web && npm run dev -- --port 3460 --hostname 127.0.0.1
 ```
-
-## Product video lead form
-
-Enquiries on `/product-advertisements` `POST` to `/api/leads` for server-side validation and a WhatsApp handoff URL (CRM-ready; no fake client-side save).

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #12081f;
+  --foreground: #ffffff;
+  --header-footer: #f8f8f8;
+  --accent-magenta: #ec008c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: #12081f;
+  color: #fff;
+}
+
+.studio-glass {
+  background: rgba(24, 24, 28, 0.72);
+  backdrop-filter: blur(14px);
+}
