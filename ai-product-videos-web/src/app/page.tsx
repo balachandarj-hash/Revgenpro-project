@@ -67,20 +67,24 @@ export default function HomePage() {
 
           <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-8 px-4 py-10 sm:px-6 md:px-10 md:py-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-4 lg:py-16">
             <div className="relative z-10 min-w-0 max-w-xl lg:pr-2">
-              <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8A735C] sm:text-xs">
+              <p className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#1A1410] sm:text-xs">
                 <span>{hero.eyebrow}</span>
-                <span aria-hidden className="h-px w-12 bg-[#C4A574]/90" />
+                <span aria-hidden className="h-px w-12 bg-[#1A1410]/55" />
               </p>
 
-              <h1 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.2vw,4.35rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-[#2A1F16] text-balance">
+              <p className="mt-4 max-w-lg text-[15px] font-semibold leading-snug text-[#2A1F16] sm:text-base md:text-lg">
+                {hero.hook}
+              </p>
+
+              <h1 className="mt-3 font-[family-name:var(--font-display)] text-[clamp(2.15rem,4.6vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-[#1A1410] text-balance">
                 {hero.headline}
               </h1>
 
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-[#5C4A3A] sm:text-base">
+              <p className="mt-5 max-w-md text-[15px] font-medium leading-relaxed text-[#2A1F16] sm:text-base">
                 {hero.description}
               </p>
 
-              <p className="mt-6 inline-flex max-w-full items-center rounded-full bg-[#E8D9C4] px-4 py-2 text-sm text-[#3D2F22]">
+              <p className="mt-6 inline-flex max-w-full items-center rounded-full border border-[#C4A574]/70 bg-[#F0E4D2] px-4 py-2 text-sm font-semibold text-[#1A1410]">
                 {hero.priceBadge}{" "}
                 <span className="ml-1.5 font-bold text-[#1A1410]">{price}</span>
               </p>

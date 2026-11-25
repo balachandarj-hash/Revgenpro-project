@@ -32,8 +32,9 @@ export const productAdsContent = {
   },
 
   hero: {
-    eyebrow: "AI Product Video Studio",
-    headline: "Your Product Deserves More Than a Photo.",
+    eyebrow: "AI-Powered Product Videos",
+    hook: "Still Promoting Your Products with Just Photos?",
+    headline: "Turn Product Photos into Videos That Grab Attention.",
     description:
       "Transform ordinary product images into stunning AI promotional videos that capture attention and elevate your brand.",
     priceBadge: "AI Product Videos Starting at",
