@@ -227,25 +227,27 @@ export default function HomePage() {
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#F7EFE4] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
-            <div className="flex flex-col justify-center self-center py-2 lg:min-h-full lg:py-6">
+            <div className="flex flex-col items-stretch justify-center self-center py-2 text-left lg:min-h-full lg:py-6">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B5544]">
                 {pricing.label}
               </p>
               <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-[2.35rem]">
                 {pricing.title}
               </h2>
-              <p className="mt-5 font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
-                {pricing.amount}
-              </p>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2F22]">
-                {pricing.unit}
-              </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-[#2A1F16]">
+              <div className="mt-5 w-full text-center lg:text-left">
+                <p className="font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
+                  {pricing.amount}
+                </p>
+                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2F22]">
+                  {pricing.unit}
+                </p>
+              </div>
+              <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-[#2A1F16]">
                 {pricing.note}
               </p>
               <a
                 href={`#${enquiry.id}`}
-                className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1A1410] px-7 text-sm font-semibold text-[#FBF7F0] transition hover:bg-[#2C241C]"
+                className="mt-8 inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-full bg-[#1A1410] px-7 text-sm font-semibold text-[#FBF7F0] transition hover:bg-[#2C241C]"
               >
                 {pricing.cta}
                 <span aria-hidden>→</span>
