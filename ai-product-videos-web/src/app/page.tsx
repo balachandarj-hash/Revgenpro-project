@@ -227,7 +227,7 @@ export default function HomePage() {
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#F7EFE4] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
-            <div className="flex flex-col justify-center self-center py-2 lg:min-h-full lg:py-6">
+            <div className="flex flex-col items-center justify-center self-center py-2 text-center lg:min-h-full lg:items-start lg:py-6 lg:text-left">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B5544]">
                 {pricing.label}
               </p>
@@ -240,7 +240,7 @@ export default function HomePage() {
               <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2F22]">
                 {pricing.unit}
               </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-[#2A1F16]">
+              <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-[#2A1F16]">
                 {pricing.note}
               </p>
               <a
