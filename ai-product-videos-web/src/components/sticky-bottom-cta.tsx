@@ -8,7 +8,7 @@ export function StickyBottomCta() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-black/8 bg-[#F8F8F8]/95 px-4 py-3 backdrop-blur-md md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#0b1024]/95 px-4 py-3 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="mx-auto flex max-w-lg gap-2">
@@ -22,7 +22,7 @@ export function StickyBottomCta() {
           href={wa}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] px-4 text-sm font-semibold text-white"
+          className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-[#1d4ed8] px-4 text-sm font-semibold text-white"
         >
           WhatsApp
         </a>

@@ -1,51 +1,108 @@
 export const productAdsContent = {
   price: "₹1,499",
-  priceUnit: "/ Video",
+  priceUnit: " per Video",
   packageName: "AI Promotional Product Video",
   whatsappPrefill:
-    "Hi RevGenPro, I want an AI promotional product video for ₹1,499. Please share next steps.",
+    "Hi RevGenPro, I want to create an AI product ad video for ₹1,499. Please share next steps.",
 
   header: {
-    cta: "Get Your Video for ₹1,499",
+    cta: "Create My Ad Video",
+    whatsappCta: "WhatsApp Chat",
+    nav: [
+      { href: "#top", label: "Home" },
+      { href: "#services", label: "Services" },
+      { href: "#samples", label: "Samples" },
+      { href: "#enquiry", label: "Enquire" },
+    ] as const,
   },
   stickyBar: {
-    enquiryCta: "Get Your Video for ₹1,499",
+    enquiryCta: "Create My Ad Video",
   },
 
   seo: {
-    title: "AI Promotional Product Videos ₹1,499 | RevGenPro Solutions",
+    title: "AI Product Ad Videos ₹1,499 | RevGenPro Solutions",
     description:
-      "Turn product images into stunning AI promotional videos. Introductory offer ₹1,499 per video — skincare, perfume, electronics, fashion & more.",
-    ogTitle: "AI Promotional Product Videos — ₹1,499 | RevGenPro",
+      "Turn products into stunning AI-powered video ads. Professional AI video creation starting at ₹1,499 per video — RevGenPro Solutions.",
+    ogTitle: "AI Product Ad Videos — ₹1,499 | RevGenPro",
     ogDescription:
-      "Make your products stand out with eye-catching AI-powered promotional videos. Introductory offer ₹1,499 / video.",
-    ogImage: "/product-ads/skincare.jpg",
+      "Your products deserve more than ordinary photos. Cinematic AI video ads from ₹1,499 per video.",
+    ogImage: "/product-ads/perfume.jpg",
     siteUrl: "https://ai-product-videos.apps.grok.bot/",
     path: "/",
   },
 
   hero: {
-    headline: "Turn Your Products Into Stunning AI Promotional Videos!",
+    badge: "Still Using Static Photos to Promote Your Products?",
+    headlineBefore: "Your Products Deserve",
+    headlineHighlight: "More Than Just Ordinary Photos!",
     description:
-      "Make your products stand out with eye-catching AI-powered promotional videos designed to capture attention, showcase your product, and make your brand look premium.",
-    categoriesLine: "Perfect for Skincare, Perfumes, Electronics, Fashion, Cosmetics & More.",
-    categories: [
-      "Skincare",
-      "Perfumes",
-      "Electronics",
-      "Fashion",
-      "Cosmetics",
-      "Lifestyle",
-    ] as const,
-    offerLabel: "INTRODUCTORY OFFER",
-    offerPrice: "₹1,499",
-    offerUnit: "/ Video",
-    offerBody: "Transform your product images into engaging promotional videos.",
-    primaryCta: "Get Your Video for ₹1,499",
+      "Turn your products into stunning AI-powered video ads with cinematic visuals and storytelling that make customers want to know more.",
+    priceLabel: "Professional AI Video Creation Starting at Just",
+    primaryCta: "Create My Ad Video",
     secondaryCta: "Watch Video Samples",
     supportLine: "Have a product business? Let's create an advertisement that stands out!",
-    whatsappCta: "Chat on WhatsApp",
   },
+
+  services: {
+    id: "services",
+    items: [
+      {
+        title: "AI Product Showcase Videos",
+        description:
+          "Cinematic lighting, professional backgrounds, attractive camera movements, and premium product displays.",
+        icon: "spark",
+      },
+      {
+        title: "Product Features & Benefits Videos",
+        description:
+          "Features, USPs, benefits, and clear product demonstrations that help customers decide.",
+        icon: "list",
+      },
+      {
+        title: "Creative Product Advertisement Videos",
+        description:
+          "Transform product images into commercial ads with AI scenes, models, and storytelling.",
+        icon: "film",
+      },
+      {
+        title: "Creative Promotional & Offer Videos",
+        description:
+          "Discounts, seasonal campaigns, limited-time deals, and strong calls to action.",
+        icon: "tag",
+      },
+    ],
+  },
+
+  collage: [
+    {
+      id: "perfume",
+      label: "Luxury perfume",
+      image: "/product-ads/perfume.jpg",
+      video: "/product-ads/perfume.mp4",
+      className: "left-[4%] top-[2%] w-[42%] rotate-[-4deg] z-10",
+    },
+    {
+      id: "fashion",
+      label: "Fashion lifestyle",
+      image: "/product-ads/fashion.jpg",
+      video: "/product-ads/fashion.mp4",
+      className: "right-[2%] top-[-2%] w-[48%] rotate-[3deg] z-20",
+    },
+    {
+      id: "offer",
+      label: "Offer campaign",
+      image: "/product-ads/offer.jpg",
+      video: "/product-ads/offer.mp4",
+      className: "left-[8%] bottom-[4%] w-[40%] rotate-[2deg] z-30",
+    },
+    {
+      id: "electronics",
+      label: "Electronics",
+      image: "/product-ads/gadget.jpg",
+      video: "/product-ads/gadget.mp4",
+      className: "right-[6%] bottom-[-2%] w-[44%] rotate-[-3deg] z-40",
+    },
+  ] as const,
 
   samples: {
     id: "samples",
@@ -88,38 +145,6 @@ export const productAdsContent = {
     ],
   },
 
-  gallery: {
-    id: "gallery",
-    title: "Different products. Same premium look.",
-    subtitle: "From gadgets to lifestyle bottles — we craft HD product videos that feel clear and scroll-stopping.",
-    items: [
-      {
-        id: "electronics-lifestyle",
-        title: "Electronics",
-        image: "/product-ads/electronics-lifestyle.png",
-        imageAlt: "Smartwatch and wireless earbuds product showcase",
-      },
-      {
-        id: "lifestyle-bottle",
-        title: "Lifestyle",
-        image: "/product-ads/lifestyle-bottle.png",
-        imageAlt: "Premium water bottle in a bright outdoor lifestyle setting",
-      },
-      {
-        id: "skincare-still",
-        title: "Skincare",
-        image: "/product-ads/skincare.jpg",
-        imageAlt: "Skincare products in cinematic lighting",
-      },
-      {
-        id: "perfume-still",
-        title: "Perfume",
-        image: "/product-ads/perfume.jpg",
-        imageAlt: "Luxury perfume bottle with golden highlights",
-      },
-    ],
-  },
-
   process: {
     id: "how-it-works",
     label: "How it works",
@@ -140,27 +165,13 @@ export const productAdsContent = {
     ],
   },
 
-  pricing: {
-    id: "pricing",
-    label: "Introductory offer",
-    title: "₹1,499 / Video",
-    body: "Transform your product images into engaging promotional videos.",
-    benefits: [
-      "One AI promotional product video",
-      "HD, product-focused visuals",
-      "Style matched to your category",
-      "Ready for social ads and product pages",
-    ],
-    cta: "Get Your Video for ₹1,499",
-  },
-
   enquiry: {
     id: "enquiry",
     label: "Get started",
     title: "Tell Us About Your Product",
     subtitle:
       "Share a few details. We’ll review your enquiry and follow up with next steps — no payment on this page.",
-    formSubmitCta: "Get Your Video for ₹1,499",
+    formSubmitCta: "Create My Ad Video",
     consent:
       "By submitting, you agree to be contacted by RevGenPro Solutions about your AI product video enquiry via WhatsApp or email.",
     categories: [
@@ -177,31 +188,31 @@ export const productAdsContent = {
     {
       question: "What do I get for ₹1,499?",
       answer:
-        "One AI promotional product video focused on your product, crafted in a style that fits your category. Exact creative direction is confirmed after we review your photos and brief.",
+        "One AI promotional product video focused on your product. Exact creative direction is confirmed after we review your photos and brief.",
     },
     {
       question: "What do I need to provide?",
       answer:
-        "Clear product photos, your business name, and a short description of the product and look you want. Optional: brand colours, logo, or reference examples.",
+        "Clear product photos, your business name, and a short description of the product and look you want.",
     },
     {
       question: "Which products work best?",
       answer:
-        "Physical products that photograph well — skincare, perfume, electronics, fashion, cosmetics, lifestyle items, and similar retail products.",
+        "Physical products that photograph well — skincare, perfume, electronics, fashion, cosmetics, and similar retail items.",
     },
     {
       question: "How does ordering work?",
       answer:
-        "Submit the enquiry form or chat on WhatsApp. Our team reviews your details and contacts you with next steps. There is no payment collected on this website.",
+        "Submit the enquiry form or chat on WhatsApp. Our team reviews your details and contacts you with next steps. No payment is collected on this website.",
     },
     {
       question: "Is ₹1,499 a subscription?",
       answer:
-        "No. ₹1,499 is the introductory price per promotional product video. Additional videos are priced the same unless you agree a different scope with our team.",
+        "No. ₹1,499 is the price per promotional product video unless you agree a different scope with our team.",
     },
   ],
 
   footer: {
-    serviceLine: "AI Promotional Product Videos",
+    serviceLine: "AI Product Advertisement Videos",
   },
 } as const;

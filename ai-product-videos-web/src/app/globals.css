@@ -4,10 +4,10 @@
 
 :root {
   color-scheme: dark;
-  --background: #12081f;
+  --background: #0b1024;
   --foreground: #ffffff;
-  --header-footer: #f8f8f8;
   --accent-magenta: #ec008c;
+  --accent-green: #22c55e;
 }
 
 html {
@@ -21,11 +21,6 @@ html {
 }
 
 body {
-  background: #12081f;
+  background: #0b1024;
   color: #fff;
-}
-
-.studio-glass {
-  background: rgba(24, 24, 28, 0.72);
-  backdrop-filter: blur(14px);
 }
