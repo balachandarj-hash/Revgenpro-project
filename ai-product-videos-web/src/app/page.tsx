@@ -49,7 +49,7 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="relative z-10 w-full scroll-mt-24">
-        {/* Hero — champagne silk + product stage */}
+        {/* Hero — match mockup: soft silk, copy left, full product scene right */}
         <section className="relative isolate overflow-hidden">
           <Image
             src="/product-ads/luxury-silk-bg.jpg"
@@ -58,21 +58,21 @@ export default function HomePage() {
             priority
             quality={90}
             sizes="100vw"
-            className="object-cover object-center opacity-90"
+            className="object-cover object-center"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(105deg,rgba(251,247,240,0.92)_0%,rgba(247,239,228,0.78)_42%,rgba(247,239,228,0.35)_70%,rgba(232,214,186,0.25)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(100deg,rgba(251,247,240,0.96)_0%,rgba(251,247,240,0.88)_34%,rgba(247,239,228,0.45)_58%,rgba(247,239,228,0.12)_100%)]"
           />
 
-          <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-10 px-4 py-12 sm:px-6 md:px-10 md:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8 lg:py-20">
-            <div className="min-w-0 max-w-xl">
+          <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-8 px-4 py-10 sm:px-6 md:px-10 md:py-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-4 lg:py-16">
+            <div className="relative z-10 min-w-0 max-w-xl lg:pr-2">
               <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8A735C] sm:text-xs">
                 <span>{hero.eyebrow}</span>
-                <span aria-hidden className="h-px w-10 bg-[#C4A574]/80" />
+                <span aria-hidden className="h-px w-12 bg-[#C4A574]/90" />
               </p>
 
-              <h1 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(2.35rem,5.5vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-[#1A1410] text-balance">
+              <h1 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.2vw,4.35rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-[#2A1F16] text-balance">
                 {hero.headline}
               </h1>
 
@@ -80,7 +80,7 @@ export default function HomePage() {
                 {hero.description}
               </p>
 
-              <p className="mt-6 inline-flex max-w-full items-center rounded-full border border-[#E0D5C8] bg-[#F3EBE0]/90 px-4 py-2 text-sm text-[#5C4A3A]">
+              <p className="mt-6 inline-flex max-w-full items-center rounded-full bg-[#E8D9C4] px-4 py-2 text-sm text-[#3D2F22]">
                 {hero.priceBadge}{" "}
                 <span className="ml-1.5 font-bold text-[#1A1410]">{price}</span>
               </p>
@@ -88,7 +88,7 @@ export default function HomePage() {
               <div className="mt-7">
                 <a
                   href="#enquiry"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1A1410] px-7 text-sm font-semibold text-[#FBF7F0] shadow-[0_14px_32px_rgba(26,20,16,0.22)] transition hover:bg-[#2C241C]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#2A1F16] px-7 text-sm font-semibold text-[#FBF7F0] shadow-[0_14px_32px_rgba(26,20,16,0.22)] transition hover:bg-[#1A1410]"
                 >
                   {hero.primaryCta}
                   <span aria-hidden>→</span>
@@ -99,17 +99,17 @@ export default function HomePage() {
             <LuxuryProductStage />
           </div>
 
-          {/* Category glass bar */}
+          {/* Category glass bar — frosted like mockup */}
           <div className="relative mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-6 md:px-10">
-            <div className="overflow-x-auto rounded-[1.5rem] border border-[#E8DFD2]/90 bg-[#FBF7F0]/75 shadow-[0_16px_40px_rgba(58,42,20,0.08)] backdrop-blur-md">
-              <ul className="flex min-w-max items-stretch justify-between gap-1 px-2 py-3 sm:min-w-0 sm:px-4 md:py-4">
+            <div className="overflow-x-auto rounded-[1.75rem] border border-white/70 bg-white/55 shadow-[0_18px_44px_rgba(58,42,20,0.1)] backdrop-blur-xl">
+              <ul className="flex min-w-max items-stretch justify-between gap-1 px-2 py-3.5 sm:min-w-0 sm:px-5 md:py-4">
                 {categories.map((cat) => (
                   <li key={cat.id} className="flex-1">
                     <a
                       href={`#${styles.id}`}
-                      className="flex min-w-[7.5rem] flex-col items-center gap-2 rounded-xl px-3 py-2 text-center text-[#5C4A3A] transition hover:bg-white/70 hover:text-[#1A1410] sm:min-w-0"
+                      className="flex min-w-[7.5rem] flex-col items-center gap-2 rounded-xl px-3 py-2 text-center text-[#5C4A3A] transition hover:bg-white/80 hover:text-[#1A1410] sm:min-w-0"
                     >
-                      <span className="text-[#8A735C]">
+                      <span className="text-[#6B5544]">
                         <CategoryIcon name={cat.icon} />
                       </span>
                       <span className="text-[11px] font-medium leading-snug sm:text-xs">
