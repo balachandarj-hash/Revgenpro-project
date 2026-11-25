@@ -4,51 +4,68 @@
 
 :root {
   color-scheme: dark;
+  --background: #111113;
+  --foreground: #ffffff;
+  --accent-violet: #7c3aed;
+  --accent-blue: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  background: #090d24;
+  background: #111113;
   color: #fff;
 }
 
 .studio-page {
-  background: #090d24;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(124, 58, 237, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(37, 99, 235, 0.14), transparent 50%),
+    #111113;
 }
 
 .studio-glass {
-  background: rgba(17, 25, 54, 0.72);
+  background: rgba(24, 24, 28, 0.72);
   backdrop-filter: blur(14px);
 }
 
 .studio-orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.45;
+  filter: blur(90px);
+  opacity: 0.4;
 }
 
 .studio-orb-purple {
-  width: 280px;
-  height: 280px;
-  left: -40px;
-  top: 120px;
-  background: #6d28d9;
-}
-
-.studio-orb-pink {
-  width: 220px;
-  height: 220px;
-  right: 10%;
-  top: 40px;
-  background: #ec008c;
+  width: 300px;
+  height: 300px;
+  left: -50px;
+  top: 100px;
+  background: #7c3aed;
 }
 
 .studio-orb-blue {
   width: 260px;
   height: 260px;
-  right: -60px;
-  bottom: 80px;
+  right: -40px;
+  top: 60px;
   background: #2563eb;
+}
+
+.studio-orb-violet {
+  width: 280px;
+  height: 280px;
+  right: 15%;
+  bottom: 10%;
+  background: #4c1d95;
 }
 
 @keyframes studio-float {

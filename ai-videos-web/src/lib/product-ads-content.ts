@@ -1,186 +1,212 @@
 export const productAdsContent = {
   price: "₹1,499",
-  priceUnit: " per Video",
-  packageName: "AI Product Advertisement Videos",
+  priceUnit: "/ Video",
+  packageName: "AI Promotional Product Video",
   whatsappPrefill:
-    "Hi RevGenPro, I'm interested in AI product advertisement videos (₹1,499 per video). Please share next steps.",
+    "Hi RevGenPro, I'm interested in an AI Promotional Product Video (₹1,499). Please share next steps.",
 
   header: {
-    cta: "Create My Ad Video",
-    nav: [
-      { href: "#services", label: "Services" },
-      { href: "#samples", label: "Samples" },
-      { href: "#enquiry", label: "Enquire" },
-    ] as const,
+    cta: "Create My AI Product Video",
   },
   stickyBar: {
-    enquiryCta: "Create My Ad Video",
+    enquiryCta: "Create My AI Product Video",
   },
 
   seo: {
-    title: "Product Selling & Promotional Videos | RevGenPro Solutions",
+    title: "AI Promotional Product Videos ₹1,499 | RevGenPro Solutions",
     description:
-      "Turn product photos into cinematic AI video ads. Showcase, features, creative commercials, and offer campaigns from RevGenPro — professional AI video creation from ₹1,499 per video.",
-    ogTitle: "AI Product Video Ads — from ₹1,499 | RevGenPro",
+      "Turn product photos into stunning AI promotional videos. Cinematic product films for e-commerce, D2C, and retailers — starting at ₹1,499 per video from RevGenPro Solutions Pvt Ltd.",
+    ogTitle: "AI Promotional Product Videos — ₹1,499 | RevGenPro",
     ogDescription:
-      "Skincare, perfume, fashion, electronics, and seasonal offer campaigns as stunning 9:16 AI product videos. Hosur, Tamil Nadu — serving businesses across India.",
+      "Premium AI product video studio. Skincare, perfume, electronics, and lifestyle styles from ₹1,499 per video.",
     ogImage: "/product-ads/skincare.jpg",
-    path: "/product-advertisements",
+    siteUrl: "https://ai-videos.apps.grok.bot/",
+    path: "/",
   },
 
   hero: {
-    eyebrow: "Still Using Static Photos to Promote Your Products?",
-    headlinePrefix: "Your Products Deserve",
-    headlineHighlight: "More Than Just Ordinary Photos!",
+    label: "AI PRODUCT VIDEO STUDIO",
+    hook: "Still Promoting Your Products with Ordinary Photos?",
+    headline: "Turn Your Products Into Stunning AI Promotional Videos!",
     description:
-      "Turn your products into stunning AI-powered video ads with cinematic visuals and storytelling that make customers want to know more.",
-    priceLabel: "Professional AI Video Creation Starting at Just",
-    primaryCta: "Create My Ad Video",
-    secondaryCta: "Watch Video Samples",
+      "Transform your product photos into cinematic AI promotional videos that grab attention on Instagram, WhatsApp, and your online store — without a full production crew.",
+    priceHighlight: "AI Promotional Videos Starting at ₹1,499",
+    primaryCta: "Create My AI Product Video",
+    secondaryCta: "Explore Video Styles",
+    trustLine: "Built for E-commerce brands, D2C sellers & Retailers",
     heroImage: "/product-ads/skincare.jpg",
-    heroImageAlt: "Skincare product in cinematic purple studio lighting for an AI video advertisement",
+    heroImageAlt:
+      "Skincare product in cinematic studio lighting for an AI promotional video",
+    heroVideo: "/product-ads/skincare.mp4",
   },
 
-  categories: [
-    {
-      id: "skincare",
-      label: "Skincare showcase",
-      image: "/product-ads/skincare.jpg",
-      imageAlt: "Skincare bottles in soft cinematic lighting",
-    },
-    {
-      id: "perfume",
-      label: "Luxury perfume",
-      image: "/product-ads/perfume.jpg",
-      imageAlt: "Luxury perfume bottle with golden highlights",
-    },
-    {
-      id: "fashion",
-      label: "Fashion lifestyle",
-      image: "/product-ads/fashion.jpg",
-      imageAlt: "Fashion lifestyle product in a styled shoot",
-    },
-    {
-      id: "gadget",
-      label: "Electronics",
-      image: "/product-ads/gadget.jpg",
-      imageAlt: "Consumer electronics product highlight",
-    },
-    {
-      id: "offer",
-      label: "Offer campaign",
-      image: "/product-ads/offer.jpg",
-      imageAlt: "Promotional offer campaign visual",
-    },
-  ] as const,
-
-  services: {
-    id: "services",
-    label: "Services we offer",
-    title: "Services we offer",
-    items: [
+  problem: {
+    id: "problem",
+    title: "Ordinary Photos Get Scrolled Past. Motion Gets Noticed.",
+    description:
+      "Buyers skim feeds in seconds. A static packshot rarely stops the thumb. AI promotional videos put your product in motion — with lighting, camera moves, and polish that feel like a studio shoot.",
+    benefits: [
       {
-        title: "AI Product Showcase Videos",
+        title: "Stand Out",
         description:
-          "Cinematic lighting, professional backgrounds, attractive camera movements, and premium product displays.",
+          "Premium, product-first visuals that look intentional next to everyday static posts.",
       },
       {
-        title: "Product Features & Benefits Videos",
+        title: "In Motion",
         description:
-          "Features, USPs, benefits, and clear product demonstrations that help customers decide.",
+          "Subtle movement and reveals that show texture, form, and detail photos alone miss.",
       },
       {
-        title: "Creative Product Advertisement Videos",
+        title: "Scroll-Stopping",
         description:
-          "Transform product images into commercial ads with AI scenes, models, and storytelling.",
-      },
-      {
-        title: "Creative Promotional & Offer Videos",
-        description:
-          "Discounts, seasonal campaigns, limited-time deals, and strong calls to action.",
+          "Short, focused clips built for feeds, Reels, and product pages where attention is scarce.",
       },
     ],
   },
 
-  showcase: {
-    id: "showcase",
-    title: "Have a product business? Let's create an advertisement that stands out!",
-  },
-
-  samples: {
-    id: "samples",
-    label: "Sample videos",
-    title: "Sample videos",
-    subtitle:
-      "Short 9:16 sample clips of AI product advertisements. Swipe on a phone, or play any film on desktop.",
-    swipeHint: "Swipe sideways for every sample.",
-    videos: [
+  styles: {
+    id: "styles",
+    label: "Video styles",
+    title: "Choose a Look That Fits Your Product",
+    subtitle: "Four studio-ready styles. Pick one that matches your brand, then tell us about your product.",
+    items: [
       {
         id: "skincare",
-        title: "Skincare showcase",
-        src: "/product-ads/skincare.mp4",
+        title: "Skincare",
+        description: "Soft light, clean textures, and calm, premium beauty framing.",
+        image: "/product-ads/skincare.jpg",
+        imageAlt: "Skincare bottles in soft cinematic lighting",
+        video: "/product-ads/skincare.mp4",
         poster: "/product-ads/skincare-poster.jpg",
+        cta: "Explore This Style",
       },
       {
         id: "perfume",
-        title: "Luxury perfume",
-        src: "/product-ads/perfume.mp4",
+        title: "Perfume",
+        description: "Luxury highlights, glass reflections, and fragrance-led atmosphere.",
+        image: "/product-ads/perfume.jpg",
+        imageAlt: "Luxury perfume bottle with golden highlights",
+        video: "/product-ads/perfume.mp4",
         poster: "/product-ads/perfume-poster.jpg",
+        cta: "Explore This Style",
       },
       {
-        id: "gadget",
+        id: "electronics",
         title: "Electronics",
-        src: "/product-ads/gadget.mp4",
+        description: "Sharp edges, tech glow, and crisp gadget product focus.",
+        image: "/product-ads/gadget.jpg",
+        imageAlt: "Consumer electronics product highlight",
+        video: "/product-ads/gadget.mp4",
         poster: "/product-ads/gadget-poster.jpg",
+        cta: "Explore This Style",
       },
       {
-        id: "offer",
-        title: "Offer campaign",
-        src: "/product-ads/offer.mp4",
-        poster: "/product-ads/offer-poster.jpg",
-      },
-      {
-        id: "fashion",
-        title: "Fashion lifestyle",
-        src: "/product-ads/fashion.mp4",
+        id: "lifestyle",
+        title: "Lifestyle",
+        description: "Fashion and everyday products in styled, real-world moments.",
+        image: "/product-ads/fashion.jpg",
+        imageAlt: "Fashion lifestyle product in a styled shoot",
+        video: "/product-ads/fashion.mp4",
         poster: "/product-ads/fashion-poster.jpg",
+        cta: "Explore This Style",
       },
     ],
   },
 
-  cta: {
-    id: "cta",
-    title: "Have a product business? Let's create an advertisement that stands out!",
-    body: "Tell us the product and the kind of advertisement you need. Our team will contact you with the next step.",
-    bullets: [
-      "Cinematic product showcase videos.",
-      "Feature and benefit films.",
-      "Creative advertisements from product images.",
-      "Offer and seasonal campaign videos.",
+  process: {
+    id: "how-it-works",
+    label: "How it works",
+    title: "Three Simple Steps",
+    steps: [
+      {
+        title: "Share Your Product",
+        body: "Send clear product photos and a short brief through the form — category, brand tone, and any must-show details.",
+      },
+      {
+        title: "We Create Your AI Video",
+        body: "Our studio crafts a promotional product video matched to your chosen style and product category.",
+      },
+      {
+        title: "Review & Publish",
+        body: "You receive your video ready to use on ads, Reels, WhatsApp, and your product pages.",
+      },
     ],
-    whatsappLabel: "Prefer WhatsApp?",
-    whatsappCta: "Open a chat",
+  },
+
+  pricing: {
+    id: "pricing",
+    label: "Pricing",
+    title: "Simple, Transparent Pricing",
+    price: "₹1,499",
+    unit: "/ Video",
+    benefits: [
+      "One AI promotional product video",
+      "Cinematic, product-focused visuals",
+      "Style matched to your category",
+      "Ready for social ads and product pages",
+      "Direct follow-up from our team after enquiry",
+    ],
+    cta: "Get My AI Video for ₹1,499",
   },
 
   enquiry: {
     id: "enquiry",
-    label: "Enquiry",
-    title: "Tell us about your product",
+    label: "Get started",
+    title: "Tell Us About Your Product",
     subtitle:
-      "Share your product and the kind of ad you need. Submit opens WhatsApp with your details — our team replies with next steps.",
-    formSubmitCta: "Create My Ad Video",
-    footnote:
-      "We don't store form data on this website. If WhatsApp didn't open, nothing was sent — try again or email us directly.",
-    messagePlaceholder:
-      "Product name, category, and the style of advertisement you want (showcase, features, offer campaign, etc.)",
+      "Share a few details. We’ll review your enquiry and follow up with next steps — no payment on this page.",
+    formSubmitCta: "Get My AI Video for ₹1,499",
+    consent:
+      "By submitting, you agree to be contacted by RevGenPro Solutions about your AI product video enquiry via WhatsApp or email.",
+    categories: [
+      "Skincare & Cosmetics",
+      "Perfume & Fragrance",
+      "Electronics & Gadgets",
+      "Fashion & Lifestyle",
+      "Food & Beverages",
+      "Other",
+    ] as const,
   },
 
-  contact: {
-    id: "contact",
-    label: "Contact",
-    title: "Contact",
+  faqs: [
+    {
+      question: "What do I get for ₹1,499?",
+      answer:
+        "One AI promotional product video focused on your product, crafted in a style that fits your category. Exact creative direction is confirmed after we review your photos and brief.",
+    },
+    {
+      question: "What do I need to provide?",
+      answer:
+        "Clear product photos, your business name, and a short description of the product and look you want. Optional: brand colours, logo, or reference examples.",
+    },
+    {
+      question: "Which products work best?",
+      answer:
+        "Physical products that photograph well — skincare, perfume, electronics, fashion, food & beverages, and similar retail items. Share your category in the form and we’ll confirm fit.",
+    },
+    {
+      question: "How does ordering work?",
+      answer:
+        "Submit the enquiry form on this page. Our team reviews your details and contacts you on WhatsApp or email with next steps. There is no payment collected on this website.",
+    },
+    {
+      question: "Is ₹1,499 a subscription?",
+      answer:
+        "No. ₹1,499 is the listed price per promotional product video. Additional videos are priced the same unless you agree a different scope with our team.",
+    },
+  ],
+
+  finalCta: {
+    id: "final-cta",
+    title: "Ready to Turn Your Product Into an AI Video?",
+    body: "Start with one video at ₹1,499. Tell us about your product and we’ll take it from there.",
+    cta: "Create My AI Product Video",
+  },
+
+  footer: {
+    serviceLine: "AI Promotional Product Videos",
   },
 } as const;
 
-export type ProductCategory = (typeof productAdsContent.categories)[number];
-export type ProductSampleVideo = (typeof productAdsContent.samples.videos)[number];
+export type ProductStyle = (typeof productAdsContent.styles.items)[number];
+export type ProductCategoryOption = (typeof productAdsContent.enquiry.categories)[number];

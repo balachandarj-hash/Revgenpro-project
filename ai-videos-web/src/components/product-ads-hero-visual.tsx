@@ -1,121 +1,115 @@
+"use client";
+
 import Image from "next/image";
-import { productAdsContent, type ProductCategory } from "@/lib/product-ads-content";
+import { useEffect, useRef, useState } from "react";
+import { productAdsContent } from "@/lib/product-ads-content";
 
-const chipPlacement: Record<
-  ProductCategory["id"],
-  { className: string; animation?: string }
-> = {
-  skincare: {
-    className:
-      "left-[-2%] top-[6%] w-[38%] -rotate-[6deg] max-sm:left-[0%] max-sm:top-[8%] max-sm:w-[36%]",
+const showcase = [
+  {
+    id: "skincare",
+    label: "Skincare",
+    image: "/product-ads/skincare.jpg",
+    video: "/product-ads/skincare.mp4",
+    poster: "/product-ads/skincare-poster.jpg",
+    alt: "Skincare product cinematic showcase",
+    className: "left-[2%] top-[8%] w-[34%] -rotate-[5deg]",
     animation: "studio-float",
   },
-  perfume: {
-    className:
-      "right-[-4%] top-[14%] w-[34%] rotate-[8deg] max-sm:right-[0%] max-sm:top-[18%] max-sm:w-[32%]",
+  {
+    id: "perfume",
+    label: "Perfume",
+    image: "/product-ads/perfume.jpg",
+    video: "/product-ads/perfume.mp4",
+    poster: "/product-ads/perfume-poster.jpg",
+    alt: "Perfume bottle cinematic showcase",
+    className: "right-[2%] top-[16%] w-[32%] rotate-[6deg]",
     animation: "studio-float-delayed",
   },
-  fashion: {
-    className:
-      "bottom-[2%] right-[-2%] w-[36%] rotate-[4deg] max-sm:bottom-[6%] max-sm:right-[0%] max-sm:w-[34%]",
-    animation: "studio-float-delayed",
-  },
-  gadget: {
-    className:
-      "bottom-[8%] left-[4%] w-[32%] -rotate-[5deg] max-sm:bottom-[10%] max-sm:left-[2%] max-sm:w-[30%]",
+  {
+    id: "electronics",
+    label: "Electronics",
+    image: "/product-ads/gadget.jpg",
+    video: "/product-ads/gadget.mp4",
+    poster: "/product-ads/gadget-poster.jpg",
+    alt: "Electronics product cinematic showcase",
+    className: "bottom-[4%] left-[18%] w-[36%] -rotate-[2deg]",
     animation: "studio-float",
   },
-  offer: {
-    className:
-      "left-[22%] top-[-2%] w-[30%] rotate-[3deg] max-sm:left-[18%] max-sm:top-[0%] max-sm:w-[28%]",
-    animation: "studio-float",
-  },
-};
-
-function CategoryChip({
-  category,
-  className = "",
-  animation,
-}: {
-  category: ProductCategory;
-  className?: string;
-  animation?: string;
-}) {
-  return (
-    <div
-      className={[
-        "studio-glass absolute overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_40px_rgba(9,13,36,0.45)]",
-        animation,
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
-    >
-      <Image
-        src={category.image}
-        alt={category.imageAlt}
-        width={400}
-        height={500}
-        className="aspect-[4/5] w-full object-cover"
-        sizes="(max-width: 640px) 34vw, 30vw"
-      />
-      <p className="truncate px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/90 sm:px-3 sm:py-2 sm:text-[11px]">
-        {category.label}
-      </p>
-    </div>
-  );
-}
+] as const;
 
 export function ProductAdsHeroVisual() {
-  const floatingIds = ["skincare", "perfume", "fashion"] as const;
-  const floating = productAdsContent.categories.filter((c) =>
-    (floatingIds as readonly string[]).includes(c.id),
-  );
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [useVideo, setUseVideo] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      setUseVideo(false);
+      return;
+    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = async () => {
+      try {
+        video.muted = true;
+        await video.play();
+        setUseVideo(true);
+      } catch {
+        setUseVideo(false);
+      }
+    };
+    void tryPlay();
+  }, []);
 
   return (
     <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-      <div className="relative aspect-[4/3] min-h-[280px] overflow-visible rounded-3xl border border-white/10 shadow-[0_24px_60px_rgba(9,13,36,0.45)] max-sm:pb-6 sm:min-h-[340px]">
+      <div className="relative aspect-[4/3] min-h-[280px] overflow-hidden rounded-3xl border border-white/10 shadow-[0_28px_70px_rgba(0,0,0,0.45)] sm:min-h-[340px]">
         <Image
           src={productAdsContent.hero.heroImage}
           alt={productAdsContent.hero.heroImageAlt}
           fill
           priority
-          className="rounded-3xl object-cover"
+          className={`rounded-3xl object-cover transition-opacity duration-700 ${useVideo ? "opacity-0" : "opacity-100"}`}
           sizes="(max-width: 1024px) 100vw, 42vw"
         />
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#090D24]/55 to-transparent" />
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 h-full w-full rounded-3xl object-cover transition-opacity duration-700 ${useVideo ? "opacity-100" : "opacity-0"}`}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={productAdsContent.hero.heroImage}
+          aria-label="Muted cinematic product video showcase"
+        >
+          <source src={productAdsContent.hero.heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#111113]/75 via-transparent to-[#111113]/25" />
 
-        {floating.map((category) => {
-          const placement = chipPlacement[category.id];
-          return (
-            <CategoryChip
-              key={category.id}
-              category={category}
-              className={placement.className}
-              animation={placement.animation}
+        {showcase.map((item) => (
+          <div
+            key={item.id}
+            className={[
+              "studio-glass absolute overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.45)]",
+              item.animation,
+              item.className,
+            ].join(" ")}
+          >
+            <Image
+              src={item.image}
+              alt={item.alt}
+              width={360}
+              height={450}
+              className="aspect-[4/5] w-full object-cover"
+              sizes="(max-width: 640px) 32vw, 28vw"
             />
-          );
-        })}
-      </div>
-
-      <ul className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5">
-        {productAdsContent.categories.map((category) => (
-          <li key={category.id}>
-            <span className="studio-glass inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-white/85">
-              <span className="relative h-6 w-6 overflow-hidden rounded-full">
-                <Image
-                  src={category.image}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="24px"
-                />
-              </span>
-              {category.label}
-            </span>
-          </li>
+            <p className="truncate px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/90 sm:px-3 sm:py-2 sm:text-[11px]">
+              {item.label}
+            </p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

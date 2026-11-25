@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { brand } from "@/lib/brand";
-import { siteContent } from "@/lib/site-content";
+import { productAdsContent } from "@/lib/product-ads-content";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
 });
 
-const { seo } = siteContent;
+const { seo } = productAdsContent;
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     description: seo.ogDescription,
     images: [
       {
-        url: siteContent.hero.image,
+        url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: siteContent.hero.imageAlt,
+        alt: productAdsContent.hero.heroImageAlt,
       },
     ],
   },
@@ -45,12 +45,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seo.ogTitle,
     description: seo.ogDescription,
-    images: [siteContent.hero.image],
+    images: [seo.ogImage],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090D24",
+  themeColor: "#111113",
 };
 
 export default function RootLayout({
@@ -60,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN" data-scroll-behavior="smooth" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-[#090D24] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
+      <body className="flex min-h-full flex-col bg-[#111113] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
         {children}
       </body>
     </html>

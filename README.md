@@ -1,9 +1,10 @@
 # Revgenpro-project
 
-AI Trending Videos landing app for **RevGenPro Solutions**.
+AI Promotional Product Video landing app for **RevGenPro Solutions Pvt Ltd**.
 
 - **Live URL:** https://ai-videos.apps.grok.bot/
-- **Source app:** `ai-videos-web/` (Next.js)
+- **Source app:** `ai-videos-web/` (Next.js 15 + Tailwind)
+- **Offer:** AI Promotional Product Videos at **₹1,499 / video**
 
 ## Development
 
@@ -13,6 +14,6 @@ npm install
 npm run dev -- --port 3458 --hostname 127.0.0.1
 ```
 
-## Recent change
+## Lead form
 
-Landing page promotes **Complete Online Presence (₹14,999)** with 10 conversion sections, lead form (Indian mobile validation), FAQ accordion, sticky header / mobile bottom CTA, and SEO Open Graph tags. WhatsApp number is configured in `ai-videos-web/src/lib/brand.ts` (`whatsapp.phoneDigits`).
+Enquiries `POST` to `/api/leads` for server-side validation. The handler returns a WhatsApp handoff URL for the team; it is structured for a future CRM integration (no fake client-side save).
