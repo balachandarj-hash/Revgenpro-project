@@ -2,8 +2,15 @@ export const brand = {
   legalName: "RevGenPro Solutions Pvt Ltd",
   name: "RevGenPro",
   description:
-    "RevGenPro Solutions is a digital branding and digital marketing agency in Hosur, Tamil Nadu.",
-  location: { locality: "Hosur", region: "Tamil Nadu", country: "India" },
+    "RevGenPro Solutions is a digital branding and digital marketing agency in Chennai, Tamil Nadu.",
+  location: {
+    locality: "Madipakkam, Chennai",
+    region: "Tamil Nadu",
+    country: "India",
+    postalCode: "600091",
+    fullAddress:
+      "No.5, MSP Complex, F-3, Medavakkam Main Rd, opposite Kumaran Theatre, Vigneshwar Nagar, Balaji Nagar, Madipakkam, Chennai, Tamil Nadu 600091",
+  },
   logoSrc: "/brand/revgenpro-logo.png",
   logoOnDarkSrc: "/brand/revgenpro-logo-on-dark.png",
   /** Round quadrant mark — used for favicon / browser tab */
@@ -11,8 +18,9 @@ export const brand = {
   faviconSrc: "/favicon.ico",
   faviconPngSrc: "/brand/favicon-32x32.png",
   contact: {
-    email: "Info@revgenprosolutions.com",
+    email: "info@revgenprosolutions.com",
     phoneDisplay: "+91 70104 42618",
+    phoneHref: "tel:+917010442618",
   },
   /** Change phoneDigits only here — all WhatsApp links use this value. */
   whatsapp: {
