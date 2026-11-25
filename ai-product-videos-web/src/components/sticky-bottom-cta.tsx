@@ -8,7 +8,7 @@ export function StickyBottomCta() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#0b1024]/95 px-4 py-3 backdrop-blur-md md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#E8DFD2] bg-[#F7F2EA]/95 px-4 py-3 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="mx-auto flex max-w-lg gap-2">

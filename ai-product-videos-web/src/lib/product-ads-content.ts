@@ -6,7 +6,7 @@ export const productAdsContent = {
     "Hi RevGenPro, I want to create an AI product ad video for ₹1,499. Please share next steps.",
 
   header: {
-    cta: "Create My Ad Video",
+    cta: "Create My AI Product Video",
     whatsappCta: "WhatsApp Chat",
     nav: [
       { href: "#top", label: "Home" },
@@ -16,7 +16,7 @@ export const productAdsContent = {
     ] as const,
   },
   stickyBar: {
-    enquiryCta: "Create My Ad Video",
+    enquiryCta: "Create My AI Product Video",
   },
 
   seo: {
@@ -38,9 +38,10 @@ export const productAdsContent = {
     description:
       "Turn your products into stunning AI-powered video ads with cinematic visuals and storytelling that make customers want to know more.",
     priceLabel: "Professional AI Video Creation Starting at Just",
-    primaryCta: "Create My Ad Video",
+    primaryCta: "Create My AI Product Video",
     secondaryCta: "Watch Video Samples",
     supportLine: "Have a product business? Let's create an advertisement that stands out!",
+    showcaseLabel: "Luxury advertising studio",
   },
 
   services: {
@@ -171,7 +172,7 @@ export const productAdsContent = {
     title: "Tell Us About Your Product",
     subtitle:
       "Share a few details. We’ll review your enquiry and follow up with next steps — no payment on this page.",
-    formSubmitCta: "Create My Ad Video",
+    formSubmitCta: "Create My AI Product Video",
     consent:
       "By submitting, you agree to be contacted by RevGenPro Solutions about your AI product video enquiry via WhatsApp or email.",
     categories: [
