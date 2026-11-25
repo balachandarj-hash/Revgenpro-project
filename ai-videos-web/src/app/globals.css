@@ -51,6 +51,14 @@ body {
   background: #2563eb;
 }
 
+.studio-orb-violet {
+  width: 280px;
+  height: 280px;
+  right: 15%;
+  bottom: 10%;
+  background: #4c1d95;
+}
+
 @keyframes studio-float {
   0%,
   100% {
