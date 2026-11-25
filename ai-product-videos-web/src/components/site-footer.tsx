@@ -184,18 +184,14 @@ export function SiteFooter() {
                 href={brand.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+                aria-label="Open RevGenPro on Facebook"
+                className="inline-flex items-center gap-3 rounded-lg py-0.5 transition hover:opacity-80"
               >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center">
                   <FacebookIcon />
                 </span>
-                <span>
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
-                    Facebook
-                  </span>
-                  <span className="font-medium text-[#1A1410] underline underline-offset-2">
-                    facebook.com/revgenpro
-                  </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#C2185B]">
+                  Facebook
                 </span>
               </a>
             </li>
@@ -204,18 +200,14 @@ export function SiteFooter() {
                 href={brand.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+                aria-label="Open RevGenPro on Instagram"
+                className="inline-flex items-center gap-3 rounded-lg py-0.5 transition hover:opacity-80"
               >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center">
                   <InstagramIcon />
                 </span>
-                <span>
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
-                    Instagram
-                  </span>
-                  <span className="font-medium text-[#1A1410] underline underline-offset-2">
-                    @revgenpro_crm
-                  </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#C2185B]">
+                  Instagram
                 </span>
               </a>
             </li>
