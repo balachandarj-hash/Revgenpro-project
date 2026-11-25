@@ -192,6 +192,11 @@ export const productAdsContent = {
   ],
 
   footer: {
-    serviceLine: "AI Product Video Studio",
+    workLabel: "Work",
+    workLine: "Product Selling & Promotional Videos.",
+    contactLabel: "Contact",
+    policiesLabel: "Policies",
+    privacyLabel: "Privacy Policy.",
+    whatsappLabel: "Chat with us",
   },
 } as const;

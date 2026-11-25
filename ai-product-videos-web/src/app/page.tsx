@@ -5,6 +5,7 @@ import { EnquiryFormSection } from "@/components/enquiry-form-section";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { LuxuryProductStage } from "@/components/luxury-product-stage";
 import { SampleVideosCarousel } from "@/components/sample-videos-carousel";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -39,9 +40,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const year = new Date().getFullYear();
   const wa = whatsappUrl(productAdsContent.whatsappPrefill);
-  const { hero, categories, styles, samples, process, pricing, enquiry, faqs, footer, price } =
+  const { hero, categories, styles, samples, process, pricing, enquiry, faqs, price } =
     productAdsContent;
 
   return (
@@ -282,22 +282,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-[#E8DFD2] bg-[#FBF7F0] px-4 py-10 text-center sm:px-6 md:px-10">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3">
-          <Image
-            src={brand.logoSrc}
-            alt={brand.name}
-            width={168}
-            height={42}
-            className="h-9 w-auto sm:h-10"
-          />
-          <p className="text-sm font-semibold text-[#1A1410]">{brand.legalName}</p>
-          <p className="text-sm text-[#6B5A48]">{footer.serviceLine}</p>
-          <p className="mt-2 text-xs text-[#8A735C]">
-            © {year} {brand.legalName}. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <WhatsAppFloat />
       <StickyBottomCta />
