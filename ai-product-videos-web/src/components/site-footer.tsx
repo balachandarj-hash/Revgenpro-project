@@ -83,27 +83,21 @@ export function SiteFooter() {
   const wa = whatsappUrl(productAdsContent.whatsappPrefill);
 
   return (
-    <footer className="relative z-10 border-t border-[#1B2744] bg-[#0B1B3A] px-4 py-12 text-white sm:px-6 md:px-10 md:py-14">
+    <footer className="relative z-10 border-t border-[#E8DFD2] bg-[#FBF7F0] px-4 py-12 text-[#1A1410] sm:px-6 md:px-10 md:py-14">
       <div className="mx-auto grid max-w-[1440px] gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {/* Brand + location */}
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src={brand.logoMarkSrc}
-              alt=""
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-full"
+              src={brand.logoSrc}
+              alt={brand.name}
+              width={168}
+              height={42}
+              className="h-9 w-auto sm:h-10"
             />
-            <div className="leading-tight">
-              <p className="text-lg font-bold tracking-tight text-[#F5A3C7]">{brand.name}</p>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
-                Solutions
-              </p>
-            </div>
           </div>
-          <div className="mt-5 flex items-start gap-2 text-sm leading-relaxed text-white/90">
-            <span className="text-[#F472B6]">
+          <div className="mt-5 flex items-start gap-2 text-sm leading-relaxed text-[#2A1F16]">
+            <span className="text-[#8A735C]">
               <PinIcon />
             </span>
             <p>{brand.location.fullAddress}</p>
@@ -112,11 +106,11 @@ export function SiteFooter() {
 
         {/* Work */}
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#F472B6]">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#6B5544]">
             {footer.workLabel}
           </h2>
-          <div className="mt-4 flex items-start gap-2 text-sm text-white/90">
-            <span className="text-[#F472B6]">
+          <div className="mt-4 flex items-start gap-2 text-sm text-[#2A1F16]">
+            <span className="text-[#8A735C]">
               <ClapperIcon />
             </span>
             <p>{footer.workLine}</p>
@@ -125,106 +119,116 @@ export function SiteFooter() {
 
         {/* Contact */}
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#F472B6]">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#6B5544]">
             {footer.contactLabel}
           </h2>
           <ul className="mt-4 space-y-3.5 text-sm">
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#0B1B3A]">
-                <MailIcon />
-              </span>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F472B6]">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${brand.contact.email}`}
-                  className="text-white/95 underline-offset-2 hover:underline"
-                >
-                  {brand.contact.email}
-                </a>
-              </div>
+            <li>
+              <a
+                href={`mailto:${brand.contact.email}`}
+                className="flex items-start gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+              >
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#E8DFD2] text-[#1A1410]">
+                  <MailIcon />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
+                    Email
+                  </span>
+                  <span className="font-medium text-[#1A1410] underline-offset-2 hover:underline">
+                    {brand.contact.email}
+                  </span>
+                </span>
+              </a>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#0B1B3A]">
-                <PhoneIcon />
-              </span>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F472B6]">
-                  Phone
-                </p>
-                <a
-                  href={brand.contact.phoneHref}
-                  className="text-white/95 underline-offset-2 hover:underline"
-                >
-                  {brand.contact.phoneDisplay}
-                </a>
-              </div>
+            <li>
+              <a
+                href={brand.contact.phoneHref}
+                className="flex items-start gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+              >
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#E8DFD2] text-[#1A1410]">
+                  <PhoneIcon />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
+                    Phone
+                  </span>
+                  <span className="font-medium text-[#1A1410] underline-offset-2 hover:underline">
+                    {brand.contact.phoneDisplay}
+                  </span>
+                </span>
+              </a>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center">
-                <WhatsAppIcon />
-              </span>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F472B6]">
-                  WhatsApp
-                </p>
-                <a
-                  href={wa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/95 underline-offset-2 hover:underline"
-                >
-                  {footer.whatsappLabel}
-                </a>
-              </div>
+            <li>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+              >
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center">
+                  <WhatsAppIcon />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
+                    WhatsApp
+                  </span>
+                  <span className="font-medium text-[#1A1410] underline-offset-2 hover:underline">
+                    {footer.whatsappLabel}
+                  </span>
+                </span>
+              </a>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center">
-                <FacebookIcon />
-              </span>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F472B6]">
-                  Facebook
-                </p>
-                <a
-                  href={brand.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/95 underline-offset-2 hover:underline"
-                >
-                  facebook.com/revgenpro
-                </a>
-              </div>
+            <li>
+              <a
+                href={brand.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center">
+                  <FacebookIcon />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
+                    Facebook
+                  </span>
+                  <span className="font-medium text-[#1A1410] underline underline-offset-2">
+                    facebook.com/revgenpro
+                  </span>
+                </span>
+              </a>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center">
-                <InstagramIcon />
-              </span>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F472B6]">
-                  Instagram
-                </p>
-                <a
-                  href={brand.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/95 underline-offset-2 hover:underline"
-                >
-                  @revgenpro_crm
-                </a>
-              </div>
+            <li>
+              <a
+                href={brand.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-lg transition hover:bg-[#F0E4D2]/70"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center">
+                  <InstagramIcon />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B5544]">
+                    Instagram
+                  </span>
+                  <span className="font-medium text-[#1A1410] underline underline-offset-2">
+                    @revgenpro_crm
+                  </span>
+                </span>
+              </a>
             </li>
           </ul>
         </div>
 
         {/* Policies */}
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#F472B6]">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#6B5544]">
             {footer.policiesLabel}
           </h2>
-          <div className="mt-4 flex items-start gap-2 text-sm text-white/90">
-            <span className="text-[#F472B6]">
+          <div className="mt-4 flex items-start gap-2 text-sm text-[#2A1F16]">
+            <span className="text-[#8A735C]">
               <ShieldIcon />
             </span>
             <p>{footer.privacyLabel}</p>
@@ -232,7 +236,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <p className="mx-auto mt-10 max-w-[1440px] border-t border-white/10 pt-6 text-center text-xs text-white/55">
+      <p className="mx-auto mt-10 max-w-[1440px] border-t border-[#E8DFD2] pt-6 text-center text-xs text-[#8A735C]">
         © {year} {brand.legalName}. All rights reserved.
       </p>
     </footer>
