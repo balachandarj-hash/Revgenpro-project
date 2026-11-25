@@ -21,18 +21,14 @@ export function EnquiryFormSection() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#121833]/90 p-6 shadow-[0_28px_80px_rgba(236,0,140,0.18)] sm:p-8">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#EC008C]/25 blur-3xl"
-      />
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#FF4DB8]">
+    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#E8DFD2] bg-[#FFFCF7] p-6 shadow-[0_20px_50px_rgba(58,42,20,0.08)] sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8A735C]">
         {productAdsContent.enquiry.label}
       </p>
-      <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[#1A1410] sm:text-4xl">
         {productAdsContent.enquiry.title}
       </h2>
-      <p className="mt-2 text-sm text-white/70">{productAdsContent.enquiry.subtitle}</p>
+      <p className="mt-2 text-sm text-[#5C4A3A]">{productAdsContent.enquiry.subtitle}</p>
       <div className="relative mt-6">
         <ProductLeadForm key={formKey} preferredStyle={preferredStyle} />
       </div>
