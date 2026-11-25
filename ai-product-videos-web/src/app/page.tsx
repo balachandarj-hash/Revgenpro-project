@@ -234,7 +234,7 @@ export default function HomePage() {
               <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-[2.35rem]">
                 {pricing.title}
               </h2>
-              <div className="mt-5 w-full text-center lg:text-left">
+              <div className="mt-5 w-full text-center">
                 <p className="font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
                   {pricing.amount}
                 </p>
