@@ -9,7 +9,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-[#E8DFD2] rounded-2xl border border-[#E8DFD2] bg-[#FFFCF7]">
+    <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-[#111936]/60">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const panelId = `${baseId}-panel-${index}`;
@@ -21,7 +21,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
               <button
                 id={buttonId}
                 type="button"
-                className="flex w-full items-center justify-between gap-3 py-4 text-left text-sm font-semibold text-[#2C241C] sm:text-base"
+                className="flex w-full items-center justify-between gap-3 py-4 text-left text-sm font-semibold sm:text-base"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -29,7 +29,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
                 {item.question}
                 <span
                   aria-hidden
-                  className={`shrink-0 text-lg text-[#C4006A] transition-transform ${isOpen ? "rotate-45" : ""}`}
+                  className={`shrink-0 text-lg text-[#C4B5FD] transition-transform ${isOpen ? "rotate-45" : ""}`}
                 >
                   +
                 </span>
@@ -40,7 +40,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
               role="region"
               aria-labelledby={buttonId}
               hidden={!isOpen}
-              className="pb-4 text-sm leading-relaxed text-[#5C4E40]"
+              className="pb-4 text-sm leading-relaxed text-white/75"
             >
               {item.answer}
             </div>
