@@ -21,7 +21,7 @@ export const productAdsContent = {
       "Premium AI product video studio. Skincare, perfume, electronics, and lifestyle styles from ₹1,499 per video.",
     ogImage: "/product-ads/skincare.jpg",
     siteUrl: "https://ai-videos.apps.grok.bot/",
-    path: "/",
+    path: "/product-advertisements",
   },
 
   hero: {

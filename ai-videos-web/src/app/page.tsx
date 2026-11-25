@@ -1,264 +1,360 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-import { EnquiryFormSection } from "@/components/enquiry-form-section";
 import { FaqAccordion } from "@/components/faq-accordion";
-import { ProductAdsHeroVisual } from "@/components/product-ads-hero-visual";
+import { HeroVisual } from "@/components/hero-visual";
+import { LeadForm } from "@/components/lead-form";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
-import { StyleExploreButton } from "@/components/style-explore-button";
-import { brand } from "@/lib/brand";
-import { productAdsContent } from "@/lib/product-ads-content";
+import { brand, whatsappUrl } from "@/lib/brand";
+import { siteContent } from "@/lib/site-content";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#A5B4FC]">{children}</p>
+    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#C4B5FD]">{children}</p>
   );
 }
 
-const primaryBtn =
-  "inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#7C3AED,#2563EB)] px-5 text-sm font-semibold shadow-[0_12px_32px_rgba(124,58,237,0.35)] transition hover:brightness-110";
-const secondaryBtn =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 text-sm font-semibold transition hover:border-white/35 hover:bg-white/10";
-
-export const metadata: Metadata = {
-  title: productAdsContent.seo.title,
-  description: productAdsContent.seo.description,
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: productAdsContent.seo.siteUrl,
-    siteName: brand.legalName,
-    title: productAdsContent.seo.ogTitle,
-    description: productAdsContent.seo.ogDescription,
-    images: [
-      {
-        url: productAdsContent.seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: productAdsContent.hero.heroImageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: productAdsContent.seo.ogTitle,
-    description: productAdsContent.seo.ogDescription,
-    images: [productAdsContent.seo.ogImage],
-  },
-};
-
 export default function HomePage() {
-  const year = new Date().getFullYear();
+  const wa = whatsappUrl(siteContent.whatsappPrefill);
 
   return (
     <div className="studio-page relative min-h-screen overflow-x-hidden text-white">
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <span className="studio-orb studio-orb-purple" />
+        <span className="studio-orb studio-orb-pink" />
         <span className="studio-orb studio-orb-blue" />
-        <span className="studio-orb studio-orb-violet" />
       </div>
 
       <SiteHeader />
 
-      <main id="top" className="relative z-10 scroll-mt-20">
+      <main id="home" className="relative z-10 scroll-mt-20">
         {/* 1 — Hero */}
-        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-8 px-5 py-8 md:gap-10 md:px-10 md:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-16">
+        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-6 px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A5B4FC]">
-              {productAdsContent.hero.label}
+            <p className="text-xs font-medium text-white/55">{siteContent.hero.eyebrow}</p>
+            <p className="mt-3 inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
+              {siteContent.hero.hook}
             </p>
-            <p className="mt-4 inline-flex max-w-full rounded-full border border-[#7C3AED]/40 bg-[#7C3AED]/15 px-3 py-1.5 text-[11px] font-semibold leading-snug text-[#EDE9FE] sm:text-xs">
-              {productAdsContent.hero.hook}
-            </p>
-            <h1 className="mt-4 text-[clamp(1.55rem,4.4vw,3rem)] font-semibold leading-[1.12] tracking-tight text-balance">
-              {productAdsContent.hero.headline}
+            <h1 className="mt-4 text-[clamp(1.35rem,4.2vw,2.75rem)] font-semibold leading-tight tracking-tight sm:text-balance sm:text-4xl lg:text-5xl">
+              <span className="sm:hidden">{siteContent.hero.headlineMobile}</span>
+              <span className="hidden sm:inline">{siteContent.hero.headline}</span>
             </h1>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/78 sm:text-base">
-              {productAdsContent.hero.description}
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mt-4 sm:text-base">
+              {siteContent.hero.description}
             </p>
-            <div className="studio-glass mt-5 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-[#7C3AED]/35 px-4 py-3 sm:rounded-full">
-              <span className="text-sm font-semibold text-[#C4B5FD] sm:text-base">
-                {productAdsContent.hero.priceHighlight}
+            <div className="studio-glass mt-4 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-white/15 px-4 py-2.5 sm:mt-5 sm:rounded-full">
+              <span className="text-xs font-medium text-white/70 sm:text-sm">
+                {siteContent.hero.priceLabel}
               </span>
+              <span className="text-3xl font-bold leading-none text-white sm:text-4xl">
+                {siteContent.price}
+              </span>
+              <span className="text-sm font-semibold text-[#C4B5FD]">{siteContent.priceUnit}</span>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#enquiry" className={primaryBtn}>
-                {productAdsContent.hero.primaryCta}
+              <a
+                href="#enquiry"
+                className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
+              >
+                {siteContent.hero.primaryCta}
               </a>
-              <a href="#styles" className={secondaryBtn}>
-                {productAdsContent.hero.secondaryCta}
+              <a
+                href="#value"
+                className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
+              >
+                {siteContent.hero.secondaryCta}
               </a>
             </div>
-            <p className="mt-5 text-sm text-white/55">{productAdsContent.hero.trustLine}</p>
           </div>
-          <ProductAdsHeroVisual />
+          <HeroVisual />
         </section>
 
-        {/* 2 — Problem / Solution */}
+        {/* 2 — Problem */}
         <section
-          id={productAdsContent.problem.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20"
+          id={siteContent.problem.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-[1440px]">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                {productAdsContent.problem.title}
+          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
+            <div>
+              <SectionLabel>{siteContent.problem.label}</SectionLabel>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                {siteContent.problem.title}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/75">
-                {productAdsContent.problem.description}
-              </p>
+              <p className="mt-4 max-w-xl text-white/75">{siteContent.problem.body}</p>
             </div>
-            <ul className="mt-10 grid gap-5 sm:grid-cols-3">
-              {productAdsContent.problem.benefits.map((benefit) => (
+            <ul className="mt-8 space-y-3 lg:mt-0">
+              {siteContent.problem.points.map((point) => (
                 <li
-                  key={benefit.title}
-                  className="studio-glass rounded-3xl border border-white/10 p-6 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:border-[#7C3AED]/35"
+                  key={point}
+                  className="studio-glass flex gap-3 rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/85"
                 >
-                  <h3 className="text-lg font-semibold text-[#EDE9FE]">{benefit.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">{benefit.description}</p>
+                  <span className="text-[#C4B5FD]" aria-hidden>
+                    —
+                  </span>
+                  {point}
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 3 — Video styles */}
+        {/* 3 — Awareness */}
         <section
-          id={productAdsContent.styles.id}
-          className="scroll-mt-28 bg-[#0c0c10]/80 px-5 py-14 md:px-10 md:py-20"
+          id={siteContent.awareness.id}
+          className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{productAdsContent.styles.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              {productAdsContent.styles.title}
+            <SectionLabel>{siteContent.awareness.label}</SectionLabel>
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold sm:text-4xl">
+              {siteContent.awareness.title}
             </h2>
-            <p className="mt-3 max-w-2xl text-white/70">{productAdsContent.styles.subtitle}</p>
-            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {productAdsContent.styles.items.map((style) => (
+            <p className="mt-4 max-w-2xl text-white/75">{siteContent.awareness.body}</p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {siteContent.awareness.points.map((point) => (
                 <li
-                  key={style.id}
-                  className="studio-glass group overflow-hidden rounded-3xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition hover:border-[#7C3AED]/40"
+                  key={point}
+                  className="rounded-2xl border border-[#9333EA]/25 bg-[#6D28D9]/10 px-4 py-4 text-sm text-white/85"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    <Image
-                      src={style.image}
-                      alt={style.imageAlt}
-                      fill
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111113]/80 to-transparent" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold">{style.title}</h3>
-                    <p className="mt-1.5 text-sm text-white/70">{style.description}</p>
-                    <div className="mt-4">
-                      <StyleExploreButton styleTitle={style.title} label={style.cta} />
-                    </div>
-                  </div>
+                  {point}
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 4 — How it works */}
+        {/* 4 — Solution */}
         <section
-          id={productAdsContent.process.id}
-          className="scroll-mt-28 px-5 py-14 md:px-10 md:py-20"
+          id={siteContent.solution.id}
+          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+            <div>
+              <SectionLabel>{siteContent.solution.label}</SectionLabel>
+              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.solution.title}</h2>
+              <p className="mt-4 text-white/75">{siteContent.solution.body}</p>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[#25D366]/50 px-5 text-sm font-semibold text-[#86EFAC]"
+              >
+                Chat on WhatsApp
+              </a>
+            </div>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0">
+              {siteContent.solution.highlights.map((item) => (
+                <li
+                  key={item}
+                  className="studio-glass rounded-2xl border border-white/10 p-4 text-sm text-white/85"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 5 — Value */}
+        <section
+          id={siteContent.value.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{productAdsContent.process.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.process.title}</h2>
-            <ol className="mt-10 grid gap-5 md:grid-cols-3">
-              {productAdsContent.process.steps.map((step, index) => (
+            <SectionLabel>{siteContent.value.label}</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.value.title}</h2>
+            <p className="mt-3 max-w-2xl text-white/70">{siteContent.value.subtitle}</p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {siteContent.value.deliverables.map((item) => (
+                <li
+                  key={item.title}
+                  className="studio-glass rounded-3xl border border-white/10 p-5 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
+                >
+                  <h3 className="text-base font-semibold text-[#EDE9FE]">{item.title}</h3>
+                  <p className="mt-2 text-sm text-white/75">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 6 — Process */}
+        <section
+          id={siteContent.process.id}
+          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-[1440px]">
+            <SectionLabel>{siteContent.process.label}</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold">{siteContent.process.title}</h2>
+            <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {siteContent.process.steps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="studio-glass relative rounded-3xl border border-white/10 p-6"
+                  className="studio-glass relative rounded-3xl border border-white/10 p-5"
                 >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7C3AED]/25 text-sm font-bold text-[#DDD6FE]">
-                    {index + 1}
-                  </span>
-                  <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">{step.body}</p>
+                  <span className="text-xs font-bold text-[#C4B5FD]">Step {index + 1}</span>
+                  <h3 className="mt-2 font-semibold">{step.title}</h3>
+                  <p className="mt-2 text-sm text-white/75">{step.body}</p>
                 </li>
               ))}
             </ol>
           </div>
         </section>
 
-        {/* 5 — Pricing */}
+        {/* 7 — Portfolio / creative proof */}
         <section
-          id={productAdsContent.pricing.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20"
+          id={siteContent.portfolio.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10"
         >
-          <div className="mx-auto max-w-xl text-center">
-            <SectionLabel>{productAdsContent.pricing.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold">{productAdsContent.pricing.title}</h2>
-            <div className="studio-glass mt-8 rounded-3xl border border-[#7C3AED]/35 p-8 shadow-[0_24px_60px_rgba(124,58,237,0.22)]">
-              <p className="flex items-baseline justify-center gap-2">
-                <span className="text-5xl font-bold tracking-tight">{productAdsContent.pricing.price}</span>
-                <span className="text-lg font-semibold text-[#A5B4FC]">
-                  {productAdsContent.pricing.unit}
-                </span>
-              </p>
-              <ul className="mt-6 space-y-3 text-left">
-                {productAdsContent.pricing.benefits.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm text-white/80">
-                    <span className="mt-0.5 text-[#A5B4FC]" aria-hidden>
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#enquiry" className={`${primaryBtn} mt-8 w-full sm:w-auto`}>
-                {productAdsContent.pricing.cta}
+          <SectionLabel>{siteContent.portfolio.label}</SectionLabel>
+          <h2 className="mt-3 text-3xl font-semibold">{siteContent.portfolio.title}</h2>
+          <p className="mt-3 max-w-2xl text-white/75">{siteContent.portfolio.subtitle}</p>
+          <ul className="mx-auto mt-6 flex max-w-[1440px] snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-5">
+            {siteContent.portfolioVideos.map((item) => (
+              <li
+                key={item.id}
+                className="studio-glass w-[min(85vw,280px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 sm:w-auto"
+              >
+                <video
+                  className="aspect-[9/16] w-full bg-black object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster={item.poster}
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+                <p className="px-3 py-2 text-sm font-semibold">{item.title}</p>
+                <p className="px-3 pb-3 text-xs text-white/60">{item.duration}</p>
+              </li>
+            ))}
+          </ul>
+          <ul className="mx-auto mt-10 grid max-w-[1440px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {siteContent.styles.slice(0, 4).map((style) => (
+              <li
+                key={style.id}
+                className="studio-glass overflow-hidden rounded-3xl border border-white/10"
+              >
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={style.poster}
+                    alt={style.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                </div>
+                <p className="p-3 text-xs font-semibold text-white/80">
+                  {style.emoji} {style.title}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* 8 — Trust */}
+        <section
+          id={siteContent.trust.id}
+          className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
+            <div>
+              <SectionLabel>{siteContent.trust.label}</SectionLabel>
+              <h2 className="mt-3 text-3xl font-semibold">{siteContent.trust.title}</h2>
+              <p className="mt-4 text-white/75">{siteContent.trust.body}</p>
+              <dl className="mt-6 space-y-2 text-sm">
+                <div>
+                  <dt className="text-white/50">Email</dt>
+                  <dd>
+                    <a
+                      href={`mailto:${brand.contact.email}`}
+                      className="font-medium text-[#C4B5FD] hover:underline"
+                    >
+                      {brand.contact.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/50">Phone</dt>
+                  <dd className="font-medium">{brand.contact.phoneDisplay}</dd>
+                </div>
+                <div>
+                  <dt className="text-white/50">Location</dt>
+                  <dd className="font-medium">
+                    {brand.location.locality}, {brand.location.region}, {brand.location.country}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <ul className="mt-8 space-y-3 lg:mt-0">
+              {siteContent.trust.facts.map((fact) => (
+                <li
+                  key={fact}
+                  className="rounded-2xl border border-white/10 bg-[#111936]/50 px-4 py-3 text-sm text-white/85"
+                >
+                  {fact}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 9 — Offer */}
+        <section
+          id={siteContent.offer.id}
+          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
+        >
+          <div className="studio-glass mx-auto max-w-2xl rounded-3xl border border-[#A78BFA]/35 p-8 text-center shadow-[0_24px_60px_rgba(109,40,217,0.25)]">
+            <SectionLabel>{siteContent.offer.label}</SectionLabel>
+            <p className="mt-3 text-sm font-medium text-[#EDE9FE]">{siteContent.offer.packageName}</p>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{siteContent.offer.title}</h2>
+            <p className="mt-4 text-white/75">{siteContent.offer.body}</p>
+            <p className="mt-4 text-sm text-white/60">{siteContent.offer.includesNote}</p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="#enquiry"
+                className="inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-6 text-sm font-semibold"
+              >
+                {siteContent.offer.cta}
+              </a>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 text-sm font-semibold"
+              >
+                {siteContent.offer.secondaryCta}
               </a>
             </div>
           </div>
         </section>
 
-        {/* 6 — Lead form */}
+        {/* 10 — Enquiry + FAQ */}
         <section
-          id={productAdsContent.enquiry.id}
-          className="scroll-mt-28 px-5 py-14 md:px-10 md:py-20"
+          id={siteContent.enquiry.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-xl">
-            <EnquiryFormSection />
-          </div>
-        </section>
-
-        {/* 7 — FAQ */}
-        <section className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-20">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-semibold">Frequently Asked Questions</h2>
-            <div className="mt-8">
-              <FaqAccordion items={productAdsContent.faqs} />
+          <div className="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-2 lg:gap-12">
+            <div className="studio-glass rounded-3xl border border-white/10 p-6 sm:p-8">
+              <SectionLabel>{siteContent.enquiry.label}</SectionLabel>
+              <h2 className="mt-3 text-2xl font-semibold">{siteContent.enquiry.title}</h2>
+              <p className="mt-2 text-sm text-white/70">{siteContent.enquiry.subtitle}</p>
+              <div className="mt-6">
+                <LeadForm />
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* 8 — Final CTA */}
-        <section
-          id={productAdsContent.finalCta.id}
-          className="scroll-mt-28 px-5 pb-16 md:px-10 md:pb-24"
-        >
-          <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(124,58,237,0.22),rgba(37,99,235,0.18))] px-6 py-12 text-center sm:px-10">
-            <h2 className="text-2xl font-semibold sm:text-3xl">{productAdsContent.finalCta.title}</h2>
-            <p className="mx-auto mt-3 max-w-xl text-white/75">{productAdsContent.finalCta.body}</p>
-            <a href="#enquiry" className={`${primaryBtn} mt-7`}>
-              {productAdsContent.finalCta.cta}
-            </a>
+            <div>
+              <h2 className="text-2xl font-semibold">{siteContent.enquiry.faqTitle}</h2>
+              <div className="mt-6">
+                <FaqAccordion items={siteContent.faqs} />
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 px-5 py-10 text-center md:px-10">
-        <p className="text-sm font-semibold text-white/80">{brand.legalName}</p>
-        <p className="mt-1 text-sm text-white/55">{productAdsContent.footer.serviceLine}</p>
-        <p className="mt-4 text-xs text-white/40">
-          © {year} {brand.legalName}. All rights reserved.
+      <footer className="relative z-10 border-t border-white/10 px-5 py-8 text-center text-sm text-white/50 md:px-10">
+        <p>
+          © {new Date().getFullYear()} {brand.legalName}. {brand.location.locality},{" "}
+          {brand.location.region}.
         </p>
       </footer>
 
