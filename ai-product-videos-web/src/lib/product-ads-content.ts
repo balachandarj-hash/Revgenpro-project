@@ -89,33 +89,27 @@ export const productAdsContent = {
     videos: [
       {
         id: "skincare",
-        title: "Skincare showcase",
+        title: "Skincare",
         src: "/product-ads/skincare.mp4",
         poster: "/product-ads/skincare-poster.jpg",
       },
       {
         id: "perfume",
-        title: "Luxury perfume",
+        title: "Luxury Perfume",
         src: "/product-ads/perfume.mp4",
         poster: "/product-ads/perfume-poster.jpg",
       },
       {
         id: "electronics",
-        title: "Electronics",
+        title: "Electronic Product",
         src: "/product-ads/gadget.mp4",
         poster: "/product-ads/gadget-poster.jpg",
       },
       {
         id: "offer",
-        title: "Offer campaign",
+        title: "Offer Campaign",
         src: "/product-ads/offer.mp4",
         poster: "/product-ads/offer-poster.jpg",
-      },
-      {
-        id: "fashion",
-        title: "Fashion lifestyle",
-        src: "/product-ads/fashion.mp4",
-        poster: "/product-ads/fashion-poster.jpg",
       },
     ],
   },
