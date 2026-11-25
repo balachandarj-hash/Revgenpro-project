@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #090d24;
+  color: #fff;
+}
+
+.studio-page {
+  background: #090d24;
+}
+
+.studio-glass {
+  background: rgba(17, 25, 54, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+.studio-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.45;
+}
+
+.studio-orb-purple {
+  width: 280px;
+  height: 280px;
+  left: -40px;
+  top: 120px;
+  background: #6d28d9;
+}
+
+.studio-orb-pink {
+  width: 220px;
+  height: 220px;
+  right: 10%;
+  top: 40px;
+  background: #ec008c;
+}
+
+.studio-orb-blue {
+  width: 260px;
+  height: 260px;
+  right: -60px;
+  bottom: 80px;
+  background: #2563eb;
+}
+
+.studio-orb-violet {
+  width: 280px;
+  height: 280px;
+  right: 15%;
+  bottom: 10%;
+  background: #4c1d95;
+}
+
+@keyframes studio-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.studio-float {
+  animation: studio-float 5s ease-in-out infinite;
+}
+
+.studio-float-delayed {
+  animation: studio-float 6s 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-float,
+  .studio-float-delayed {
+    animation: none;
+  }
+}
