@@ -226,8 +226,8 @@ export default function HomePage() {
           id={pricing.id}
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#F7EFE4] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
-          <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
-            <div className="lg:sticky lg:top-28 lg:py-2">
+          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
+            <div className="flex flex-col justify-center self-center py-2 lg:min-h-full lg:py-6">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B5544]">
                 {pricing.label}
               </p>
