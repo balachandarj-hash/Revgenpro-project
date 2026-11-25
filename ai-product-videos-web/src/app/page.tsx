@@ -221,53 +221,51 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Pricing */}
+        {/* Pricing + Enquiry — side by side on desktop */}
         <section
           id={pricing.id}
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#F7EFE4] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
-          <div className="mx-auto max-w-xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8A735C]">
-              {pricing.label}
-            </p>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-4xl">
-              {pricing.title}
-            </h2>
-            <p className="mt-6 font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
-              {pricing.amount}
-            </p>
-            <p className="mt-1 text-sm font-medium uppercase tracking-[0.18em] text-[#8A735C]">
-              {pricing.unit}
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-[#5C4A3A]">{pricing.note}</p>
-            <a
-              href="#enquiry"
-              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1A1410] px-7 text-sm font-semibold text-[#FBF7F0] transition hover:bg-[#2C241C]"
-            >
-              {pricing.cta}
-              <span aria-hidden>→</span>
-            </a>
-          </div>
-        </section>
-
-        {/* Enquiry */}
-        <section
-          id={enquiry.id}
-          className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#FFFCF7] px-4 py-14 sm:px-6 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-xl">
-            <EnquiryFormSection />
-            <p className="mt-4 text-center text-sm text-[#6B5A48]">
-              Prefer chat?{" "}
+          <div className="mx-auto grid max-w-[1440px] items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12 xl:gap-16">
+            <div className="lg:sticky lg:top-28 lg:py-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B5544]">
+                {pricing.label}
+              </p>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-4xl">
+                {pricing.title}
+              </h2>
+              <p className="mt-6 font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
+                {pricing.amount}
+              </p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2F22]">
+                {pricing.unit}
+              </p>
+              <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-[#2A1F16]">
+                {pricing.note}
+              </p>
               <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[#1A1410] underline-offset-2 hover:underline"
+                href={`#${enquiry.id}`}
+                className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1A1410] px-7 text-sm font-semibold text-[#FBF7F0] transition hover:bg-[#2C241C]"
               >
-                Open WhatsApp
+                {pricing.cta}
+                <span aria-hidden>→</span>
               </a>
-            </p>
+              <p className="mt-6 text-sm text-[#3D2F22]">
+                Prefer chat?{" "}
+                <a
+                  href={wa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#1A1410] underline-offset-2 hover:underline"
+                >
+                  Open WhatsApp
+                </a>
+              </p>
+            </div>
+
+            <div id={enquiry.id} className="scroll-mt-28">
+              <EnquiryFormSection />
+            </div>
           </div>
         </section>
 
