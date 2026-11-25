@@ -226,21 +226,21 @@ export default function HomePage() {
           id={pricing.id}
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#F7EFE4] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
-          <div className="mx-auto grid max-w-[1440px] items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12 xl:gap-16">
-            <div className="lg:sticky lg:top-28 lg:py-4">
+          <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
+            <div className="lg:sticky lg:top-28 lg:py-2">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B5544]">
                 {pricing.label}
               </p>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-4xl">
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-[2.35rem]">
                 {pricing.title}
               </h2>
-              <p className="mt-6 font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
+              <p className="mt-5 font-[family-name:var(--font-display)] text-5xl font-semibold text-[#1A1410] sm:text-6xl">
                 {pricing.amount}
               </p>
               <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2F22]">
                 {pricing.unit}
               </p>
-              <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-[#2A1F16]">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-[#2A1F16]">
                 {pricing.note}
               </p>
               <a
