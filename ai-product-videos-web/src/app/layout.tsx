@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { brand } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
 import "./globals.css";
@@ -7,6 +7,12 @@ import "./globals.css";
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
+});
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
 });
 
 const { seo } = productAdsContent;
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
         url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: "AI promotional product video samples",
+        alt: "AI Product Video Studio",
       },
     ],
   },
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05060f",
+  themeColor: "#F7EFE4",
   viewportFit: "cover",
 };
 
@@ -60,8 +66,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" data-scroll-behavior="smooth" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-[#05060f] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
+    <html
+      lang="en-IN"
+      data-scroll-behavior="smooth"
+      className={`${jakarta.variable} ${display.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-[#F7EFE4] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-[#1A1410] md:pb-0">
         {children}
       </body>
     </html>

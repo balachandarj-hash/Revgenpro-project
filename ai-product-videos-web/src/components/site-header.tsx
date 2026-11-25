@@ -3,11 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
-import { brand, whatsappUrl } from "@/lib/brand";
+import { brand } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
 
 export function SiteHeader() {
-  const wa = whatsappUrl(productAdsContent.whatsappPrefill);
   const [open, setOpen] = useState(false);
   const menuId = useId();
 
@@ -21,8 +20,8 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white">
-      <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-5 md:px-10">
+    <header className="sticky top-0 z-50 border-b border-[#E8DFD2]/80 bg-[#FBF7F0]/92 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6 md:px-10">
         <Link href="#top" aria-label={`${brand.legalName}, home`} className="shrink-0">
           <Image
             src={brand.logoSrc}
@@ -34,39 +33,29 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
           {productAdsContent.header.nav.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[#374151] transition-colors hover:text-[#111827]"
+              className="text-sm font-medium text-[#5C4A3A] transition-colors hover:text-[#1A1410]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden min-h-10 items-center gap-2 rounded-full bg-[#1d4ed8] px-4 text-sm font-semibold text-white transition hover:brightness-110 sm:inline-flex"
-          >
-            <span aria-hidden>💬</span>
-            {productAdsContent.header.whatsappCta}
-          </a>
+        <div className="flex items-center gap-2">
           <a
             href="#enquiry"
-            className="hidden min-h-10 items-center gap-1.5 rounded-full bg-[#EC008C] px-4 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(236,0,140,0.28)] transition hover:brightness-110 sm:inline-flex"
+            className="hidden min-h-10 items-center rounded-full bg-[#1A1410] px-5 text-sm font-semibold text-[#FBF7F0] transition hover:bg-[#2C241C] sm:inline-flex"
           >
             {productAdsContent.header.cta}
-            <span aria-hidden>→</span>
           </a>
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white text-[#111827] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#E0D5C8] bg-white text-[#1A1410] lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls={menuId}
@@ -87,40 +76,26 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div
-          id={menuId}
-          className="border-t border-[#E5E7EB] bg-white px-4 pb-4 pt-2 lg:hidden"
-        >
+        <div id={menuId} className="border-t border-[#E8DFD2] bg-[#FBF7F0] px-4 pb-4 pt-2 lg:hidden">
           <nav aria-label="Mobile" className="flex flex-col gap-1">
             {productAdsContent.header.nav.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-3 py-3 text-sm font-semibold text-[#111827] hover:bg-[#F3F4F6]"
+                className="rounded-xl px-3 py-3 text-sm font-semibold text-[#1A1410] hover:bg-[#F3EBE0]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="mt-3 flex flex-col gap-2">
-            <a
-              href="#enquiry"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#EC008C] px-4 text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              {productAdsContent.header.cta}
-            </a>
-            <a
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#1d4ed8] px-4 text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              {productAdsContent.header.whatsappCta}
-            </a>
-          </div>
+          <a
+            href="#enquiry"
+            className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#1A1410] px-4 text-sm font-semibold text-[#FBF7F0]"
+            onClick={() => setOpen(false)}
+          >
+            {productAdsContent.header.cta}
+          </a>
         </div>
       ) : null}
     </header>

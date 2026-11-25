@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --background: #05060f;
-  --foreground: #ffffff;
-  --accent-magenta: #ec008c;
+  color-scheme: light;
+  --background: #f7efe4;
+  --foreground: #1a1410;
+  --champagne: #fbf7f0;
+  --gold: #c4a574;
+  --ink: #1a1410;
 }
 
 html {
-  background: #05060f;
+  background: #f7efe4;
   scroll-behavior: smooth;
 }
 
@@ -21,7 +23,7 @@ html {
 }
 
 body {
-  background: #05060f;
-  color: #ffffff;
+  background: #f7efe4;
+  color: #1a1410;
   margin: 0;
 }

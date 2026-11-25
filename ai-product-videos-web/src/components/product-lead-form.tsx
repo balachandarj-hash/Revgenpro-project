@@ -8,9 +8,9 @@ import { isValidIndianMobile } from "@/lib/phone";
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
-  "mt-1.5 w-full rounded-xl border border-white/15 bg-[#0a0a0c]/70 px-4 py-3 text-white outline-none ring-[#7C3AED] placeholder:text-white/35 focus:ring-2";
+  "mt-1.5 w-full rounded-xl border border-[#E0D5C8] bg-white px-4 py-3 text-[#1A1410] outline-none ring-[#C4A574] placeholder:text-[#9A8774] focus:ring-2";
 const errorFieldClass =
-  "mt-1.5 w-full rounded-xl border border-[#F87171]/60 bg-[#0a0a0c]/70 px-4 py-3 text-white outline-none ring-[#F87171] placeholder:text-white/35 focus:ring-2";
+  "mt-1.5 w-full rounded-xl border border-[#F87171]/70 bg-white px-4 py-3 text-[#1A1410] outline-none ring-[#F87171] placeholder:text-[#9A8774] focus:ring-2";
 
 export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: string }) {
   const formId = useId();
@@ -101,12 +101,12 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
   if (status === "success") {
     return (
       <div
-        className="rounded-2xl border border-[#34D399]/35 bg-[#052e16]/40 p-6 text-center"
+        className="rounded-2xl border border-[#C6E6C8] bg-[#F3FBF4] p-6 text-center text-[#1A1410]"
         role="status"
         aria-live="polite"
       >
         <p className="text-lg font-semibold text-[#6EE7B7]">Enquiry submitted</p>
-        <p className="mt-2 text-sm text-white/75">
+        <p className="mt-2 text-sm text-[#5C4A3A]">
           {serverMessage ??
             "Your details were validated and sent for follow-up. Continue on WhatsApp if a chat window did not open."}
         </p>
@@ -122,7 +122,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
         ) : null}
         <button
           type="button"
-          className="mt-3 block w-full text-sm text-white/60 underline-offset-2 hover:underline"
+          className="mt-3 block w-full text-sm text-[#6B5A48] underline-offset-2 hover:underline"
           onClick={() => {
             setStatus("idle");
             setServerMessage(null);
@@ -138,7 +138,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <label className="block text-sm" htmlFor={`${formId}-fullName`}>
-        <span className="font-medium text-white/90">Full Name *</span>
+        <span className="font-medium text-[#1A1410]">Full Name *</span>
         <input
           id={`${formId}-fullName`}
           required
@@ -161,7 +161,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       </label>
 
       <label className="block text-sm" htmlFor={`${formId}-business`}>
-        <span className="font-medium text-white/90">Business Name *</span>
+        <span className="font-medium text-[#1A1410]">Business Name *</span>
         <input
           id={`${formId}-business`}
           required
@@ -184,7 +184,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       </label>
 
       <label className="block text-sm" htmlFor={`${formId}-whatsapp`}>
-        <span className="font-medium text-white/90">WhatsApp Number *</span>
+        <span className="font-medium text-[#1A1410]">WhatsApp Number *</span>
         <input
           id={`${formId}-whatsapp`}
           required
@@ -217,8 +217,8 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       </label>
 
       <label className="block text-sm" htmlFor={`${formId}-email`}>
-        <span className="font-medium text-white/90">
-          Email <span className="text-white/45">(optional)</span>
+        <span className="font-medium text-[#1A1410]">
+          Email <span className="text-[#8A735C]">(optional)</span>
         </span>
         <input
           id={`${formId}-email`}
@@ -242,7 +242,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       </label>
 
       <label className="block text-sm" htmlFor={`${formId}-category`}>
-        <span className="font-medium text-white/90">Product Category *</span>
+        <span className="font-medium text-[#1A1410]">Product Category *</span>
         <select
           id={`${formId}-category`}
           required
@@ -275,11 +275,11 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
 
       <input type="hidden" name="preferredStyle" value={stylePreference} readOnly />
       {stylePreference ? (
-        <p className="rounded-xl border border-[#7C3AED]/35 bg-[#7C3AED]/10 px-3 py-2 text-xs text-[#DDD6FE]">
+        <p className="rounded-xl border border-[#E8DFD2] bg-[#F7F0E6] px-3 py-2 text-xs text-[#5C4A3A]">
           Preferred style: <span className="font-semibold">{stylePreference}</span>
           <button
             type="button"
-            className="ml-2 underline underline-offset-2 hover:text-white"
+            className="ml-2 underline underline-offset-2 hover:text-[#1A1410]"
             onClick={() => setStylePreference("")}
           >
             Clear
@@ -288,8 +288,8 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       ) : null}
 
       <label className="block text-sm" htmlFor={`${formId}-details`}>
-        <span className="font-medium text-white/90">
-          Tell Us About Your Product <span className="text-white/45">(optional)</span>
+        <span className="font-medium text-[#1A1410]">
+          Tell Us About Your Product <span className="text-[#8A735C]">(optional)</span>
         </span>
         <textarea
           id={`${formId}-details`}
@@ -302,7 +302,7 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       </label>
 
       {status === "error" && serverMessage ? (
-        <p className="rounded-xl border border-[#F87171]/40 bg-[#450a0a]/40 px-3 py-2 text-sm text-[#FCA5A5]" role="alert">
+        <p className="rounded-xl border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]" role="alert">
           {serverMessage}
         </p>
       ) : null}
@@ -310,12 +310,12 @@ export function ProductLeadForm({ preferredStyle = "" }: { preferredStyle?: stri
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#EC008C] text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.35)] transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#1A1410] text-sm font-semibold text-[#FBF7F0] shadow-[0_12px_28px_rgba(26,20,16,0.2)] transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"
       >
         {status === "submitting" ? "Submitting…" : productAdsContent.enquiry.formSubmitCta}
       </button>
 
-      <p className="text-xs leading-relaxed text-white/50">{productAdsContent.enquiry.consent}</p>
+      <p className="text-xs leading-relaxed text-[#8A735C]">{productAdsContent.enquiry.consent}</p>
     </form>
   );
 }
