@@ -53,45 +53,42 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="relative z-10 scroll-mt-24">
-        {/* Full-bleed HD spray hero — bottle/spray on right, copy on left */}
+        {/* Full-bleed HD spray hero — bottle/spray sharp on right, crisp copy on left */}
         <section className="relative isolate min-h-[min(100svh,920px)] overflow-hidden">
           <Image
             src="/product-ads/hero-perfume-spray.jpg"
             alt="Luxury perfume bottle spraying fragrance mist in a dark studio"
             fill
             priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-[72%_center] sm:object-[78%_center] lg:object-right"
+            quality={100}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            className="object-cover object-[78%_center] sm:object-[82%_center] lg:object-right"
           />
-          {/* Readability veil over the text side (opposite the spray source) */}
+          {/* Soft left veil only — keep spray/bottle side bright and sharp */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,15,0.94)_0%,rgba(8,10,28,0.82)_38%,rgba(10,12,32,0.45)_58%,rgba(5,6,15,0.18)_78%,rgba(5,6,15,0.35)_100%)]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_20%,rgba(5,6,15,0.35)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,15,0.55)_0%,rgba(5,6,15,0.22)_42%,transparent_68%)]"
           />
 
           <div className="relative mx-auto flex min-h-[min(100svh,920px)] w-full max-w-[1440px] items-center px-5 py-14 md:px-10 md:py-16">
-            <div className="w-full max-w-xl lg:max-w-[560px]">
-              <p className="inline-flex max-w-full rounded-full bg-[#EC008C] px-3.5 py-1.5 text-[11px] font-semibold leading-snug text-white sm:text-xs">
+            {/* Solid panel = sharp letters (no backdrop-blur on text) */}
+            <div className="w-full max-w-xl rounded-3xl border border-white/15 bg-[#07091a]/92 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.55)] sm:p-7 lg:max-w-[560px] lg:p-8">
+              <p className="inline-flex max-w-full rounded-full bg-[#EC008C] px-3.5 py-1.5 text-xs font-semibold leading-snug text-white sm:text-[13px]">
                 {hero.badge}
               </p>
 
-              <h1 className="mt-5 text-[clamp(1.75rem,4.4vw,3.25rem)] font-bold leading-[1.1] tracking-tight text-balance drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
+              <h1 className="mt-5 text-[clamp(1.85rem,4.4vw,3.35rem)] font-extrabold leading-[1.08] tracking-tight text-balance text-white">
                 {hero.headlineBefore}{" "}
-                <span className="text-[#FF4DB8]">{hero.headlineHighlight}</span>
+                <span className="text-[#FF5EC0]">{hero.headlineHighlight}</span>
               </h1>
 
-              <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/85 sm:text-base">
+              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/95 sm:text-base">
                 {hero.description}
               </p>
 
-              <p className="mt-5 text-sm text-white/80 sm:text-base">
+              <p className="mt-5 text-[15px] font-medium text-white sm:text-base">
                 {hero.priceLabel}{" "}
-                <span className="text-2xl font-bold text-[#22C55E] sm:text-3xl">
+                <span className="text-2xl font-extrabold text-[#3DFF7A] sm:text-3xl">
                   {price}
                   {priceUnit}
                 </span>
@@ -104,15 +101,15 @@ export default function HomePage() {
                 {services.items.map((item) => (
                   <li
                     key={item.title}
-                    className="rounded-2xl border border-white/12 bg-[#121833]/70 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.35)] backdrop-blur-md"
+                    className="rounded-2xl border border-white/15 bg-[#121833] p-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EC008C]/20 text-[#FF4DB8]">
+                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EC008C]/25 text-[#FF5EC0]">
                         <ServiceIcon name={item.icon} />
                       </span>
                       <div>
-                        <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                        <p className="mt-1 text-xs leading-relaxed text-white/65">
+                        <h3 className="text-sm font-bold text-white">{item.title}</h3>
+                        <p className="mt-1 text-xs leading-relaxed text-white/80">
                           {item.description}
                         </p>
                       </div>
@@ -131,7 +128,7 @@ export default function HomePage() {
                   {hero.secondaryCta}
                 </a>
               </div>
-              <p className="mt-4 text-sm text-white/70">{hero.supportLine}</p>
+              <p className="mt-4 text-sm font-medium text-white/90">{hero.supportLine}</p>
             </div>
           </div>
         </section>
