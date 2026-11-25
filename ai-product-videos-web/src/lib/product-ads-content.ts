@@ -26,7 +26,7 @@ export const productAdsContent = {
     ogTitle: "AI Product Ad Videos — ₹1,499 | RevGenPro",
     ogDescription:
       "Your products deserve more than ordinary photos. Cinematic AI video ads from ₹1,499 per video.",
-    ogImage: "/product-ads/perfume.jpg",
+    ogImage: "/product-ads/hero-perfume-spray.jpg",
     siteUrl: "https://ai-product-videos.apps.grok.bot/",
     path: "/",
   },
