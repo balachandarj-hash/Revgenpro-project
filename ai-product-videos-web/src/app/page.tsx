@@ -123,7 +123,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Video styles — luxury product cards + clear lettering */}
+        {/* Video styles — 3:4 product category cards, middle-aligned */}
         <section
           id={styles.id}
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#FFFCF7] px-4 py-14 sm:px-6 md:px-10 md:py-16"
@@ -140,7 +140,7 @@ export default function HomePage() {
             </p>
             <ul className="mt-8 mx-auto grid max-w-[1080px] justify-items-center gap-5 sm:grid-cols-2 lg:max-w-none lg:grid-cols-4">
               {styles.items.map((item) => (
-                <li key={item.title} className="group w-full max-w-[280px] sm:max-w-none">
+                <li key={item.title} className="group flex w-full max-w-[280px] justify-center sm:max-w-none">
                   <div className="relative mx-auto aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-[0_14px_36px_rgba(58,42,20,0.14)] ring-1 ring-[#E8DFD2]/80">
                     <Image
                       src={item.image}
