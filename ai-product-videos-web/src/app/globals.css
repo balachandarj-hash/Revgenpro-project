@@ -4,12 +4,13 @@
 
 :root {
   color-scheme: dark;
-  --background: #0b1024;
+  --background: #05060f;
   --foreground: #ffffff;
   --accent-magenta: #ec008c;
 }
 
 html {
+  background: #05060f;
   scroll-behavior: smooth;
 }
 
@@ -20,6 +21,7 @@ html {
 }
 
 body {
-  background: #0b1024;
+  background: #05060f;
   color: #ffffff;
+  margin: 0;
 }

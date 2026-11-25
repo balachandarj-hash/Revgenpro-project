@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { EnquiryFormSection } from "@/components/enquiry-form-section";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { HeroSprayVideo } from "@/components/hero-spray-video";
 import { SampleVideosCarousel } from "@/components/sample-videos-carousel";
 import { ServiceIcon } from "@/components/service-icon";
 import { SiteHeader } from "@/components/site-header";
@@ -13,7 +14,7 @@ import { productAdsContent } from "@/lib/product-ads-content";
 const primaryBtn =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#EC008C] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(236,0,140,0.45)] transition hover:brightness-110";
 const secondaryBtn =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/55 bg-black/25 px-6 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/55 bg-black/35 px-6 text-sm font-semibold text-white transition hover:bg-white/10";
 
 export const metadata: Metadata = {
   title: productAdsContent.seo.title,
@@ -49,35 +50,25 @@ export default function HomePage() {
     productAdsContent;
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#05060f] text-white">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-[#05060f] text-white">
       <SiteHeader />
 
-      <main id="top" className="relative z-10 scroll-mt-24">
-        {/* Full-bleed HD spray hero — bottle/spray sharp on right, crisp copy on left */}
-        <section className="relative isolate min-h-[min(100svh,920px)] overflow-hidden">
-          <Image
-            src="/product-ads/hero-perfume-spray.jpg"
-            alt="Luxury perfume bottle spraying fragrance mist in a dark studio"
-            fill
-            priority
-            quality={100}
-            sizes="(max-width: 768px) 100vw, 100vw"
-            className="object-cover object-[78%_center] sm:object-[82%_center] lg:object-right"
-          />
-          {/* Soft left veil only — keep spray/bottle side bright and sharp */}
+      <main id="top" className="relative z-10 w-full scroll-mt-24">
+        {/* Full-bleed 2s looping spray video — bottle sharp on right, copy on left */}
+        <section className="relative isolate w-full min-h-[min(100svh,920px)] overflow-hidden bg-[#05060f]">
+          <HeroSprayVideo />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,15,0.55)_0%,rgba(5,6,15,0.22)_42%,transparent_68%)]"
+            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,15,0.72)_0%,rgba(5,6,15,0.35)_40%,transparent_70%)] sm:bg-[linear-gradient(90deg,rgba(5,6,15,0.55)_0%,rgba(5,6,15,0.22)_42%,transparent_68%)]"
           />
 
-          <div className="relative mx-auto flex min-h-[min(100svh,920px)] w-full max-w-[1440px] items-center px-5 py-14 md:px-10 md:py-16">
-            {/* Solid panel = sharp letters (no backdrop-blur on text) */}
-            <div className="w-full max-w-xl rounded-3xl border border-white/15 bg-[#07091a]/92 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.55)] sm:p-7 lg:max-w-[560px] lg:p-8">
+          <div className="relative mx-auto flex min-h-[min(100svh,920px)] w-full max-w-[1440px] items-center px-4 py-12 sm:px-5 sm:py-14 md:px-10 md:py-16">
+            <div className="w-full max-w-xl rounded-3xl border border-white/15 bg-[#07091a]/94 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.55)] sm:p-7 lg:max-w-[560px] lg:p-8">
               <p className="inline-flex max-w-full rounded-full bg-[#EC008C] px-3.5 py-1.5 text-xs font-semibold leading-snug text-white sm:text-[13px]">
                 {hero.badge}
               </p>
 
-              <h1 className="mt-5 text-[clamp(1.85rem,4.4vw,3.35rem)] font-extrabold leading-[1.08] tracking-tight text-balance text-white">
+              <h1 className="mt-5 text-[clamp(1.7rem,5vw,3.35rem)] font-extrabold leading-[1.08] tracking-tight text-balance text-white">
                 {hero.headlineBefore}{" "}
                 <span className="text-[#FF5EC0]">{hero.headlineHighlight}</span>
               </h1>
@@ -135,7 +126,7 @@ export default function HomePage() {
 
         <section
           id={samples.id}
-          className="scroll-mt-28 border-t border-white/10 bg-[#0a0f22] px-5 py-14 md:px-10 md:py-16"
+          className="scroll-mt-28 border-t border-white/10 bg-[#0a0f22] px-4 py-14 sm:px-5 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">
@@ -149,7 +140,7 @@ export default function HomePage() {
 
         <section
           id={process.id}
-          className="scroll-mt-28 bg-[linear-gradient(180deg,#0b1024_0%,#1a1040_100%)] px-5 py-14 md:px-10 md:py-16"
+          className="scroll-mt-28 bg-[linear-gradient(180deg,#0b1024_0%,#1a1040_100%)] px-4 py-14 sm:px-5 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#FF4DB8]">
@@ -173,7 +164,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id={enquiry.id} className="scroll-mt-28 px-5 py-14 md:px-10 md:py-16">
+        <section
+          id={enquiry.id}
+          className="scroll-mt-28 px-4 py-14 sm:px-5 md:px-10 md:py-16"
+        >
           <div className="mx-auto max-w-xl">
             <EnquiryFormSection />
             <p className="mt-4 text-center text-sm text-white/55">
@@ -190,7 +184,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="scroll-mt-28 border-t border-white/10 px-5 py-14 md:px-10 md:py-16">
+        <section className="scroll-mt-28 border-t border-white/10 px-4 py-14 sm:px-5 md:px-10 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
             <div className="mt-8">
@@ -200,12 +194,21 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 bg-[#0a0f22] px-5 py-10 text-center md:px-10">
-        <p className="text-sm font-semibold text-white/85">{brand.legalName}</p>
-        <p className="mt-1 text-sm text-white/50">{footer.serviceLine}</p>
-        <p className="mt-4 text-xs text-white/35">
-          © {year} {brand.legalName}. All rights reserved.
-        </p>
+      <footer className="relative z-10 border-t border-[#E5E7EB] bg-white px-4 py-10 text-center sm:px-5 md:px-10">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3">
+          <Image
+            src={brand.logoSrc}
+            alt={brand.name}
+            width={168}
+            height={42}
+            className="h-9 w-auto sm:h-10"
+          />
+          <p className="text-sm font-semibold text-[#111827]">{brand.legalName}</p>
+          <p className="text-sm text-[#4B5563]">{footer.serviceLine}</p>
+          <p className="mt-2 text-xs text-[#6B7280]">
+            © {year} {brand.legalName}. All rights reserved.
+          </p>
+        </div>
       </footer>
 
       <WhatsAppFloat />
