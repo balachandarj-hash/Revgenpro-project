@@ -58,22 +58,22 @@ export const productAdsContent = {
       {
         title: "Luxury Showcase",
         description: "Studio lighting, elegant motion, and premium product presence.",
-        image: "/product-ads/perfume.jpg",
+        image: "/product-ads/style-card-luxury.jpg",
       },
       {
         title: "Texture & Detail",
         description: "Close-ups that show cream, fabric, metal, and finish clearly.",
-        image: "/product-ads/skincare.jpg",
+        image: "/product-ads/style-card-texture.jpg",
       },
       {
         title: "Lifestyle Moment",
         description: "Real-world context that helps customers imagine using the product.",
-        image: "/product-ads/fashion.jpg",
+        image: "/product-ads/style-card-lifestyle.jpg",
       },
       {
         title: "Offer & Campaign",
         description: "Promotional cuts built for ads, Reels, and WhatsApp status.",
-        image: "/product-ads/offer.jpg",
+        image: "/product-ads/style-card-campaign.jpg",
       },
     ],
   },
