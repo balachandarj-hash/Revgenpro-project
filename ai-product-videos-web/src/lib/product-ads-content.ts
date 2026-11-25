@@ -26,7 +26,7 @@ export const productAdsContent = {
     ogTitle: "AI Product Video Studio — ₹1,499 | RevGenPro",
     ogDescription:
       "Your product deserves more than a photo. Stunning AI promotional videos from ₹1,499.",
-    ogImage: "/product-ads/luxury-product-collage.jpg",
+    ogImage: "/product-ads/luxury-product-scene.jpg",
     siteUrl: "https://ai-product-videos.apps.grok.bot/",
     path: "/",
   },
