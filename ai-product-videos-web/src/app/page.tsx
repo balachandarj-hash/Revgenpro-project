@@ -123,34 +123,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Video styles */}
+        {/* Video styles — luxury product cards + clear lettering */}
         <section
           id={styles.id}
           className="scroll-mt-28 border-t border-[#E8DFD2] bg-[#FFFCF7] px-4 py-14 sm:px-6 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-[1440px]">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8A735C]">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#6B5544]">
               {styles.label}
             </p>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#1A1410] sm:text-4xl">
+            <h2 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(1.85rem,3.5vw,2.75rem)] font-semibold leading-tight text-[#1A1410]">
               {styles.title}
             </h2>
-            <p className="mt-3 max-w-2xl text-[#5C4A3A]">{styles.subtitle}</p>
+            <p className="mt-3 max-w-2xl text-[15px] font-medium leading-relaxed text-[#3D2F22] sm:text-base">
+              {styles.subtitle}
+            </p>
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {styles.items.map((item) => (
                 <li key={item.title} className="group">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_14px_36px_rgba(58,42,20,0.12)]">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_14px_36px_rgba(58,42,20,0.14)] ring-1 ring-[#E8DFD2]/80">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
+                      quality={95}
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       sizes="(max-width: 1024px) 50vw, 22vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1410]/70 via-transparent to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-4">
-                      <h3 className="text-base font-semibold text-white">{item.title}</h3>
-                      <p className="mt-1 text-xs leading-relaxed text-white/80">{item.description}</p>
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-[linear-gradient(to_top,rgba(26,20,16,0.92)_0%,rgba(26,20,16,0.55)_38%,rgba(26,20,16,0.08)_62%,transparent_100%)]"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                      <h3 className="text-base font-bold tracking-tight text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)] sm:text-lg">
+                        {item.title}
+                      </h3>
+                      <p className="mt-1.5 text-xs font-medium leading-relaxed text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] sm:text-[13px]">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </li>
