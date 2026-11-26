@@ -11,6 +11,7 @@ export const productAdsContent = {
     nav: [
       { href: "#top", label: "Home" },
       { href: "#video-styles", label: "Video Styles" },
+      { href: "#before-after", label: "Before & After" },
       { href: "#how-it-works", label: "How It Works" },
       { href: "#pricing", label: "Pricing" },
     ] as const,
@@ -25,7 +26,7 @@ export const productAdsContent = {
       "Transform product images into stunning AI promotional videos. AI Product Videos starting at ₹1,499 — RevGenPro Solutions.",
     ogTitle: "AI Product Video Studio — ₹1,499 | RevGenPro",
     ogDescription:
-      "Your product deserves more than a photo. Stunning AI promotional videos from ₹1,499.",
+      "Turn product photos into videos that grab attention. Stunning AI promotional videos from ₹1,499.",
     ogImage: "/product-ads/luxury-product-scene.jpg",
     siteUrl: "https://ai-product-videos.apps.grok.bot/",
     path: "/",
@@ -34,11 +35,13 @@ export const productAdsContent = {
   hero: {
     eyebrow: "AI-Powered Product Videos",
     hook: "Still Promoting Your Products with Just Photos?",
-    headline: "Turn Product Photos into Videos That Grab Attention.",
+    headline: "Your Product Deserves More Than a Photo.",
     description:
       "Transform ordinary product images into stunning AI promotional videos that capture attention and elevate your brand.",
-    priceBadge: "AI Product Videos Starting at",
+    benefits: ["AI Product Videos", "No Video Shoot Needed"] as const,
+    priceBadge: "Starting at",
     primaryCta: "Create My Product Video",
+    playLabel: "Watch sample",
   },
 
   categories: [
@@ -52,62 +55,79 @@ export const productAdsContent = {
   styles: {
     id: "video-styles",
     label: "Video Styles",
-    title: "Styles that sell your product",
+    title: "Explore Video Styles for Your Product",
     subtitle:
-      "Pick a look that matches your brand — we craft each film around your product photos.",
+      "Cinematic looks for every category — tap a card to preview the feel.",
     items: [
       {
         title: "Skincare",
-        description: "Serum and cream films with glow, texture, and soft studio light.",
+        description: "Glow, texture, and soft studio light.",
         image: "/product-ads/style-card-skincare.jpg",
       },
       {
-        title: "Luxury Perfume",
-        description: "Elegant bottle motion, spray mist, and premium fragrance presence.",
+        title: "Perfume",
+        description: "Elegant mist and premium presence.",
         image: "/product-ads/style-card-perfume.jpg",
       },
       {
-        title: "Electronic Product",
-        description: "Phones, watches, and gadgets framed with clean lifestyle detail.",
+        title: "Electronics",
+        description: "Clean lifestyle detail for gadgets.",
         image: "/product-ads/style-card-electronics.jpg",
       },
       {
-        title: "Face Wash Product",
-        description: "Fresh, splashy cleansers that feel clean, natural, and active.",
+        title: "Face Wash",
+        description: "Fresh, splashy, natural energy.",
         image: "/product-ads/style-card-facewash.jpg",
       },
     ],
   },
 
+  beforeAfter: {
+    id: "before-after",
+    label: "Before & After",
+    title: "One Product Photo. A Whole New Experience.",
+    subtitle:
+      "See how a plain product shot becomes a cinematic AI promotional video.",
+    beforeLabel: "Before",
+    afterLabel: "After",
+    beforeImage: "/product-ads/perfume.jpg",
+    afterImage: "/product-ads/hero-perfume-spray.jpg",
+    cta: "Transform My Product",
+  },
+
   samples: {
     id: "samples",
-    label: "Samples",
-    title: "Watch sample films",
+    label: "Sample Films",
+    title: "Don't Just Imagine It. Watch It.",
     subtitle:
-      "Short clips of AI product advertisements. Swipe on a phone, or play any film on desktop.",
+      "Short AI product films — swipe on phone, play any clip on desktop.",
     swipeHint: "Swipe sideways to browse every sample.",
     videos: [
       {
         id: "skincare",
         title: "Skincare",
+        duration: "0:06",
         src: "/product-ads/skincare.mp4",
         poster: "/product-ads/skincare-poster.jpg",
       },
       {
         id: "perfume",
         title: "Luxury Perfume",
+        duration: "0:06",
         src: "/product-ads/perfume.mp4",
         poster: "/product-ads/perfume-poster.jpg",
       },
       {
         id: "electronics",
-        title: "Electronic Product",
+        title: "Electronics",
+        duration: "0:06",
         src: "/product-ads/gadget.mp4",
         poster: "/product-ads/gadget-poster.jpg",
       },
       {
         id: "offer",
         title: "Offer Campaign",
+        duration: "0:06",
         src: "/product-ads/offer.mp4",
         poster: "/product-ads/offer-poster.jpg",
       },
@@ -117,19 +137,22 @@ export const productAdsContent = {
   process: {
     id: "how-it-works",
     label: "How It Works",
-    title: "Three simple steps",
+    title: "Three Simple Steps",
     steps: [
       {
         title: "Share Your Product",
         body: "Send clear product photos and a short brief — category, brand tone, and must-show details.",
+        icon: "share" as const,
       },
       {
         title: "We Create Your AI Video",
         body: "Our studio crafts a promotional product video matched to your product and style.",
+        icon: "create" as const,
       },
       {
         title: "Review & Publish",
         body: "You receive your video ready for ads, Reels, WhatsApp, and product pages.",
+        icon: "publish" as const,
       },
     ],
   },
@@ -138,19 +161,27 @@ export const productAdsContent = {
     id: "pricing",
     label: "Pricing",
     title: "Clear pricing. Premium results.",
+    badge: "One-Time Payment",
     amount: "₹1,499",
     unit: "per video",
     note: "One AI promotional product video. No subscription. Scope confirmed after we review your photos.",
+    includes: [
+      "One AI promotional product video",
+      "Style matched to your brand",
+      "Ready for Reels, ads & WhatsApp",
+      "Scope review before we create",
+      "No monthly subscription",
+    ] as const,
     cta: "Create My Product Video",
   },
 
   enquiry: {
     id: "enquiry",
     label: "Get started",
-    title: "Tell Us About Your Product",
+    title: "Let's Create Something Extraordinary",
     subtitle:
       "Share a few details. We’ll review your enquiry and follow up with next steps — no payment on this page.",
-    formSubmitCta: "Create My Product Video",
+    formSubmitCta: "Get My Video",
     consent:
       "By submitting, you agree to be contacted by RevGenPro Solutions about your AI product video enquiry via WhatsApp or email.",
     categories: [
@@ -161,6 +192,18 @@ export const productAdsContent = {
       "Food & Beverages",
       "Other",
     ] as const,
+  },
+
+  trust: {
+    id: "trust",
+    label: "Trusted by Growing Brands",
+    title: "Clarity for buyers. Confidence for you.",
+    testimonial: {
+      quote:
+        "RevGenPro turned our product photos into scroll-stopping videos. We posted the same week — and enquiries went up.",
+      name: "Priya Sharma",
+      role: "Founder, Glow Botanics",
+    },
   },
 
   faqs: [
@@ -187,7 +230,7 @@ export const productAdsContent = {
     {
       question: "Is ₹1,499 a subscription?",
       answer:
-        "No. ₹1,499 is the price per promotional product video unless you agree a different scope with our team.",
+        "No. ₹1,499 is a one-time price per promotional product video unless you agree a different scope with our team.",
     },
   ],
 
