@@ -221,16 +221,16 @@ export default function HomePage() {
               {beforeAfter.subtitle}
             </p>
 
-            <div className="mt-10 grid items-center gap-5 sm:grid-cols-[1fr_auto_1fr] sm:gap-6">
-              <figure className="relative overflow-hidden rounded-2xl bg-[#FFFCF7] shadow-[0_14px_36px_rgba(58,42,20,0.12)] ring-1 ring-[#E8DFD2]">
-                <div className="relative aspect-[3/4] w-full">
+            <div className="mt-10 mx-auto grid max-w-[720px] items-center gap-5 sm:max-w-[820px] sm:grid-cols-[1fr_auto_1fr] sm:gap-5">
+              <figure className="relative mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl bg-[#FFFCF7] shadow-[0_14px_36px_rgba(58,42,20,0.12)] ring-1 ring-[#E8DFD2] sm:max-w-none">
+                <div className="relative aspect-[9/16] w-full">
                   <Image
                     src={beforeAfter.beforeImage}
-                    alt="Original product photo"
+                    alt="Original sunscreen product photo"
                     fill
                     quality={90}
                     className="object-cover object-center"
-                    sizes="(max-width: 640px) 90vw, 40vw"
+                    sizes="(max-width: 640px) 80vw, 28vw"
                   />
                 </div>
                 <figcaption className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
@@ -245,28 +245,19 @@ export default function HomePage() {
                 →
               </div>
 
-              <figure className="relative overflow-hidden rounded-2xl bg-black shadow-[0_14px_36px_rgba(58,42,20,0.16)] ring-1 ring-[#E8DFD2]">
-                <a href={`#${samples.id}`} className="group relative block aspect-[3/4] w-full">
-                  <Image
-                    src={beforeAfter.afterImage}
-                    alt="AI promotional video result"
-                    fill
-                    quality={90}
-                    className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 90vw, 40vw"
-                  />
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,rgba(26,20,16,0.15),rgba(26,20,16,0.35))]"
+              <figure className="relative mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl bg-black shadow-[0_14px_36px_rgba(58,42,20,0.16)] ring-1 ring-[#E8DFD2] sm:max-w-none">
+                <div className="relative aspect-[9/16] w-full">
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={beforeAfter.afterPoster}
                   >
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-[#1A1410] shadow-[0_10px_24px_rgba(26,20,16,0.28)]">
-                      <svg viewBox="0 0 24 24" className="ml-0.5 h-6 w-6 fill-current">
-                        <path d="M8 5.14v13.72L19 12 8 5.14z" />
-                      </svg>
-                    </span>
-                  </span>
-                </a>
-                <figcaption className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    <source src={beforeAfter.afterVideo} type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption className="pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-black/55 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
                   {beforeAfter.afterLabel}
                 </figcaption>
               </figure>

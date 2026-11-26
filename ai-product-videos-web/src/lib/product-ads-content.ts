@@ -99,8 +99,9 @@ export const productAdsContent = {
       "See how a plain product shot becomes a cinematic AI promotional video.",
     beforeLabel: "Before",
     afterLabel: "After",
-    beforeImage: "/product-ads/perfume.jpg",
-    afterImage: "/product-ads/hero-perfume-spray.jpg",
+    beforeImage: "/product-ads/sunscreen-before.jpg",
+    afterVideo: "/product-ads/sunscreen.mp4",
+    afterPoster: "/product-ads/sunscreen-before.jpg",
     cta: "Transform My Product",
   },
 
