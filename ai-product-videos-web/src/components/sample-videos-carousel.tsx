@@ -8,7 +8,7 @@ export function SampleVideosCarousel() {
   return (
     <div>
       <p className="mt-2 text-sm text-[#6B5544] md:hidden">{samples.swipeHint}</p>
-      <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 sm:snap-none lg:mx-auto lg:max-w-5xl lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+      <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 sm:snap-none lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
         {samples.videos.map((item) => (
           <li
             key={item.id}

@@ -134,6 +134,13 @@ export const productAdsContent = {
         src: "/product-ads/sample-hair-oil.mp4",
         poster: "/product-ads/sample-hair-oil-poster.jpg",
       },
+      {
+        id: "bb-cream",
+        title: "Sheer Glow BB",
+        duration: "0:44",
+        src: "/product-ads/sample-bb-cream.mp4",
+        poster: "/product-ads/sample-bb-cream-poster.jpg",
+      },
     ],
   },
 
