@@ -9,6 +9,7 @@ import { SampleVideosCarousel } from "@/components/sample-videos-carousel";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomCta } from "@/components/sticky-bottom-cta";
+import { WatchExplainerButton } from "@/components/watch-explainer-button";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { brand, whatsappUrl } from "@/lib/brand";
 import { productAdsContent } from "@/lib/product-ads-content";
@@ -114,18 +115,7 @@ export default function HomePage() {
                   {hero.primaryCta}
                   <span aria-hidden>→</span>
                 </a>
-                <a
-                  href="#samples"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#1A1410]/25 bg-white/55 px-5 text-sm font-semibold text-[#1A1410] backdrop-blur-sm transition hover:bg-white/85"
-                >
-                  <span
-                    aria-hidden
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1A1410] text-[10px] text-[#FBF7F0]"
-                  >
-                    ▶
-                  </span>
-                  {hero.playLabel}
-                </a>
+                <WatchExplainerButton className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#1A1410]/25 bg-white/55 px-5 text-sm font-semibold text-[#1A1410] backdrop-blur-sm transition hover:bg-white/85" />
               </div>
             </div>
 

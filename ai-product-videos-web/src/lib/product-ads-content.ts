@@ -41,7 +41,16 @@ export const productAdsContent = {
     benefits: ["AI Product Videos", "No Video Shoot Needed"] as const,
     priceBadge: "Starting at",
     primaryCta: "Create My Product Video",
-    playLabel: "Watch sample",
+    playLabel: "Watch explainer",
+    explainer: {
+      title: "How AI Product Videos Work",
+      openLabel: "Play explainer video",
+      src: "/product-ads/explainer-16x9.mp4",
+      poster: "/product-ads/explainer-poster.jpg",
+      stageImage: "/product-ads/luxury-product-scene.jpg",
+      posterAlt:
+        "Luxury product showcase — perfume, skincare, electronics, and coffee",
+    },
   },
 
   categories: [
