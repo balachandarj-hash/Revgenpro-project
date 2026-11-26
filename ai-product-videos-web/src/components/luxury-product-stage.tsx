@@ -143,11 +143,12 @@ export function LuxuryProductStage() {
             {open ? (
               <video
                 ref={videoRef}
-                className="absolute inset-0 block h-full w-full object-cover object-center"
+                className="absolute inset-0 block h-full w-full"
+                style={{ objectFit: "cover", objectPosition: "center" }}
                 controls
                 playsInline
                 autoPlay
-                preload="metadata"
+                preload="auto"
                 poster={explainer.poster}
               >
                 <source src={explainer.src} type="video/mp4" />
