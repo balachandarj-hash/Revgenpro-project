@@ -27,159 +27,138 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="home" className="relative z-10 scroll-mt-20">
-        {/* 1 — Hero */}
-        <section className="mx-auto grid w-full max-w-[1440px] items-center gap-6 px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12">
+        {/* Hero — mobile: headline → video → bullets; desktop: full-width headline, then copy | 16:9 */}
+        <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-5 px-5 py-6 md:gap-6 md:px-10 md:py-8 lg:gap-8 lg:py-12">
           <div className="min-w-0">
-            <p className="text-xs font-medium text-white/55">{siteContent.hero.eyebrow}</p>
-            <p className="mt-3 inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
+            <p className="inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
               {siteContent.hero.hook}
             </p>
-            <h1 className="mt-4 text-[clamp(1.35rem,4.2vw,2.75rem)] font-semibold leading-tight tracking-tight sm:text-balance sm:text-4xl lg:text-5xl">
+            <h1 className="mt-4 whitespace-nowrap text-[clamp(1.15rem,5.2vw,1.55rem)] font-semibold leading-none tracking-tight sm:text-[clamp(1.6rem,2.6vw+0.4rem,2.75rem)]">
               <span className="sm:hidden">{siteContent.hero.headlineMobile}</span>
               <span className="hidden sm:inline">{siteContent.hero.headline}</span>
             </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mt-4 sm:text-base">
-              {siteContent.hero.description}
-            </p>
-            <div className="studio-glass mt-4 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-white/15 px-4 py-2.5 sm:mt-5 sm:rounded-full">
-              <span className="text-xs font-medium text-white/70 sm:text-sm">
-                {siteContent.hero.priceLabel}
-              </span>
-              <span className="text-3xl font-bold leading-none text-white sm:text-4xl">
-                {siteContent.price}
-              </span>
-              <span className="text-sm font-semibold text-[#C4B5FD]">{siteContent.priceUnit}</span>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#enquiry"
-                className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
-              >
-                {siteContent.hero.primaryCta}
-              </a>
-              <a
-                href="#value"
-                className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
-              >
-                {siteContent.hero.secondaryCta}
-              </a>
-            </div>
           </div>
-          <HeroVisual />
-        </section>
 
-        {/* 2 — Problem */}
-        <section
-          id={siteContent.problem.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
-            <div>
-              <SectionLabel>{siteContent.problem.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                {siteContent.problem.title}
-              </h2>
-              <p className="mt-4 max-w-xl text-white/75">{siteContent.problem.body}</p>
+          <div className="grid w-full gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10">
+            <div className="order-1 w-full lg:order-2">
+              <HeroVisual />
             </div>
-            <ul className="mt-8 space-y-3 lg:mt-0">
-              {siteContent.problem.points.map((point) => (
-                <li
-                  key={point}
-                  className="studio-glass flex gap-3 rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/85"
+
+            <div className="order-2 min-w-0 lg:order-1">
+              <ul className="space-y-2.5">
+                {siteContent.hero.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex gap-2.5 text-sm leading-snug text-white/85 sm:text-[0.95rem] sm:leading-relaxed"
+                  >
+                    <span
+                      className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#C4B5FD]"
+                      aria-hidden
+                    />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="studio-glass mt-5 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-white/15 px-4 py-2.5 sm:mt-6 sm:rounded-full">
+                <span className="text-xs font-medium text-white/70 sm:text-sm">
+                  {siteContent.hero.priceLabel}
+                </span>
+                <span className="text-3xl font-bold leading-none text-white sm:text-4xl">
+                  {siteContent.price}
+                </span>
+                <span className="text-sm font-semibold text-[#C4B5FD]">{siteContent.priceUnit}</span>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
+                <a
+                  href="#enquiry"
+                  className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
                 >
-                  <span className="text-[#C4B5FD]" aria-hidden>
-                    —
-                  </span>
-                  {point}
-                </li>
-              ))}
-            </ul>
+                  {siteContent.hero.primaryCta}
+                </a>
+                <a
+                  href="#portfolio"
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
+                >
+                  {siteContent.hero.secondaryCta}
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* 3 — Awareness */}
-        <section
-          id={siteContent.awareness.id}
-          className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
-        >
+        {/* Styles */}
+        <section id="styles" className="scroll-mt-28 px-5 py-10 md:px-10 md:py-14">
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{siteContent.awareness.label}</SectionLabel>
-            <h2 className="mt-3 max-w-3xl text-3xl font-semibold sm:text-4xl">
-              {siteContent.awareness.title}
+            <SectionLabel>{siteContent.stylesSection.label}</SectionLabel>
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+              {siteContent.stylesSection.title}
             </h2>
-            <p className="mt-4 max-w-2xl text-white/75">{siteContent.awareness.body}</p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {siteContent.awareness.points.map((point) => (
+            <p className="mt-4 max-w-2xl text-white/75">{siteContent.stylesSection.subtitle}</p>
+            <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {siteContent.styles.map((style) => (
                 <li
-                  key={point}
-                  className="rounded-2xl border border-[#9333EA]/25 bg-[#6D28D9]/10 px-4 py-4 text-sm text-white/85"
+                  key={style.id}
+                  className="studio-glass overflow-hidden rounded-3xl border border-white/10 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
                 >
-                  {point}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={style.poster}
+                      alt={style.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-[#C4B5FD]">
+                      {style.emoji} {style.title}
+                    </p>
+                    <p className="mt-2 text-sm text-white/75">{style.description}</p>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 4 — Solution */}
+        {/* Portfolio */}
         <section
-          id={siteContent.solution.id}
-          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-12">
-            <div>
-              <SectionLabel>{siteContent.solution.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.solution.title}</h2>
-              <p className="mt-4 text-white/75">{siteContent.solution.body}</p>
-              <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[#25D366]/50 px-5 text-sm font-semibold text-[#86EFAC]"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0">
-              {siteContent.solution.highlights.map((item) => (
-                <li
-                  key={item}
-                  className="studio-glass rounded-2xl border border-white/10 p-4 text-sm text-white/85"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* 5 — Value */}
-        <section
-          id={siteContent.value.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"
+          id={siteContent.portfolio.id}
+          className="scroll-mt-28 border-t border-white/10 px-5 py-10 md:px-10 md:py-14"
         >
           <div className="mx-auto max-w-[1440px]">
-            <SectionLabel>{siteContent.value.label}</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{siteContent.value.title}</h2>
-            <p className="mt-3 max-w-2xl text-white/70">{siteContent.value.subtitle}</p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {siteContent.value.deliverables.map((item) => (
+            <SectionLabel>{siteContent.portfolio.label}</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold">{siteContent.portfolio.title}</h2>
+            <p className="mt-3 max-w-2xl text-white/75">{siteContent.portfolio.subtitle}</p>
+            <ul className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-5">
+              {siteContent.portfolioVideos.map((item) => (
                 <li
-                  key={item.title}
-                  className="studio-glass rounded-3xl border border-white/10 p-5 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
+                  key={item.id}
+                  className="studio-glass w-[min(85vw,280px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 sm:w-auto"
                 >
-                  <h3 className="text-base font-semibold text-[#EDE9FE]">{item.title}</h3>
-                  <p className="mt-2 text-sm text-white/75">{item.description}</p>
+                  <video
+                    className="aspect-[9/16] w-full bg-black object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={item.poster}
+                  >
+                    <source src={item.src} type="video/mp4" />
+                  </video>
+                  <p className="px-3 py-2 text-sm font-semibold">{item.title}</p>
+                  <p className="px-3 pb-3 text-xs text-white/60">{item.duration}</p>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* 6 — Process */}
+        {/* Process */}
         <section
           id={siteContent.process.id}
-          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
+          className="scroll-mt-28 px-5 py-10 md:px-10 md:py-14"
         >
           <div className="mx-auto max-w-[1440px]">
             <SectionLabel>{siteContent.process.label}</SectionLabel>
@@ -199,113 +178,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 7 — Portfolio / creative proof */}
-        <section
-          id={siteContent.portfolio.id}
-          className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10"
-        >
-          <SectionLabel>{siteContent.portfolio.label}</SectionLabel>
-          <h2 className="mt-3 text-3xl font-semibold">{siteContent.portfolio.title}</h2>
-          <p className="mt-3 max-w-2xl text-white/75">{siteContent.portfolio.subtitle}</p>
-          <ul className="mx-auto mt-6 flex max-w-[1440px] snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-5">
-            {siteContent.portfolioVideos.map((item) => (
-              <li
-                key={item.id}
-                className="studio-glass w-[min(85vw,280px)] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 sm:w-auto"
-              >
-                <video
-                  className="aspect-[9/16] w-full bg-black object-cover"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={item.poster}
-                >
-                  <source src={item.src} type="video/mp4" />
-                </video>
-                <p className="px-3 py-2 text-sm font-semibold">{item.title}</p>
-                <p className="px-3 pb-3 text-xs text-white/60">{item.duration}</p>
-              </li>
-            ))}
-          </ul>
-          <ul className="mx-auto mt-10 grid max-w-[1440px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {siteContent.styles.slice(0, 4).map((style) => (
-              <li
-                key={style.id}
-                className="studio-glass overflow-hidden rounded-3xl border border-white/10"
-              >
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={style.poster}
-                    alt={style.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 25vw"
-                  />
-                </div>
-                <p className="p-3 text-xs font-semibold text-white/80">
-                  {style.emoji} {style.title}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 8 — Trust */}
-        <section
-          id={siteContent.trust.id}
-          className="scroll-mt-28 bg-[#0d1330]/80 px-5 py-12 md:px-10 md:py-16"
-        >
-          <div className="mx-auto max-w-[1440px] lg:grid lg:grid-cols-2 lg:gap-12">
-            <div>
-              <SectionLabel>{siteContent.trust.label}</SectionLabel>
-              <h2 className="mt-3 text-3xl font-semibold">{siteContent.trust.title}</h2>
-              <p className="mt-4 text-white/75">{siteContent.trust.body}</p>
-              <dl className="mt-6 space-y-2 text-sm">
-                <div>
-                  <dt className="text-white/50">Email</dt>
-                  <dd>
-                    <a
-                      href={`mailto:${brand.contact.email}`}
-                      className="font-medium text-[#C4B5FD] hover:underline"
-                    >
-                      {brand.contact.email}
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-white/50">Phone</dt>
-                  <dd className="font-medium">{brand.contact.phoneDisplay}</dd>
-                </div>
-                <div>
-                  <dt className="text-white/50">Location</dt>
-                  <dd className="font-medium">
-                    {brand.location.locality}, {brand.location.region}, {brand.location.country}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <ul className="mt-8 space-y-3 lg:mt-0">
-              {siteContent.trust.facts.map((fact) => (
-                <li
-                  key={fact}
-                  className="rounded-2xl border border-white/10 bg-[#111936]/50 px-4 py-3 text-sm text-white/85"
-                >
-                  {fact}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* 9 — Offer */}
+        {/* Offer */}
         <section
           id={siteContent.offer.id}
-          className="scroll-mt-28 px-5 py-12 md:px-10 md:py-16"
+          className="scroll-mt-28 border-t border-white/10 px-5 py-10 md:px-10 md:py-14"
         >
           <div className="studio-glass mx-auto max-w-2xl rounded-3xl border border-[#A78BFA]/35 p-8 text-center shadow-[0_24px_60px_rgba(109,40,217,0.25)]">
             <SectionLabel>{siteContent.offer.label}</SectionLabel>
-            <p className="mt-3 text-sm font-medium text-[#EDE9FE]">{siteContent.offer.packageName}</p>
-            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{siteContent.offer.title}</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{siteContent.offer.title}</h2>
             <p className="mt-4 text-white/75">{siteContent.offer.body}</p>
             <p className="mt-4 text-sm text-white/60">{siteContent.offer.includesNote}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -327,7 +207,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 10 — Enquiry + FAQ */}
+        {/* Enquiry + FAQ */}
         <section
           id={siteContent.enquiry.id}
           className="scroll-mt-28 border-t border-white/10 px-5 py-12 md:px-10 md:py-16"

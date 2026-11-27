@@ -1,185 +1,57 @@
 export const siteContent = {
-  price: "₹14,999",
-  priceUnit: " one-time",
-  packageName: "Complete Online Presence",
-  whatsappPrefill:
-    "Hi RevGenPro, I'm interested in the Complete Online Presence package (₹14,999). Please share next steps.",
+  price: "₹1,499",
+  priceUnit: "/ Video",
+  packageName: "AI Video",
+  whatsappPrefill: "Hi RevGenPro, I want an AI video for ₹1,499.",
 
   header: {
-    cta: "Get started",
+    cta: "Create My AI Video",
   },
   stickyBar: {
-    enquiryCta: "Enquire now",
+    enquiryCta: "Order now",
   },
 
   seo: {
-    title: "Complete Online Presence ₹14,999 | RevGenPro Solutions",
+    title: "AI Videos from ₹1,499 | RevGenPro Solutions",
     description:
-      "RevGenPro Solutions Pvt Ltd helps local businesses in India launch a professional online presence — website basics, Google visibility, social setup, and AI promo content — in one clear package at ₹14,999.",
-    ogTitle: "Complete Online Presence — ₹14,999 | RevGenPro",
+      "From hilarious cartoon animations and manga-inspired storytelling to cinematic advertisements, product promotions, realistic AI presenters, and creative social media videos — we bring your ideas to life using AI. Starting at ₹1,499 per video.",
+    ogTitle: "AI Videos from ₹1,499 | RevGenPro Solutions",
     ogDescription:
-      "One package to go from invisible to findable online. Website, listings, social presence, and creative AI video support from RevGenPro Solutions Pvt Ltd, Hosur.",
+      "Cartoons, manga-style stories, cinematic ads, and social videos — professional AI production starting at ₹1,499 per video.",
     siteUrl: "https://ai-videos.apps.grok.bot/",
   },
 
   hero: {
-    eyebrow: "RevGenPro Solutions Pvt Ltd · Hosur, Tamil Nadu",
-    hook: "Still running your business mostly offline?",
-    headline: "Get a Complete Online Presence — without juggling five vendors.",
-    headlineMobile: "Complete Online Presence for your business",
-    description:
-      "We set up what customers actually search for: a credible web presence, Google listing, social pages, and attention-grabbing AI video — bundled as one package.",
-    priceLabel: "Complete Online Presence",
-    primaryCta: "Start my enquiry",
-    secondaryCta: "See what’s included",
-    image: "/ai-videos/hero.jpg",
-    imageAlt:
-      "Business owner reviewing digital screens showing website, maps, and social content in purple studio lighting",
-  },
-
-  problem: {
-    id: "problem",
-    label: "Problem",
-    title: "Customers are searching — and not finding you.",
-    body: "Word of mouth still matters, but the first impression often happens on Google, Instagram, or WhatsApp. Without a clear online footprint, even good businesses look inactive, unprofessional, or simply absent.",
-    points: [
-      "No website or landing page when someone asks for your link",
-      "Google Maps listing missing, outdated, or owned by someone else",
-      "Social pages empty, irregular, or not connected to how you sell",
-      "Promo content that doesn’t match the quality of your actual work",
+    hook: "Still Promoting Your Business With Boring Videos?",
+    /** Desktop: full-width hero row — stays one line on typical laptop widths */
+    headline: "Turn Any Idea Into an Attention-Grabbing AI Video!",
+    /** Mobile: shorter so it stays one line in a 390px viewport */
+    headlineMobile: "Turn Ideas Into AI Videos!",
+    bullets: [
+      "Hilarious cartoon animations & manga-inspired stories",
+      "Cinematic advertisements & product promotions",
+      "Realistic AI presenters & creative social videos",
+      "Professional AI production — ready for your platform",
     ],
+    priceLabel: "AI Videos starting at just",
+    primaryCta: "Create My AI Video",
+    secondaryCta: "Watch Video Samples",
+    image: "/videos/hero-explainer-poster.jpg",
+    imageAlt: "16:9 explainer preview of RevGenPro AI video styles",
+    explainer: {
+      title: "See AI video styles in action",
+      src: "/videos/hero-explainer-16x9.mp4",
+      poster: "/videos/hero-explainer-poster.jpg",
+      /** Drop a custom 16:9 mp4 at this path to replace the montage */
+      assetNote:
+        "Playable 16:9 hero explainer (1920×1080). Replace public/videos/hero-explainer-16x9.mp4 and hero-explainer-poster.jpg to update.",
+    },
   },
 
-  awareness: {
-    id: "awareness",
-    label: "Awareness",
-    title: "Being online isn’t optional — it’s how trust starts.",
-    body: "Buyers compare options in minutes. They check your site, your reviews, and whether you look real before they call. A consistent presence turns curiosity into enquiries.",
-    points: [
-      "Search and maps drive local discovery every day",
-      "Social proof and visuals answer questions before you do",
-      "One coherent brand across channels feels professional",
-      "Short video content gets more attention than static posts alone",
-    ],
-  },
-
-  solution: {
-    id: "solution",
-    label: "Solution",
-    title: "One team, one package: Complete Online Presence.",
-    body: "RevGenPro combines digital branding, listings, social setup, and AI video production — so you don’t coordinate multiple freelancers for the basics.",
-    highlights: [
-      "Structured delivery with clear handover",
-      "Built for Indian small businesses and local brands",
-      "Creative studio for AI videos included in the same engagement",
-      "Human support on WhatsApp and email",
-    ],
-  },
-
-  value: {
-    id: "value",
-    label: "Value",
-    title: "What you get in the package",
-    subtitle: "Deliverables are scoped to your business; we confirm the checklist on enquiry.",
-    deliverables: [
-      {
-        title: "Business web presence",
-        description:
-          "A focused landing or starter site that tells visitors who you are, what you offer, and how to contact you.",
-      },
-      {
-        title: "Google Business Profile",
-        description:
-          "Setup or cleanup guidance so you show up on Maps and Search with accurate hours, category, and contact details.",
-      },
-      {
-        title: "Social media foundation",
-        description:
-          "Profile setup and branding alignment for the channels that fit your audience — not every network for the sake of it.",
-      },
-      {
-        title: "AI promotional video",
-        description:
-          "At least one short AI-crafted video tailored to your offer — ideal for WhatsApp status, Reels, or paid boosts.",
-      },
-      {
-        title: "Brand consistency pass",
-        description:
-          "Logo, colours, and messaging aligned across web, listing, and social so you don’t look fragmented.",
-      },
-      {
-        title: "Launch checklist",
-        description:
-          "Simple before/after checklist so you know what went live and what to maintain after handover.",
-      },
-    ],
-  },
-
-  process: {
-    id: "process",
-    label: "How it works",
-    title: "From enquiry to launch",
-    steps: [
-      {
-        title: "Discovery call",
-        body: "We learn your business, location, and goals on WhatsApp or a quick call.",
-      },
-      {
-        title: "Scope & timeline",
-        body: "We agree deliverables, content you’ll provide, and a realistic launch date.",
-      },
-      {
-        title: "Build & create",
-        body: "Web, listings, social, and AI video production in parallel where possible.",
-      },
-      {
-        title: "Review & go live",
-        body: "You approve assets; we publish and share your launch checklist.",
-      },
-    ],
-  },
-
-  portfolio: {
-    id: "portfolio",
-    label: "Creative samples",
-    title: "AI video samples from our studio",
-    subtitle:
-      "Real demo clips — not client testimonials. Video styles we can adapt for your brand.",
-  },
-
-  trust: {
-    id: "trust",
-    label: "Trust",
-    title: "Who we are",
-    body: "RevGenPro Solutions Pvt Ltd is a digital branding and marketing team based in Hosur, Tamil Nadu. We work with local businesses that want a professional online presence without enterprise agency pricing or vague retainers.",
-    facts: [
-      "Registered company: RevGenPro Solutions Pvt Ltd",
-      "Location: Hosur, Tamil Nadu, India",
-      "Transparent package pricing — ₹14,999 for Complete Online Presence",
-      "No fabricated reviews or inflated “clients served” counters on this page",
-    ],
-  },
-
-  offer: {
-    id: "offer",
-    label: "Offer",
-    packageName: "Complete Online Presence",
-    title: "₹14,999 — everything above, one invoice.",
-    body: "A single package price for scoped launch work. Custom add-ons (extra pages, ad spends, or additional videos) are quoted separately before you commit.",
-    cta: "Claim this package",
-    secondaryCta: "Ask a question first",
-    includesNote:
-      "Includes web presence setup, Google Business Profile guidance, social foundation, one AI promo video, and brand alignment — as agreed in your scope sheet.",
-  },
-
-  enquiry: {
-    id: "enquiry",
-    label: "Enquiry",
-    title: "Tell us about your business",
-    subtitle:
-      "Fill in your details. Submit opens WhatsApp with your message — nothing is stored on our servers from this form.",
-    formSubmitCta: "Send enquiry on WhatsApp",
-    faqTitle: "Common questions",
+  stylesSection: {
+    label: "Video styles we create",
+    title: "Any idea. Any style.",
+    subtitle: "Love, kids, village, comedy, horror, mythology, manga, or brand — pick a style.",
   },
 
   styles: [
@@ -187,8 +59,7 @@ export const siteContent = {
       id: "love",
       emoji: "❤️",
       title: "AI Love Story Series",
-      description:
-        "Romantic films for couples, proposals, and emotional love stories.",
+      description: "Romantic films for couples, proposals, and emotional love stories.",
       poster: "/ai-videos/love.jpg",
       imageAlt: "Illustrated couple in a sunlit room from a romantic love story",
     },
@@ -212,11 +83,9 @@ export const siteContent = {
       id: "comedy",
       emoji: "😂",
       title: "AI Comedy Stories",
-      description:
-        "Funny characters, product mascots, and short comedy films.",
+      description: "Funny characters, product mascots, and short comedy films.",
       poster: "/ai-videos/comedy-cast.jpg",
-      imageAlt:
-        "Vegetable characters acting out a comedy scene in a living room",
+      imageAlt: "Vegetable characters acting out a comedy scene in a living room",
     },
     {
       id: "horror",
@@ -230,18 +99,15 @@ export const siteContent = {
       id: "myth",
       emoji: "🕉️",
       title: "AI Mythological Stories",
-      description:
-        "Epic gods, warriors, and temple legends told as short films.",
+      description: "Epic gods, warriors, and temple legends told as short films.",
       poster: "/ai-videos/myth.jpg",
-      imageAlt:
-        "A glowing warrior in golden armor in an ancient temple courtyard",
+      imageAlt: "A glowing warrior in golden armor in an ancient temple courtyard",
     },
     {
       id: "manga",
       emoji: "⚡",
       title: "AI Manga / Anime Stories",
-      description:
-        "Japanese manga energy, expressive characters, and anime-style stories.",
+      description: "Japanese manga energy, expressive characters, and anime-style stories.",
       poster: "/ai-videos/manga-story.jpg",
       imageAlt: "Anime character with windblown hair against magenta lightning",
     },
@@ -249,12 +115,19 @@ export const siteContent = {
       id: "brand",
       emoji: "✨",
       title: "AI Brand Storytelling",
-      description:
-        "Product and business stories that make a brand feel cinematic.",
+      description: "Product and business stories that make a brand feel cinematic.",
       poster: "/ai-videos/brand.jpg",
       imageAlt: "A glowing boutique storefront at dusk for a brand story",
     },
   ],
+
+  portfolio: {
+    id: "portfolio",
+    label: "Creative samples",
+    title: "Creative story videos",
+    subtitle: "Swipe on your phone, tap a card to watch sample films.",
+  },
+
   portfolioVideos: [
     {
       id: "cartoon-animal",
@@ -292,40 +165,73 @@ export const siteContent = {
       duration: "8s demo",
     },
   ],
+
+  process: {
+    id: "process",
+    label: "How it works",
+    title: "From idea to finished video",
+    steps: [
+      {
+        title: "Share Your Idea",
+        body: "Tell us what type of video you want.",
+      },
+      {
+        title: "Choose Your Style",
+        body: "Pick love story, kids cartoon, village, comedy, horror, mythology, manga, or brand storytelling.",
+      },
+      {
+        title: "AI Video Creation",
+        body: "Our creative team transforms your idea into an engaging AI video.",
+      },
+      {
+        title: "Receive Your Video",
+        body: "Get your completed video ready for your intended platform.",
+      },
+    ],
+  },
+
+  offer: {
+    id: "offer",
+    label: "Offer",
+    packageName: "AI Video",
+    title: "₹1,499 per video",
+    body: "One clear price for a finished AI video in your chosen style — cartoons, manga, ads, presenters, and more.",
+    cta: "Create My AI Video",
+    secondaryCta: "Ask on WhatsApp",
+    includesNote: "Final length, aspect ratio, and revisions are confirmed when you place your order.",
+  },
+
+  enquiry: {
+    id: "enquiry",
+    label: "Enquiry",
+    title: "Have an Idea? Let's Turn It Into an AI Video!",
+    subtitle:
+      "Fill in your details. Submit opens WhatsApp with your message — nothing is stored on our servers from this form.",
+    formSubmitCta: "Send enquiry on WhatsApp",
+    faqTitle: "Common questions",
+  },
+
   faqs: [
     {
-      question: "What is included in Complete Online Presence for ₹14,999?",
+      question: "What types of AI videos do you create?",
       answer:
-        "A scoped launch bundle: business web presence, Google Business Profile guidance, social media foundation, one AI promotional video, brand alignment, and a launch checklist. Exact items are confirmed in writing before work starts.",
+        "Love stories, cartoon stories for kids, village stories, comedy, horror, mythological stories, manga and anime, and brand storytelling.",
     },
     {
-      question: "Is ₹14,999 a monthly fee?",
-      answer:
-        "No. It is a one-time package price for the agreed launch scope. Ongoing ads, hosting renewals, or extra videos are quoted separately if you need them.",
+      question: "How much does one AI video cost?",
+      answer: "₹1,499 per video.",
     },
     {
-      question: "How long does delivery take?",
+      question: "How do I place an order?",
       answer:
-        "Timeline depends on how quickly you share content (logo, photos, offers). Typical launches are a few weeks after scope sign-off — we give you a date on enquiry, not a generic promise.",
+        "Fill the form on this page. Submit opens WhatsApp with your name, number, and idea so our team can reply in one thread.",
     },
     {
-      question: "Do you serve businesses outside Hosur?",
+      question: "Do you serve clients outside Hosur?",
       answer:
-        "Yes. We are based in Hosur, Tamil Nadu, and work with clients across India remotely. Discovery and reviews happen on WhatsApp, email, and video call as needed.",
-    },
-    {
-      question: "How does the enquiry form work?",
-      answer:
-        "This site does not store your form in a database. When you submit, WhatsApp opens with your details prefilled so our team can reply in one thread.",
-    },
-    {
-      question: "Can I order only AI videos?",
-      answer:
-        "Yes. This page promotes the Complete Online Presence bundle. For standalone AI video requests, message us on WhatsApp and we will share current video pricing.",
+        "Yes. We are based in Hosur, Tamil Nadu, and work with clients across India remotely via WhatsApp and video call.",
     },
   ],
 } as const;
-
-export const heroAccentIds = ["brand", "kids", "village"] as const;
 
 export type VideoStyle = (typeof siteContent.styles)[number];
