@@ -9,9 +9,9 @@ type HeaderPage = "home" | "product-ads";
 type NavLink = { href: string; label: string };
 
 const homeNav: NavLink[] = [
-  { href: "#problem", label: "Problem" },
-  { href: "#solution", label: "Solution" },
-  { href: "#offer", label: "Offer" },
+  { href: "#styles", label: "Styles" },
+  { href: "#portfolio", label: "Samples" },
+  { href: "#process", label: "How it works" },
   { href: "#enquiry", label: "Enquire" },
 ];
 

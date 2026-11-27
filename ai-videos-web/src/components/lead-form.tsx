@@ -20,7 +20,7 @@ const defaultCopy: LeadFormCopy = {
   price: siteContent.price,
   whatsappPrefill: siteContent.whatsappPrefill,
   formSubmitCta: siteContent.enquiry.formSubmitCta,
-  messagePlaceholder: "Website, Google listing, social pages, AI promo video…",
+  messagePlaceholder: "Cartoon, manga, ad, product promo, AI presenter…",
 };
 
 export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
