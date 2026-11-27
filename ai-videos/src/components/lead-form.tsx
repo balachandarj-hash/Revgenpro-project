@@ -172,7 +172,7 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
 
       <button
         type="submit"
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] text-sm font-semibold"
+        className="cta-studio inline-flex min-h-12 w-full items-center justify-center rounded-full text-sm font-semibold"
       >
         {copy.formSubmitCta}
       </button>

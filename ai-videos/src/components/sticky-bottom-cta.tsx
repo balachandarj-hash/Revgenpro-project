@@ -35,14 +35,14 @@ export function StickyBottomCta({ page = "home" }: { page?: StickyPage }) {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/15 bg-[#111936]/95 px-4 py-3 backdrop-blur-md md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#111936]/88 px-4 py-3 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="mx-auto flex max-w-lg items-center gap-3">
         <p className="shrink-0 text-lg font-bold text-white">{siteContent.price}</p>
         <a
           href={enquiryHref}
-          className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold"
+          className="cta-studio inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold"
         >
           <span aria-hidden>✦</span>
           {enquiryCta}
