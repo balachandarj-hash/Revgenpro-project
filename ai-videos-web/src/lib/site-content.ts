@@ -44,7 +44,7 @@ export const siteContent = {
       poster: "/videos/hero-explainer-poster.jpg",
       /** Drop a custom 16:9 mp4 at this path to replace the montage */
       assetNote:
-        "Playable 16:9 hero explainer (1920×1080). Replace public/videos/hero-explainer-16x9.mp4 and hero-explainer-poster.jpg to update.",
+        "Playable true-landscape 16:9 hero explainer (1920×1080, center-cropped demos — no pillarboxing). Replace public/videos/hero-explainer-16x9.mp4 and hero-explainer-poster.jpg to update.",
     },
   },
 
