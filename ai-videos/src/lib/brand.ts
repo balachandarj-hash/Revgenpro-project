@@ -20,8 +20,11 @@ export const brand = {
     phoneDigits: "917010442618",
   },
   social: {
-    instagram: "https://www.instagram.com/revgenpro_crm",
-    facebook: "https://www.facebook.com/revgenpro/",
+    /** Profile URLs — never link to facebook.com / instagram.com home alone. */
+    facebook: "https://www.facebook.com/revgenpro",
+    facebookHandle: "facebook.com/revgenpro",
+    instagram: "https://www.instagram.com/revgenpro_crm/",
+    instagramHandle: "@revgenpro_crm",
   },
 } as const;
 

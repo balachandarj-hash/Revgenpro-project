@@ -283,7 +283,7 @@ export default function HomePage() {
       </main>
 
       <footer className="relative z-10 border-t border-white/10 px-5 py-10 md:px-10">
-        <div className="mx-auto grid max-w-[1440px] gap-8 sm:grid-cols-3">
+        <div className="mx-auto grid max-w-[1440px] gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-sm font-semibold">{brand.legalName}</p>
             <p className="mt-2 text-sm text-white/55">
@@ -313,6 +313,59 @@ export default function HomePage() {
               <li>
                 <a href="#enquiry" className="hover:text-white">
                   Enquiry
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+              Follow us
+            </p>
+            <ul className="mt-3 space-y-3">
+              <li>
+                <a
+                  href={brand.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open RevGenPro on Facebook"
+                  className="group flex items-center gap-3"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1877F2] text-white shadow-[0_0_16px_rgba(24,119,242,0.35)]">
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+                      <path d="M14 8.5h2.5V5.2S14.9 5 13.7 5C11.3 5 10 6.5 10 9v2H7.5v3.3H10V22h3.4v-7.7h2.8l.4-3.3H13.4V9.5c0-1 .3-1.5.6-1.5z" />
+                    </svg>
+                  </span>
+                  <span>
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#C4B5FD]">
+                      Facebook
+                    </span>
+                    <span className="text-sm text-white/85 underline-offset-2 group-hover:text-white group-hover:underline">
+                      {brand.social.facebookHandle}
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={brand.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open RevGenPro on Instagram"
+                  className="group flex items-center gap-3"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f58529,#dd2a7b,#515bd4)] text-white shadow-[0_0_16px_rgba(221,42,123,0.35)]">
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+                    </svg>
+                  </span>
+                  <span>
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#C4B5FD]">
+                      Instagram
+                    </span>
+                    <span className="text-sm text-white/85 underline-offset-2 group-hover:text-white group-hover:underline">
+                      {brand.social.instagramHandle}
+                    </span>
+                  </span>
                 </a>
               </li>
             </ul>
