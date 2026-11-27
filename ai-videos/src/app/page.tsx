@@ -31,9 +31,10 @@ export default function HomePage() {
         {/* Hero — left copy, right floating style cards */}
         <section
           id="home"
-          className="mx-auto grid w-full max-w-[1440px] items-center gap-6 overflow-visible px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12"
+          className="relative mx-auto grid w-full max-w-[1440px] items-center gap-6 overflow-visible px-5 py-6 md:gap-8 md:px-10 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:py-12"
         >
-          <div className="min-w-0">
+          <div aria-hidden className="studio-hero-ambient" />
+          <div className="relative z-[1] min-w-0">
             <p className="inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
               {siteContent.hero.hook}
             </p>
@@ -51,21 +52,23 @@ export default function HomePage() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#enquiry"
-                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
+                className="cta-studio inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-sm font-semibold"
               >
                 {siteContent.hero.primaryCta}
                 <span aria-hidden>→</span>
               </a>
               <a
                 href="#portfolio"
-                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 px-5 text-sm font-semibold"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] px-5 text-sm font-semibold backdrop-blur-sm transition hover:border-white/35 hover:bg-white/[0.06]"
               >
                 <span aria-hidden>▶</span>
                 {siteContent.hero.secondaryCta}
               </a>
             </div>
           </div>
-          <HeroVisual />
+          <div className="relative z-[1]">
+            <HeroVisual />
+          </div>
         </section>
 
         {/* Styles */}
@@ -158,7 +161,7 @@ export default function HomePage() {
               <p className="mt-4 text-white/75">{siteContent.pricing.body}</p>
               <a
                 href="#enquiry"
-                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-6 text-sm font-semibold"
+                className="cta-studio mt-8 inline-flex min-h-12 items-center rounded-full px-6 text-sm font-semibold"
               >
                 {siteContent.pricing.cta}
               </a>
@@ -257,7 +260,7 @@ export default function HomePage() {
             <p className="mt-4 text-white/75">{siteContent.finalCta.body}</p>
             <a
               href="#enquiry"
-              className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-6 text-sm font-semibold"
+              className="cta-studio mt-8 inline-flex min-h-12 items-center rounded-full px-6 text-sm font-semibold"
             >
               {siteContent.finalCta.cta}
             </a>
