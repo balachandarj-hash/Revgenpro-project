@@ -18,7 +18,7 @@ export const siteContent = {
     ogTitle: "AI Videos from ₹1,499 | RevGenPro Solutions",
     ogDescription:
       "Cartoons, manga-style stories, cinematic ads, and social videos — professional AI production starting at ₹1,499 per video.",
-    siteUrl: "https://ai-videos.apps.grok.bot/",
+    siteUrl: "https://ai-video.apps.grok.bot/",
   },
 
   hero: {
@@ -27,6 +27,7 @@ export const siteContent = {
     headline: "Turn Any Idea Into an Attention-Grabbing AI Video!",
     /** Mobile: shorter so it stays one line in a 390px viewport */
     headlineMobile: "Turn Ideas Into AI Videos!",
+    lead: "Cinematic AI videos for brands and creators — cartoons, manga stories, product ads, and social content that stop the scroll.",
     bullets: [
       "Hilarious cartoon animations & manga-inspired stories",
       "Cinematic advertisements & product promotions",

@@ -9,7 +9,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-[#111936]/60">
+    <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-[#0a1228]/60">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const panelId = `${baseId}-panel-${index}`;
@@ -29,7 +29,7 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
                 {item.question}
                 <span
                   aria-hidden
-                  className={`shrink-0 text-lg text-[#C4B5FD] transition-transform ${isOpen ? "rotate-45" : ""}`}
+                  className={`shrink-0 text-lg text-cyan-300 transition-transform ${isOpen ? "rotate-45" : ""}`}
                 >
                   +
                 </span>

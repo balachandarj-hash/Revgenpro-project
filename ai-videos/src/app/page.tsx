@@ -9,7 +9,9 @@ import { siteContent } from "@/lib/site-content";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#C4B5FD]">{children}</p>
+    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300/90">
+      {children}
+    </p>
   );
 }
 
@@ -27,32 +29,55 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="home" className="relative z-10 scroll-mt-20">
-        {/* Hero — mobile: headline → video → bullets; desktop: full-width headline, then copy | 16:9 */}
-        <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-5 px-5 py-6 md:gap-6 md:px-10 md:py-8 lg:gap-8 lg:py-12">
-          <div className="min-w-0">
-            <p className="inline-flex max-w-full items-center rounded-full border border-[#A78BFA]/45 bg-[#6D28D9]/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-[#EDE9FE] sm:text-xs sm:tracking-[0.18em]">
+        {/* Hero — left copy / right cinematic stage; mobile: headline → media → bullets */}
+        <section className="relative mx-auto w-full max-w-[1440px] overflow-hidden px-5 pb-10 pt-7 md:px-10 md:pb-14 md:pt-10 lg:pb-16 lg:pt-12">
+          {/* Mobile brand + headline first */}
+          <div className="min-w-0 lg:hidden">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-300/80">
+              {brand.name}
+            </p>
+            <p className="mt-3 inline-flex max-w-full items-center rounded-full border border-violet-400/40 bg-violet-600/20 px-3 py-1.5 text-[11px] font-semibold leading-snug tracking-wide text-violet-100 sm:text-xs">
               {siteContent.hero.hook}
             </p>
-            <h1 className="mt-4 whitespace-nowrap text-[clamp(1.15rem,5.2vw,1.55rem)] font-semibold leading-none tracking-tight sm:text-[clamp(1.6rem,2.6vw+0.4rem,2.75rem)]">
-              <span className="sm:hidden">{siteContent.hero.headlineMobile}</span>
-              <span className="hidden sm:inline">{siteContent.hero.headline}</span>
+            <h1 className="mt-4 text-[clamp(1.35rem,6vw,1.85rem)] font-semibold leading-[1.15] tracking-tight">
+              {siteContent.hero.headlineMobile}
             </h1>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">
+              {siteContent.hero.lead}
+            </p>
           </div>
 
-          <div className="grid w-full gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10">
+          <div className="mt-5 grid w-full gap-8 lg:mt-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-14 xl:gap-16">
+            {/* Right on desktop / second on mobile: cinematic media */}
             <div className="order-1 w-full lg:order-2">
               <HeroVisual />
             </div>
 
-            <div className="order-2 min-w-0 lg:order-1">
-              <ul className="space-y-2.5">
+            {/* Left on desktop: spacious copy column */}
+            <div className="order-2 min-w-0 lg:order-1 lg:pr-4">
+              <div className="hidden lg:block">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300/85">
+                  {brand.name}
+                </p>
+                <p className="mt-4 inline-flex max-w-full items-center rounded-full border border-violet-400/40 bg-violet-600/20 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-violet-100">
+                  {siteContent.hero.hook}
+                </p>
+                <h1 className="mt-5 max-w-[14ch] text-[clamp(2rem,2.4vw+1rem,3.15rem)] font-semibold leading-[1.08] tracking-tight">
+                  {siteContent.hero.headline}
+                </h1>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-white/72">
+                  {siteContent.hero.lead}
+                </p>
+              </div>
+
+              <ul className="mt-5 space-y-3 lg:mt-7">
                 {siteContent.hero.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex gap-2.5 text-sm leading-snug text-white/85 sm:text-[0.95rem] sm:leading-relaxed"
+                    className="flex gap-3 text-sm leading-snug text-white/82 sm:text-[0.95rem] sm:leading-relaxed"
                   >
                     <span
-                      className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#C4B5FD]"
+                      className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-cyan-300 to-violet-400 shadow-[0_0_8px_rgba(34,211,238,0.7)]"
                       aria-hidden
                     />
                     <span>{bullet}</span>
@@ -60,26 +85,28 @@ export default function HomePage() {
                 ))}
               </ul>
 
-              <div className="studio-glass mt-5 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-white/15 px-4 py-2.5 sm:mt-6 sm:rounded-full">
-                <span className="text-xs font-medium text-white/70 sm:text-sm">
+              <div className="studio-glass mt-6 inline-flex max-w-full flex-wrap items-baseline gap-x-2.5 gap-y-1 rounded-2xl border border-cyan-400/20 px-5 py-3 shadow-[0_0_28px_rgba(34,211,238,0.12)] sm:mt-8 sm:rounded-full">
+                <span className="text-xs font-medium text-white/65 sm:text-sm">
                   {siteContent.hero.priceLabel}
                 </span>
                 <span className="text-3xl font-bold leading-none text-white sm:text-4xl">
                   {siteContent.price}
                 </span>
-                <span className="text-sm font-semibold text-[#C4B5FD]">{siteContent.priceUnit}</span>
+                <span className="text-sm font-semibold text-cyan-300">
+                  {siteContent.priceUnit}
+                </span>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
+              <div className="mt-7 flex flex-wrap gap-3 sm:mt-8">
                 <a
                   href="#enquiry"
-                  className="inline-flex min-h-11 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-5 text-sm font-semibold"
+                  className="cta-neon inline-flex min-h-12 items-center rounded-full px-6 text-sm font-semibold"
                 >
                   {siteContent.hero.primaryCta}
                 </a>
                 <a
                   href="#portfolio"
-                  className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-semibold"
+                  className="inline-flex min-h-12 items-center rounded-full border border-white/25 bg-white/5 px-6 text-sm font-semibold backdrop-blur-sm transition hover:border-cyan-300/40 hover:bg-white/10"
                 >
                   {siteContent.hero.secondaryCta}
                 </a>
@@ -100,7 +127,7 @@ export default function HomePage() {
               {siteContent.styles.map((style) => (
                 <li
                   key={style.id}
-                  className="studio-glass overflow-hidden rounded-3xl border border-white/10 shadow-[0_16px_40px_rgba(9,13,36,0.28)]"
+                  className="studio-glass overflow-hidden rounded-3xl border border-white/10 shadow-[0_16px_40px_rgba(5,8,22,0.4)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
@@ -112,7 +139,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="p-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-[#C4B5FD]">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-cyan-300/90">
                       {style.emoji} {style.title}
                     </p>
                     <p className="mt-2 text-sm text-white/75">{style.description}</p>
@@ -169,7 +196,7 @@ export default function HomePage() {
                   key={step.title}
                   className="studio-glass relative rounded-3xl border border-white/10 p-5"
                 >
-                  <span className="text-xs font-bold text-[#C4B5FD]">Step {index + 1}</span>
+                  <span className="text-xs font-bold text-cyan-300">Step {index + 1}</span>
                   <h3 className="mt-2 font-semibold">{step.title}</h3>
                   <p className="mt-2 text-sm text-white/75">{step.body}</p>
                 </li>
@@ -183,7 +210,7 @@ export default function HomePage() {
           id={siteContent.offer.id}
           className="scroll-mt-28 border-t border-white/10 px-5 py-10 md:px-10 md:py-14"
         >
-          <div className="studio-glass mx-auto max-w-2xl rounded-3xl border border-[#A78BFA]/35 p-8 text-center shadow-[0_24px_60px_rgba(109,40,217,0.25)]">
+          <div className="studio-glass mx-auto max-w-2xl rounded-3xl border border-violet-400/30 p-8 text-center shadow-[0_24px_60px_rgba(124,58,237,0.22)]">
             <SectionLabel>{siteContent.offer.label}</SectionLabel>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{siteContent.offer.title}</h2>
             <p className="mt-4 text-white/75">{siteContent.offer.body}</p>
@@ -191,7 +218,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href="#enquiry"
-                className="inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-6 text-sm font-semibold"
+                className="cta-neon inline-flex min-h-12 items-center rounded-full px-6 text-sm font-semibold"
               >
                 {siteContent.offer.cta}
               </a>
