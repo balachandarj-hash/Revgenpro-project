@@ -1,129 +1,104 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { siteContent } from "@/lib/site-content";
+import { heroAccentIds, siteContent, type VideoStyle } from "@/lib/site-content";
 
-const floatSamples = [
-  {
-    id: "love",
-    src: "/ai-videos/love.jpg",
-    alt: "AI love story sample",
-    label: "Love",
-    className:
-      "left-[-4%] top-[6%] w-[26%] -rotate-[8deg] sm:left-[-6%] sm:w-[24%]",
+const accentPlacement: Record<
+  (typeof heroAccentIds)[number],
+  { shell: string; animation: string }
+> = {
+  love: {
+    shell:
+      "left-[-6%] top-[6%] w-[44%] -rotate-[10deg] max-sm:left-[2%] max-sm:top-[8%] max-sm:w-[42%] max-sm:-rotate-[8deg]",
     animation: "studio-float",
   },
-  {
-    id: "manga",
-    src: "/ai-videos/manga-story.jpg",
-    alt: "AI manga story sample",
-    label: "Manga",
-    className:
-      "right-[-3%] top-[10%] w-[24%] rotate-[7deg] sm:right-[-5%] sm:w-[22%]",
+  kids: {
+    shell:
+      "right-[-8%] top-[16%] w-[40%] rotate-[12deg] max-sm:right-[0%] max-sm:top-[20%] max-sm:w-[38%] max-sm:rotate-[8deg]",
     animation: "studio-float-delayed",
   },
-  {
-    id: "brand",
-    src: "/ai-videos/brand.jpg",
-    alt: "AI brand story sample",
-    label: "Brand",
-    className:
-      "bottom-[14%] left-[-2%] w-[22%] rotate-[4deg] sm:bottom-[16%] sm:left-[-4%] sm:w-[20%]",
-    animation: "studio-float-slow",
+  horror: {
+    shell:
+      "bottom-[-8%] left-[16%] w-[46%] -rotate-[4deg] max-sm:bottom-[4%] max-sm:left-[12%] max-sm:w-[44%] max-sm:-rotate-[3deg]",
+    animation: "studio-float",
   },
-] as const;
+};
 
-/**
- * Cinematic 16:9 hero — neon glow frame, floating AI samples, reflective floor.
- * Asset: public/videos/hero-explainer-16x9.mp4 (+ poster).
- */
-export function HeroVisual() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const { explainer } = siteContent.hero;
+const accentShortTitle: Partial<Record<(typeof heroAccentIds)[number], string>> = {
+  love: "AI Love Story Series",
+  horror: "AI Horror Stories",
+  kids: "AI Cartoon Stories for Kids",
+};
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const play = video.play();
-    if (play && typeof play.catch === "function") {
-      play.catch(() => {
-        /* autoplay may be blocked — controls remain */
-      });
-    }
-  }, []);
+function AccentCard({
+  style,
+  shellClassName,
+  animation,
+}: {
+  style: VideoStyle;
+  shellClassName: string;
+  animation: string;
+}) {
+  const accentId = style.id as (typeof heroAccentIds)[number];
+  const label = accentShortTitle[accentId] ?? style.title;
 
   return (
-    <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-      {/* Atmospheric glow behind the stage */}
+    <div
+      className={["pointer-events-none absolute z-20 max-w-[48%] sm:max-w-none", shellClassName].join(
+        " ",
+      )}
+    >
       <div
-        aria-hidden
-        className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.2)_0%,rgba(168,85,247,0.16)_40%,transparent_70%)] blur-2xl sm:-inset-10"
-      />
+        className={[
+          "studio-glass overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_40px_rgba(9,13,36,0.55)]",
+          animation,
+        ].join(" ")}
+      >
+        <Image
+          src={style.poster}
+          alt={style.imageAlt}
+          width={480}
+          height={360}
+          className="aspect-[4/3] w-full object-cover"
+          sizes="(max-width: 640px) 46vw, 42vw"
+        />
+        <p className="truncate px-2 py-1.5 text-[9px] font-semibold uppercase tracking-wide text-white/95 sm:px-3 sm:py-2 sm:text-[11px]">
+          <span aria-hidden="true">{style.emoji} </span>
+          {label}
+        </p>
+      </div>
+    </div>
+  );
+}
 
-      <div className="relative pb-10 sm:pb-12">
-        {/* Floating AI sample cards */}
-        <ul className="pointer-events-none absolute inset-0 z-20 hidden list-none sm:block" aria-hidden>
-          {floatSamples.map((sample) => (
-            <li
-              key={sample.id}
-              className={`absolute ${sample.className}`}
-            >
-              <div className={sample.animation}>
-                <div className="hero-float-card overflow-hidden rounded-xl bg-[#0a1228]/90">
-                  <div className="relative aspect-[4/5] w-full">
-                    <Image
-                      src={sample.src}
-                      alt={sample.alt}
-                      fill
-                      className="object-cover"
-                      sizes="120px"
-                    />
-                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050816]/90 to-transparent px-2 pb-1.5 pt-5 text-[10px] font-semibold uppercase tracking-wider text-cyan-200/90">
-                      {sample.label}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+/** Classic hero: studio image + floating Love / Horror / Cartoon sample cards. */
+export function HeroVisual() {
+  const accents = siteContent.styles.filter((s) =>
+    (heroAccentIds as readonly string[]).includes(s.id),
+  );
 
-        <figure className="hero-glow-frame relative z-10 overflow-hidden rounded-2xl bg-black sm:rounded-3xl">
-          <div className="relative aspect-video w-full bg-black">
-            <video
-              ref={videoRef}
-              className="absolute inset-0 h-full w-full object-cover"
-              controls
-              playsInline
-              muted
-              loop
-              autoPlay
-              preload="metadata"
-              poster={explainer.poster}
-              aria-label={explainer.title}
-            >
-              <source src={explainer.src} type="video/mp4" />
-            </video>
-            {/* Soft vignette for cinematic feel */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(5,8,22,0.45)_100%)]"
+  return (
+    <div className="relative z-0 mx-auto w-full max-w-xl overflow-visible lg:max-w-none">
+      <div className="relative isolate aspect-[4/3] min-h-[min(72vw,320px)] overflow-visible rounded-3xl border border-white/10 pb-8 shadow-[0_24px_60px_rgba(9,13,36,0.45)] sm:min-h-[340px] sm:pb-0">
+        <Image
+          src={siteContent.hero.image}
+          alt={siteContent.hero.imageAlt}
+          fill
+          priority
+          className="z-0 rounded-3xl object-cover"
+          sizes="(max-width: 1024px) 100vw, 42vw"
+        />
+        <div className="absolute inset-0 z-[1] rounded-3xl bg-gradient-to-t from-[#090D24]/60 via-[#090D24]/15 to-transparent" />
+
+        {accents.map((style) => {
+          const placement = accentPlacement[style.id as (typeof heroAccentIds)[number]];
+          return (
+            <AccentCard
+              key={style.id}
+              style={style}
+              shellClassName={placement.shell}
+              animation={placement.animation}
             />
-          </div>
-          <figcaption className="relative border-t border-cyan-400/15 bg-[#0a1228]/95 px-4 py-2.5 text-center text-xs font-medium tracking-wide text-white/75 sm:text-sm">
-            <span className="inline-flex items-center gap-2">
-              <span
-                className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"
-                aria-hidden
-              />
-              {explainer.title}
-            </span>
-          </figcaption>
-        </figure>
-
-        {/* Reflective neon floor under the stage */}
-        <div className="neon-floor" aria-hidden />
+          );
+        })}
       </div>
     </div>
   );

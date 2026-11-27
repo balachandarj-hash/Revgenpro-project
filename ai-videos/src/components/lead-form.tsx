@@ -20,37 +20,40 @@ const defaultCopy: LeadFormCopy = {
   price: siteContent.price,
   whatsappPrefill: siteContent.whatsappPrefill,
   formSubmitCta: siteContent.enquiry.formSubmitCta,
-  messagePlaceholder: "Cartoon, manga, ad, product promo, AI presenter…",
+  messagePlaceholder: "Describe the story, characters, tone, and where you'll post it…",
 };
 
 export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [business, setBusiness] = useState("");
-  const [message, setMessage] = useState("");
+  const [videoType, setVideoType] = useState("");
+  const [idea, setIdea] = useState("");
+  const [fax, setFax] = useState(""); // honeypot
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [formState, setFormState] = useState<FormState>("idle");
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (fax.trim()) return; // bot honeypot
     setPhoneError(null);
 
     const trimmedName = name.trim();
-    if (!trimmedName) return;
+    if (!trimmedName || !videoType || !idea.trim()) return;
 
     const mobile = normalizeIndianMobile(phone);
-    if (!mobile) {
+    if (!mobile || !isValidIndianMobile(phone)) {
       setPhoneError("Enter a valid 10-digit Indian mobile number (starts with 6–9).");
       return;
     }
 
     const lines = [
-      `Hi ${brand.name}, I want ${copy.packageName} (${copy.price}).`,
+      copy.whatsappPrefill,
+      "",
       `Name: ${trimmedName}`,
-      `Mobile: +91 ${mobile}`,
-      business.trim() ? `Business: ${business.trim()}` : null,
-      message.trim() ? `Message: ${message.trim()}` : null,
-    ].filter(Boolean);
+      `WhatsApp Number: +91 ${mobile}`,
+      `Video Type: ${videoType}`,
+      `Video Idea: ${idea.trim()}`,
+    ];
 
     const url = whatsappUrl(lines.join("\n"));
     window.open(url, "_blank", "noopener,noreferrer");
@@ -60,18 +63,15 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
   if (formState === "success") {
     return (
       <div className="rounded-2xl border border-[#25D366]/40 bg-[#052e16]/30 p-6 text-center">
-        <p className="text-lg font-semibold text-[#86EFAC]">Enquiry ready on WhatsApp</p>
-        <p className="mt-2 text-sm text-white/75">
-          We don&apos;t save form data on this website. Your details were sent in a new WhatsApp
-          chat — our team will reply there. You can also message us anytime.
-        </p>
+        <p className="text-lg font-semibold text-[#86EFAC]">{siteContent.enquiry.successTitle}</p>
+        <p className="mt-2 text-sm text-white/75">{siteContent.enquiry.successBody}</p>
         <a
           href={whatsappUrl(copy.whatsappPrefill)}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-[#25D366] px-5 text-sm font-semibold text-[#052e16]"
         >
-          Open WhatsApp again
+          {siteContent.enquiry.reopenWhatsApp}
         </a>
         <button
           type="button"
@@ -85,75 +85,100 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-      <p className="text-sm text-white/65">
-        No account or payment here — valid details open WhatsApp with your message prefilled.
-      </p>
-      <label className="block text-sm">
-        <span className="font-medium text-white/90">Your name *</span>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot */}
+      <div className="absolute -left-[9999px] opacity-0" aria-hidden>
+        <label htmlFor="fax">Fax</label>
         <input
+          id="fax"
+          name="fax"
+          tabIndex={-1}
+          autoComplete="off"
+          value={fax}
+          onChange={(e) => setFax(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="name" className="text-sm font-medium text-white/80">
+          Name <span className="text-white/45">Required</span>
+        </label>
+        <input
+          id="name"
+          name="name"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
-          placeholder="e.g. Priya Sharma"
-          autoComplete="name"
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          placeholder="Your name"
         />
-      </label>
-      <label className="block text-sm">
-        <span className="font-medium text-white/90">Mobile number *</span>
+      </div>
+
+      <div>
+        <label htmlFor="whatsapp" className="text-sm font-medium text-white/80">
+          WhatsApp Number <span className="text-white/45">Required</span>
+        </label>
         <input
+          id="whatsapp"
+          name="whatsapp"
           required
-          type="tel"
           inputMode="numeric"
           value={phone}
-          onChange={(e) => {
-            setPhone(e.target.value);
-            if (phoneError) setPhoneError(null);
-          }}
-          onBlur={() => {
-            if (phone && !isValidIndianMobile(phone)) {
-              setPhoneError("Enter a valid 10-digit Indian mobile number (starts with 6–9).");
-            }
-          }}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
-          placeholder="e.g. 98765 43210"
-          autoComplete="tel"
-          aria-invalid={phoneError ? true : undefined}
-          aria-describedby={phoneError ? "phone-error" : undefined}
+          onChange={(e) => setPhone(e.target.value)}
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          placeholder="10-digit mobile"
         />
-        {phoneError ? (
-          <p id="phone-error" className="mt-1.5 text-xs text-[#FCA5A5]" role="alert">
-            {phoneError}
-          </p>
-        ) : null}
-      </label>
-      <label className="block text-sm">
-        <span className="font-medium text-white/90">Business name</span>
-        <input
-          value={business}
-          onChange={(e) => setBusiness(e.target.value)}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
-          placeholder="Optional"
-          autoComplete="organization"
-        />
-      </label>
-      <label className="block text-sm">
-        <span className="font-medium text-white/90">What do you need?</span>
+        {phoneError ? <p className="mt-1.5 text-sm text-rose-300">{phoneError}</p> : null}
+      </div>
+
+      <div>
+        <label htmlFor="videoType" className="text-sm font-medium text-white/80">
+          Video Type <span className="text-white/45">Required</span>
+        </label>
+        <select
+          id="videoType"
+          name="videoType"
+          required
+          value={videoType}
+          onChange={(e) => setVideoType(e.target.value)}
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] focus:ring-2"
+        >
+          <option value="" disabled>
+            Choose a video type
+          </option>
+          {siteContent.styles.map((style) => (
+            <option key={style.id} value={`${style.emoji} ${style.title}`}>
+              {style.emoji} {style.title}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="idea" className="text-sm font-medium text-white/80">
+          Describe Your Video Idea <span className="text-white/45">Required</span>
+        </label>
         <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows={3}
-          className="mt-1.5 w-full resize-y rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
-          placeholder={copy.messagePlaceholder ?? defaultCopy.messagePlaceholder}
+          id="idea"
+          name="idea"
+          required
+          rows={4}
+          value={idea}
+          onChange={(e) => setIdea(e.target.value)}
+          className="mt-1.5 w-full resize-y rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          placeholder={copy.messagePlaceholder}
         />
-      </label>
+      </div>
+
       <button
         type="submit"
-        className="cta-neon inline-flex min-h-12 w-full items-center justify-center rounded-full text-sm font-semibold"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] text-sm font-semibold"
       >
         {copy.formSubmitCta}
       </button>
+      <p className="sr-only">
+        Submitting opens WhatsApp for {brand.name}. Nothing is stored on this website.
+      </p>
     </form>
   );
 }

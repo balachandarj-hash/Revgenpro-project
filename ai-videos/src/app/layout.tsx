@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050816",
+  themeColor: "#090D24",
 };
 
 export default function RootLayout({
@@ -60,7 +60,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN" data-scroll-behavior="smooth" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-[#050816] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
+      <body className="flex min-h-full flex-col bg-[#090D24] pb-[4.5rem] font-[family-name:var(--font-jakarta)] text-white md:pb-0">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[#6D28D9] focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>
