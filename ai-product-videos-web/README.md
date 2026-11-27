@@ -2,7 +2,7 @@
 
 Standalone Cursor-published landing for **RevGenPro** AI Promotional Product Videos (₹1,499 / video).
 
-Separate from `ai-videos-web` / **ai-videos-7e15**.
+Separate from `ai-videos` / **ai-videos** (Cursor publish slug).
 
 ```bash
 npm install
