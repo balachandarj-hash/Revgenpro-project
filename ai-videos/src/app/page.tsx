@@ -72,8 +72,22 @@ export default function HomePage() {
         </section>
 
         {/* Styles */}
-        <section id="styles" className="scroll-mt-28 px-5 py-10 md:px-10 md:py-14">
-          <div className="mx-auto max-w-[1440px]">
+        <section
+          id="styles"
+          className="relative scroll-mt-28 overflow-hidden px-5 py-10 md:px-10 md:py-14"
+        >
+          {/* Decorative portrait — 95% transparent (5% opacity) */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+            <Image
+              src="/ai-videos/styles-section-bg.png"
+              alt=""
+              fill
+              className="object-cover object-[70%_center] opacity-[0.05] sm:object-right"
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
+          <div className="relative z-[1] mx-auto max-w-[1440px]">
             <SectionLabel>{siteContent.stylesSection.label}</SectionLabel>
             <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
               {siteContent.stylesSection.title}
