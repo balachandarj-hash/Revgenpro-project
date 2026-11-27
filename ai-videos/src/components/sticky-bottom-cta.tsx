@@ -16,11 +16,11 @@ export function StickyBottomCta({ page = "home" }: { page?: StickyPage }) {
     : siteContent.stickyBar.enquiryCta;
   const primaryClass = isProduct
     ? "inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[linear-gradient(135deg,#7C3AED,#2563EB)] px-4 text-sm font-semibold shadow-[0_8px_24px_rgba(124,58,237,0.35)]"
-    : "inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold";
+    : "cta-neon inline-flex min-h-11 flex-1 items-center justify-center rounded-full px-4 text-sm font-semibold";
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/15 bg-[#111936]/95 px-4 py-3 backdrop-blur-md md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-cyan-400/10 bg-[#050816]/95 px-4 py-3 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="mx-auto flex max-w-lg gap-2">

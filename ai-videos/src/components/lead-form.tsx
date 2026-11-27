@@ -95,7 +95,7 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
           placeholder="e.g. Priya Sharma"
           autoComplete="name"
         />
@@ -116,7 +116,7 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
               setPhoneError("Enter a valid 10-digit Indian mobile number (starts with 6–9).");
             }
           }}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
           placeholder="e.g. 98765 43210"
           autoComplete="tel"
           aria-invalid={phoneError ? true : undefined}
@@ -133,7 +133,7 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
         <input
           value={business}
           onChange={(e) => setBusiness(e.target.value)}
-          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          className="mt-1.5 w-full rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
           placeholder="Optional"
           autoComplete="organization"
         />
@@ -144,13 +144,13 @@ export function LeadForm({ copy = defaultCopy }: { copy?: LeadFormCopy }) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={3}
-          className="mt-1.5 w-full resize-y rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-[#9333EA] placeholder:text-white/35 focus:ring-2"
+          className="mt-1.5 w-full resize-y rounded-xl border border-white/15 bg-[#090D24]/80 px-4 py-3 text-white outline-none ring-cyan-400/60 placeholder:text-white/35 focus:ring-2"
           placeholder={copy.messagePlaceholder ?? defaultCopy.messagePlaceholder}
         />
       </label>
       <button
         type="submit"
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] text-sm font-semibold"
+        className="cta-neon inline-flex min-h-12 w-full items-center justify-center rounded-full text-sm font-semibold"
       >
         {copy.formSubmitCta}
       </button>

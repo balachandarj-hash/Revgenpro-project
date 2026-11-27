@@ -25,10 +25,10 @@ export function SiteHeader({ page = "home" }: { page?: HeaderPage }) {
   const ctaLabel = isProduct ? productAdsContent.header.cta : siteContent.header.cta;
   const ctaClass = isProduct
     ? "inline-flex min-h-10 items-center rounded-full bg-[linear-gradient(135deg,#7C3AED,#2563EB)] px-4 text-sm font-semibold shadow-[0_8px_24px_rgba(124,58,237,0.35)] transition hover:brightness-110"
-    : "inline-flex min-h-10 items-center rounded-full bg-[linear-gradient(135deg,#9333EA,#EC008C)] px-4 text-sm font-semibold";
+    : "cta-neon inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold transition hover:brightness-110";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#111936]/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-cyan-400/10 bg-[#050816]/90 backdrop-blur-md">
       <div className="mx-auto flex h-[4.5rem] max-w-[1440px] items-center justify-between gap-3 px-5 md:px-10">
         <Link href={logoHref} aria-label={`${brand.legalName}, home`} className="shrink-0">
           <Image
