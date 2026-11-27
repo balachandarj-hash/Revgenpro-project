@@ -39,7 +39,7 @@ export const siteContent = {
     label: "Video styles we create",
     title: "Any idea. Any style.",
     subtitle:
-      "Love, kids, village, comedy, horror, mythology, manga, or brand — pick a style. Watch sample films in the next section.",
+      "Love, kids, village, comedy, horror, mythology, brand mascot, or epic warrior — pick a style. Watch sample films in the next section.",
   },
 
   styles: [
@@ -89,23 +89,23 @@ export const siteContent = {
       title: "AI Mythological Stories",
       description: "Epic gods, warriors, and temple legends told as short films.",
       poster: "/ai-videos/myth.jpg",
-      imageAlt: "A glowing warrior in golden armor in an ancient temple courtyard",
-    },
-    {
-      id: "manga",
-      emoji: "⚡",
-      title: "AI Manga / Anime Stories",
-      description: "Japanese manga energy, expressive characters, and anime-style stories.",
-      poster: "/ai-videos/manga-story.jpg",
-      imageAlt: "Anime character with windblown hair against magenta lightning",
+      imageAlt: "Golden-armored mythological warrior in a temple courtyard at sunset",
     },
     {
       id: "brand",
       emoji: "✨",
-      title: "AI Brand Storytelling",
-      description: "Product and business stories that make a brand feel cinematic.",
-      poster: "/ai-videos/brand.jpg",
-      imageAlt: "A glowing boutique storefront at dusk for a brand story",
+      title: "AI Brand Mascot Stories",
+      description: "Fun brand characters and mascot films that make products feel alive.",
+      poster: "/ai-videos/brand-mascot.jpg",
+      imageAlt: "AI creator with glowing clapperboard and floating brand mascot robot",
+    },
+    {
+      id: "epic",
+      emoji: "⚔️",
+      title: "AI Epic Warrior Stories",
+      description: "Powerful warriors, dark fantasy battles, and cinematic epic legends.",
+      poster: "/ai-videos/epic-warrior.jpg",
+      imageAlt: "Horned epic warrior with wings against fire and lightning",
     },
   ],
 
@@ -175,7 +175,7 @@ export const siteContent = {
       },
       {
         title: "Choose Your Style",
-        body: "Pick love story, kids cartoon, village, comedy, horror, mythology, manga, or brand storytelling.",
+        body: "Pick love story, kids cartoon, village, comedy, horror, mythology, brand mascot, or epic warrior.",
       },
       {
         title: "AI Video Creation",
@@ -235,17 +235,17 @@ export const siteContent = {
     {
       question: "What types of AI videos do you create?",
       answer:
-        "Love stories, cartoon stories for kids, village stories, comedy, horror, mythological stories, manga and anime, and brand storytelling. If your idea sits outside that list, describe it in the form.",
+        "Love stories, cartoon stories for kids, village stories, comedy, horror, mythological stories, brand mascot stories, and epic warrior stories. If your idea sits outside that list, describe it in the form.",
     },
     {
-      question: "Can you create cartoon and manga-style videos?",
+      question: "Can you create cartoon and mythological videos?",
       answer:
-        "Yes. AI Cartoon Stories for Kids and AI Manga / Anime Stories are two of the styles on this page.",
+        "Yes. AI Cartoon Stories for Kids and AI Mythological Stories are two of the styles on this page.",
     },
     {
       question: "Can you create AI videos for products and businesses?",
       answer:
-        "Yes. AI Brand Storytelling covers products and businesses. We also make love stories, kids cartoons, village stories, comedy, horror, mythology, and manga.",
+        "Yes. AI Brand Mascot Stories covers products and businesses. We also make love stories, kids cartoons, village stories, comedy, horror, mythology, and epic warrior films.",
     },
     {
       question: "Can I create a video based on my own idea?",
